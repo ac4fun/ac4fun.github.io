@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>汇芳书院</title>
+  <icon>https://www.gravatar.com/avatar/cf70e0ba3a16055a1a17e5a6ffea823e</icon>
+  <subtitle>专注计算机视觉、机器学习、分布式计算等领域, 兼聊投资、写作、生活</subtitle>
+  <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://kingsleynuaa.github.io/"/>
+  <updated>2022-04-19T15:08:13.530Z</updated>
+  <id>http://kingsleynuaa.github.io/</id>
+  
+  <author>
+    <name>Jacob Jin</name>
+    <email>kingsleynuaa AT gmail DOT com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>组合(系列)</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/18/leetcode-combinations/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/18/leetcode-combinations/</id>
+    <published>2022-04-18T13:48:42.000Z</published>
+    <updated>2022-04-19T15:08:13.530Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;77-组合&quot;&gt;&lt;a href=&quot;#77-组合&quot; class=&quot;headerlink&quot; title=&quot;77. 组合&quot;&gt;&lt;/a&gt;77. 组合&lt;/h1&gt;&lt;p&gt;给定两个整数 n 和 k，返回范围 [1, n] 中所有可能的 k 个数的组合。&lt;br&gt;你可以按 任何顺序</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="backtrack" scheme="http://kingsleynuaa.github.io/tags/backtrack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>239. 滑动窗口最大值</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/17/leetcode-sliding-window-maximum/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/17/leetcode-sliding-window-maximum/</id>
+    <published>2022-04-17T12:15:57.000Z</published>
+    <updated>2022-04-18T13:16:43.413Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个整数数组 nums，有一个大小为k的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。&lt;/p&gt;
+&lt;p&gt;返回 滑动窗口中的最大值 。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：nums =</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>143. 重排链表</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/17/leetcode-reorder-list/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/17/leetcode-reorder-list/</id>
+    <published>2022-04-17T10:15:35.000Z</published>
+    <updated>2022-04-17T10:53:37.911Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一个单链表 L 的头节点 head ，单链表 L 表示为：&lt;/p&gt;
+&lt;p&gt;L0 → L1 → … → Ln - 1 → Ln&lt;br&gt;请将其重新排列后变为：&lt;/p&gt;
+&lt;p&gt;L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 →</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="linklist" scheme="http://kingsleynuaa.github.io/tags/linklist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>460. LFU 缓存</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/15/leetcode/leetcode-lfu-cache/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/15/leetcode/leetcode-lfu-cache/</id>
+    <published>2022-04-15T00:42:29.000Z</published>
+    <updated>2022-04-17T07:16:05.479Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;请你为 最不经常使用（LFU）缓存算法设计并实现数据结构。&lt;/p&gt;
+&lt;p&gt;实现 LFUCache 类：&lt;/p&gt;
+&lt;p&gt;LFUCache(int capacity) - 用数据结构的容量 capacity 初始化对象 int get(int key) - 如果键 key</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="hash" scheme="http://kingsleynuaa.github.io/tags/hash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>93. 复原 IP 地址</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-restore-ip-addresses/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-restore-ip-addresses/</id>
+    <published>2022-04-12T15:28:13.000Z</published>
+    <updated>2022-04-15T00:16:31.311Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 ‘.’ 分隔。&lt;/p&gt;
+&lt;p&gt;例如：”0.1.2.201” 和 “192.168.1.1” 是 有效 IP 地址，但是</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>48. 旋转图像</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-rotate-image/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-rotate-image/</id>
+    <published>2022-04-12T15:13:44.000Z</published>
+    <updated>2022-04-13T00:38:41.001Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。&lt;/p&gt;
+&lt;p&gt;你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;对角翻转-镜像翻转&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>22. 括号生成</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-generate-parentheses/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-generate-parentheses/</id>
+    <published>2022-04-12T14:32:04.000Z</published>
+    <updated>2022-04-13T00:36:54.399Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;数字 n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;br&gt;输入：n = 3&lt;br&gt;输出：[“((()))”,”(()())”,”(())()”,”()(())”,”()()()”]&lt;/p&gt;
+&lt;p&gt;示例</summary>
+        
+      
+    
+    
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>101. 对称二叉树</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-symmetric-tree/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-symmetric-tree/</id>
+    <published>2022-04-12T00:39:59.000Z</published>
+    <updated>2022-04-13T00:38:07.621Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个二叉树的根节点 root ， 检查它是否轴对称。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;br&gt;输入：root = [1,2,2,3,4,4,3]&lt;br&gt;输出：true &lt;/p&gt;
+&lt;p&gt;示例 2：&lt;br&gt;输入：root =</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>328. 奇偶链表</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-odd-even-linked-list/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-odd-even-linked-list/</id>
+    <published>2022-04-12T00:02:43.000Z</published>
+    <updated>2022-04-12T00:37:18.389Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定单链表的头节点head，将所有索引为奇数的节点和索引为偶数的节点分别组合在一起，然后返回重新排序的列表。&lt;/p&gt;
+&lt;p&gt;第一个节点的索引被认为是 奇数 ， 第二个节点的索引为偶数</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="linklist" scheme="http://kingsleynuaa.github.io/tags/linklist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>41. 缺失的第一个正数</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/10/leetcode-first-missing-positive/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/10/leetcode-first-missing-positive/</id>
+    <published>2022-04-10T12:14:27.000Z</published>
+    <updated>2022-04-11T23:58:21.446Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。&lt;/p&gt;
+&lt;p&gt;请你实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：nums = [1,2,0]&lt;br&gt;输出：3&lt;br&gt;示例</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>排序矩阵查找(系列)</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/10/leetcode-sorted-matrix-search-lcci/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/10/leetcode-sorted-matrix-search-lcci/</id>
+    <published>2022-04-10T08:56:37.000Z</published>
+    <updated>2022-04-10T12:12:41.925Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;240-搜索二维矩阵-II&quot;&gt;&lt;a href=&quot;#240-搜索二维矩阵-II&quot; class=&quot;headerlink&quot; title=&quot;240. 搜索二维矩阵 II&quot;&gt;&lt;/a&gt;240. 搜索二维矩阵</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="search" scheme="http://kingsleynuaa.github.io/tags/search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>删除排序链表中的重复元素(系列)</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/10/leetcode-remove-duplicates-from-sorted-list/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/10/leetcode-remove-duplicates-from-sorted-list/</id>
+    <published>2022-04-10T07:49:40.000Z</published>
+    <updated>2022-04-10T08:52:40.910Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;删除重复元素，保留一个&quot;&gt;&lt;a href=&quot;#删除重复元素，保留一个&quot; class=&quot;headerlink&quot; title=&quot;删除重复元素，保留一个&quot;&gt;&lt;/a&gt;删除重复元素，保留一个&lt;/h1&gt;&lt;p&gt;给定一个已排序的链表的头 head ，</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="linklist" scheme="http://kingsleynuaa.github.io/tags/linklist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二叉树的合法性判断(系列)</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/09/leetcode-validate-binary-tree/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/09/leetcode-validate-binary-tree/</id>
+    <published>2022-04-09T12:50:36.000Z</published>
+    <updated>2022-04-10T07:47:59.731Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;验证二叉搜索树&quot;&gt;&lt;a href=&quot;#验证二叉搜索树&quot; class=&quot;headerlink&quot; title=&quot;验证二叉搜索树&quot;&gt;&lt;/a&gt;验证二叉搜索树&lt;/h1&gt;&lt;p&gt;给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。&lt;/p&gt;
+&lt;p&gt;有效</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>寻找两个正序数组的中位数</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/06/leetcode-median-of-two-sorted-arrays/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/06/leetcode-median-of-two-sorted-arrays/</id>
+    <published>2022-04-06T14:30:45.000Z</published>
+    <updated>2022-04-09T12:47:51.473Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。&lt;/p&gt;
+&lt;p&gt;算法的时间复杂度应该为 O(log (m+n)) 。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>56. 合并区间</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/05/leetcode-merge-intervals/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/05/leetcode-merge-intervals/</id>
+    <published>2022-04-05T08:55:40.000Z</published>
+    <updated>2022-04-05T09:17:35.447Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言经典库函数</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-C-op/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-C-op/</id>
+    <published>2022-04-04T12:22:22.000Z</published>
+    <updated>2022-04-05T08:58:02.205Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;字符串转换整数-atoi&quot;&gt;&lt;a href=&quot;#字符串转换整数-atoi&quot; class=&quot;headerlink&quot; title=&quot;字符串转换整数 (atoi)&quot;&gt;&lt;/a&gt;字符串转换整数 (atoi)&lt;/h1&gt;&lt;p&gt;请你来实现一个 myAtoi(string</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="库函数" scheme="http://kingsleynuaa.github.io/tags/%E5%BA%93%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二维数组的不同路径</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-unique-paths/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-unique-paths/</id>
+    <published>2022-04-04T11:40:44.000Z</published>
+    <updated>2022-04-04T12:18:15.703Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;62-不同路径&quot;&gt;&lt;a href=&quot;#62-不同路径&quot; class=&quot;headerlink&quot; title=&quot;62. 不同路径&quot;&gt;&lt;/a&gt;62. 不同路径&lt;/h1&gt;&lt;p&gt;一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start”</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二叉树的路径问题(系列)</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-path-sum-ii/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-path-sum-ii/</id>
+    <published>2022-04-04T07:25:29.000Z</published>
+    <updated>2022-04-13T00:40:06.951Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;112-路径总和&quot;&gt;&lt;a href=&quot;#112-路径总和&quot; class=&quot;headerlink&quot; title=&quot;112. 路径总和&quot;&gt;&lt;/a&gt;112. 路径总和&lt;/h1&gt;&lt;p&gt;给你二叉树的根节点 root 和一个表示目标和的整数 targetSum</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>求根节点到叶节点数字之和</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-sum-root-to-leaf-numbers/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-sum-root-to-leaf-numbers/</id>
+    <published>2022-04-04T04:20:52.000Z</published>
+    <updated>2022-04-04T07:24:12.009Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个二叉树的根节点 root ，树中每个节点都存放有一个 0 到 9 之间的数字。&lt;br&gt;每条从根节点到叶节点的路径都代表一个数字：&lt;/p&gt;
+&lt;p&gt;例如，从根节点到叶节点的路径 1 -&amp;gt; 2 -&amp;gt; 3 表示数字 123 。&lt;br&gt;计算从根节点到叶节点生成的</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    <category term="数据结构与算法" scheme="http://kingsleynuaa.github.io/categories/leetcode/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编辑距离</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-edit-distance/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-edit-distance/</id>
+    <published>2022-04-04T01:45:38.000Z</published>
+    <updated>2022-04-04T04:36:28.090Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你两个单词 word1 和 word2， 请返回将 word1 转换成 word2 所使用的最少操作数</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
+    
+  </entry>
+  
+</feed>
