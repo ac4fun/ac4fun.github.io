@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-04-19T15:08:13.530Z</updated>
+  <updated>2022-04-26T00:35:38.634Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>32. 最长有效括号</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/23/leetcode-longest-valid-parentheses/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/23/leetcode-longest-valid-parentheses/</id>
+    <published>2022-04-23T00:00:59.000Z</published>
+    <updated>2022-04-26T00:35:38.634Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个只包含 ‘(‘和 ‘)’的字符串，找出最长有效（格式正确且连续）括号子串的长度。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;br&gt;输入：s = “(()”&lt;br&gt;输出：2&lt;br&gt;解释：最长有效括号子串是 “()”&lt;/p&gt;
+&lt;p&gt;示例 2：&lt;br&gt;输入：s =</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>组合(系列)</title>
     <link href="http://kingsleynuaa.github.io/2022/04/18/leetcode-combinations/"/>
     <id>http://kingsleynuaa.github.io/2022/04/18/leetcode-combinations/</id>
     <published>2022-04-18T13:48:42.000Z</published>
-    <updated>2022-04-19T15:08:13.530Z</updated>
+    <updated>2022-04-22T00:52:19.860Z</updated>
     
     
       
@@ -514,31 +537,6 @@
     
     
     <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编辑距离</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-edit-distance/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-edit-distance/</id>
-    <published>2022-04-04T01:45:38.000Z</published>
-    <updated>2022-04-04T04:36:28.090Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你两个单词 word1 和 word2， 请返回将 word1 转换成 word2 所使用的最少操作数</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
     
   </entry>
   
