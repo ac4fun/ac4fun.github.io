@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-04-26T00:35:38.634Z</updated>
+  <updated>2022-04-27T01:25:45.549Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>14. 最长公共前缀</title>
+    <link href="http://kingsleynuaa.github.io/2022/04/27/leetcode-longest-common-prefix/"/>
+    <id>http://kingsleynuaa.github.io/2022/04/27/leetcode-longest-common-prefix/</id>
+    <published>2022-04-27T00:54:02.000Z</published>
+    <updated>2022-04-27T01:25:45.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
+&lt;p&gt;如果不存在公共前缀，返回空字符串 “”。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：strs = [“flower”,”flow”,”flight”]&lt;br&gt;输出：”fl”&lt;br&gt;示例</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
     <title>32. 最长有效括号</title>
     <link href="http://kingsleynuaa.github.io/2022/04/23/leetcode-longest-valid-parentheses/"/>
     <id>http://kingsleynuaa.github.io/2022/04/23/leetcode-longest-valid-parentheses/</id>
     <published>2022-04-23T00:00:59.000Z</published>
-    <updated>2022-04-26T00:35:38.634Z</updated>
+    <updated>2022-04-27T00:54:30.140Z</updated>
     
     
       
@@ -36,6 +65,10 @@
     
     
     
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
     
   </entry>
   
@@ -506,34 +539,6 @@
     
     
     <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求根节点到叶节点数字之和</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/04/leetcode-sum-root-to-leaf-numbers/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/04/leetcode-sum-root-to-leaf-numbers/</id>
-    <published>2022-04-04T04:20:52.000Z</published>
-    <updated>2022-04-04T07:24:12.009Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个二叉树的根节点 root ，树中每个节点都存放有一个 0 到 9 之间的数字。&lt;br&gt;每条从根节点到叶节点的路径都代表一个数字：&lt;/p&gt;
-&lt;p&gt;例如，从根节点到叶节点的路径 1 -&amp;gt; 2 -&amp;gt; 3 表示数字 123 。&lt;br&gt;计算从根节点到叶节点生成的</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    <category term="数据结构与算法" scheme="http://kingsleynuaa.github.io/categories/leetcode/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
     <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
