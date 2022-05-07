@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/07/leetcode-longest-consecutive-sequence/</loc>
+    <lastmod>2022-05-07</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/03/07/leetcode-reverse-string/</loc>
+    <lastmod>2022-05-07</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/04/leetcode-kthLargest-of-BST/</loc>
+    <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/02/22/leetcode-Kth/</loc>
+    <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/04/leetcode-serialize-and-deserialize-binary-tree/</loc>
+    <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/04/leetcode-super-egg-drop/</loc>
+    <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/03/leetcode-binary-search/</loc>
+    <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/04/29/leetcode-palindrome-number/</loc>
+    <lastmod>2022-05-03</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/04/27/leetcode-longest-common-prefix/</loc>
-    <lastmod>2022-04-27</lastmod>
+    <lastmod>2022-05-03</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/04/23/leetcode-longest-valid-parentheses/</loc>
@@ -221,10 +253,6 @@
     <lastmod>2022-03-07</lastmod>
   </url>
   <url>
-    <loc>http://kingsleynuaa.github.io/2022/03/07/leetcode-reverse-string/</loc>
-    <lastmod>2022-03-07</lastmod>
-  </url>
-  <url>
     <loc>http://kingsleynuaa.github.io/2022/03/06/leetcode-lowest-common-ancestor-of-a-binary-tree/</loc>
     <lastmod>2022-03-07</lastmod>
   </url>
@@ -285,10 +313,6 @@
     <lastmod>2022-02-23</lastmod>
   </url>
   <url>
-    <loc>http://kingsleynuaa.github.io/2022/02/22/leetcode-Kth/</loc>
-    <lastmod>2022-02-23</lastmod>
-  </url>
-  <url>
     <loc>http://kingsleynuaa.github.io/2022/02/23/leetcode-two-sum/</loc>
     <lastmod>2022-02-23</lastmod>
   </url>
@@ -299,10 +323,6 @@
   <url>
     <loc>http://kingsleynuaa.github.io/2022/02/18/leetcode-lru/</loc>
     <lastmod>2022-02-19</lastmod>
-  </url>
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/</loc>
-    <lastmod>2022-02-10</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2021/08/29/weekly-plan-note/</loc>

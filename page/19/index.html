@@ -24,33 +24,31 @@
     var CONFIG = {"hostname":"kingsleynuaa.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":{"valine":null,"text":"Load Valine","order":-1,"gitalk":{"order":-2}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="待定">
-<meta property="og:type" content="article">
-<meta property="og:title" content="二分查找以及多种变形">
-<meta property="og:url" content="http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/index.html">
+  <meta name="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+<meta property="og:type" content="website">
+<meta property="og:title" content="汇芳书院">
+<meta property="og:url" content="http://kingsleynuaa.github.io/page/19/index.html">
 <meta property="og:site_name" content="汇芳书院">
-<meta property="og:description" content="待定">
+<meta property="og:description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-10T11:55:50.000Z">
-<meta property="article:modified_time" content="2022-02-10T15:18:16.767Z">
 <meta property="article:author" content="Jacob Jin">
-<meta property="article:tag" content="binary-search">
+<meta property="article:tag" content="财富自由">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/">
+<link rel="canonical" href="http://kingsleynuaa.github.io/page/19/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>二分查找以及多种变形 | 汇芳书院</title>
+  <title>汇芳书院 - 专注计算机视觉、机器学习、分布式计算等领域, 兼聊投资、写作、生活</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C70KE9W36G"></script>
     <script>
@@ -145,12 +143,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">92</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">34</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">33</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -218,14 +216,13 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2016/06/25/how-to-build-a-blog-with-Hexo-and-Github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -237,9 +234,10 @@
       <meta itemprop="name" content="汇芳书院">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          二分查找以及多种变形
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/06/25/how-to-build-a-blog-with-Hexo-and-Github/" class="post-title-link" itemprop="url">如何使用Hexo和Github搭建静态博客</a>
+        </h2>
 
         <div class="post-meta">
           
@@ -248,40 +246,27 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-02-10 19:55:50 / 修改时间：23:18:16" itemprop="dateCreated datePublished" datetime="2022-02-10T19:55:50+08:00">2022-02-10</time>
+              <time title="创建时间：2016-06-25 17:44:29" itemprop="dateCreated datePublished" datetime="2016-06-25T17:44:29+08:00">2016-06-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-08 09:32:41" itemprop="dateModified" datetime="2021-09-08T09:32:41+08:00">2021-09-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">tool</span></a>
                 </span>
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/02/10/leetcode-binary-search/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/10/leetcode-binary-search/" itemprop="commentCount"></span>
-    </a>
-  </span>
   
   <br>
             <span class="post-meta-item" title="本文字数">
@@ -289,7 +274,110 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2</span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>   最近两天加周三的一个晚上，参照网上的博客搭建了属于自己的<a href="www.ac4fun.com">博客</a>，其实之前也对比过Jekyll，Octopress，Python实现的<a target="_blank" rel="noopener" href="https://github.com/evilbinary/myblog">myblog</a>, 以及第三方博客，如Blogger，cnblogs，csdn等等，只能说各有千秋吧，还是希望能够有一个属于自己的空间。为避免忘记，也为了表示对社区的感谢，现在对部署过程进行一下纪录。主要包括：</p>
+<ol>
+<li> 基本Hexo的搭建</li>
+<li> 主题的选择</li>
+<li> 扩展功能的介绍</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/06/25/how-to-build-a-blog-with-Hexo-and-Github/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2016/06/22/why-write-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/06/22/why-write-blog/" class="post-title-link" itemprop="url">为什么要写博客</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-06-22 15:22:29" itemprop="dateCreated datePublished" datetime="2016-06-22T15:22:29+08:00">2016-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-08 09:32:41" itemprop="dateModified" datetime="2021-09-08T09:32:41+08:00">2021-09-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>576</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -308,141 +396,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>待定</p>
-
+          <p>这个问题我思考了很久，却仍然没有一个能够让自己很满意的答案。不得不承认，建立技术博客的初衷是因为找工作，哈哈，说起来还是有点功利的性质的。但是凡事总是一半一半吧，想了想，坚持写博客的好处可能会有下面几点吧。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/06/22/why-write-blog/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-        <div class="reward-container">
-  <div>坚持原创分享，您的支持将鼓励我继续创作</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/wechatpay.png" alt="Jacob Jin 微信支付">
-        <p>微信支付</p>
-      </div>
-      
-      <div style="display: inline-block;">
-        <img src="/images/alipay.png" alt="Jacob Jin 支付宝">
-        <p>支付宝</p>
-      </div>
-
-  </div>
-</div>
-
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Jacob Jin
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/" title="二分查找以及多种变形">http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-        
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="https://twitter.com/kingsleynuaa">
-            <span class="icon">
-              <i class="fa fa-fab fa-twitter"></i>
-            </span>
-
-            <span class="label">Twitter</span>
-          </a>
-        </div>
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/mp_weixin.jpg">
-            <span class="icon">
-              <i class="fa fa-fab fa-weixin"></i>
-            </span>
-
-            <span class="label">微信公众号</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <div>
-        
-          <div>
-    
-      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本文结束,感谢阅读 <i class="fa fa-paw"></i> 如有问题可留言交流 -------------</div>
-    
-</div>
-
-        
-      </div>
-
       <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/binary-search/" rel="tag"><i class="fa fa-tag"></i> binary-search</a>
-          </div>
-
-        
-  <div class="post-widgets">
-    <div class="wp_rating">
-      <div id="wpac-rating"></div>
-    </div>
-  </div>
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/02/09/leetcode-sort/" rel="prev" title="排序算法梳理">
-      <i class="fa fa-chevron-left"></i> 排序算法梳理
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/18/leetcode-lru/" rel="next" title="LRU缓存结构">
-      LRU缓存结构 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
 
 
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span>
+  </nav>
+
+
 
           </div>
           
-      <div class="tabs tabs-comment">
-        <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
-            <li class="tab"><a href="#comment-valine">valine</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
-            <div class="tab-pane valine" id="comment-valine">
-              <div class="comments" id="valine-comments"></div>
-            </div>
-        </div>
-      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -513,7 +499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -526,7 +512,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -592,13 +578,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">200k</span>
+    <span title="站点总字数">213k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:02</span>
+    <span title="站点阅读时长">3:14</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -710,30 +696,11 @@
       quicklink({
         timeout : 300,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'http://kingsleynuaa.github.io/2022/02/10/leetcode-binary-search/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://kingsleynuaa.github.io/page/19/',]
       });
       });
   </script>
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '2be373aa63799541ae8b',
-      clientSecret: 'e5cbbfdc659cbc7514c9cf06069828f91e592695',
-      repo        : 'ac4fun.github.io',
-      owner       : 'ac4fun',
-      admin       : ['ac4fun'],
-      id          : 'a961fdf4f41ae3c6d52cf3b89eb610d6',
-        language: 'zh-cn',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
 
 
 <script>
