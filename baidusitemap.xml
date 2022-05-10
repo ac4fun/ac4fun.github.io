@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/09/leetcode-multiply-strings/</loc>
+    <lastmod>2022-05-10</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode-validate-ip-address/</loc>
+    <lastmod>2022-05-09</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode-largest-number/</loc>
+    <lastmod>2022-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode-diameter-of-binary-tree/</loc>
+    <lastmod>2022-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode-yosef-problem/</loc>
+    <lastmod>2022-05-08</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/05/07/leetcode-longest-consecutive-sequence/</loc>
-    <lastmod>2022-05-07</lastmod>
+    <lastmod>2022-05-08</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/03/07/leetcode-reverse-string/</loc>

@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-05-07T00:43:23.657Z</updated>
+  <updated>2022-05-10T00:53:04.959Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,147 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>大数操作</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/09/leetcode-multiply-strings/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/09/leetcode-multiply-strings/</id>
+    <published>2022-05-09T14:34:32.000Z</published>
+    <updated>2022-05-10T00:53:04.959Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;415-字符串相加&quot;&gt;&lt;a href=&quot;#415-字符串相加&quot; class=&quot;headerlink&quot; title=&quot;415. 字符串相加&quot;&gt;&lt;/a&gt;415. 字符串相加&lt;/h1&gt;&lt;p&gt;给定两个字符串形式的非负整数 num1</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="strings" scheme="http://kingsleynuaa.github.io/tags/strings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>468. 验证IP地址</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/08/leetcode-validate-ip-address/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/08/leetcode-validate-ip-address/</id>
+    <published>2022-05-08T13:11:49.000Z</published>
+    <updated>2022-05-09T14:10:53.747Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一个字符串 queryIP。如果是有效的 IPv4 地址，返回 “IPv4” ；如果是有效的 IPv6 地址，返回 “IPv6” ；如果不是上述类型的 IP 地址，返回 “Neither” 。&lt;/p&gt;
+&lt;p&gt;有效的IPv4地址 是 “x1.x2.x3.x4”</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>179. 最大数</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/08/leetcode-largest-number/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/08/leetcode-largest-number/</id>
+    <published>2022-05-08T12:04:55.000Z</published>
+    <updated>2022-05-08T12:58:37.858Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。&lt;/p&gt;
+&lt;p&gt;注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：nums =</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="sort" scheme="http://kingsleynuaa.github.io/tags/sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>543. 二叉树的直径</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/08/leetcode-diameter-of-binary-tree/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/08/leetcode-diameter-of-binary-tree/</id>
+    <published>2022-05-08T11:35:47.000Z</published>
+    <updated>2022-05-08T11:40:48.252Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例 :&lt;br&gt;给定二叉树&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;      1
+     / \
+    2  </summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>约瑟夫问题-圆圈中最后剩下的数字</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/08/leetcode-yosef-problem/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/08/leetcode-yosef-problem/</id>
+    <published>2022-05-08T05:47:25.000Z</published>
+    <updated>2022-05-08T05:54:04.459Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;0,1,···,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字（删除后从下一个数字开始计数）。求出这个圆圈里剩下的最后一个数字。&lt;/p&gt;
+&lt;p&gt;例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="math" scheme="http://kingsleynuaa.github.io/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>128. 最长连续序列</title>
     <link href="http://kingsleynuaa.github.io/2022/05/07/leetcode-longest-consecutive-sequence/"/>
     <id>http://kingsleynuaa.github.io/2022/05/07/leetcode-longest-consecutive-sequence/</id>
     <published>2022-05-07T00:42:40.000Z</published>
-    <updated>2022-05-07T00:43:23.657Z</updated>
+    <updated>2022-05-08T04:59:08.650Z</updated>
     
     
       
@@ -418,137 +554,6 @@
     
     
     <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>101. 对称二叉树</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-symmetric-tree/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-symmetric-tree/</id>
-    <published>2022-04-12T00:39:59.000Z</published>
-    <updated>2022-04-13T00:38:07.621Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个二叉树的根节点 root ， 检查它是否轴对称。&lt;/p&gt;
-&lt;p&gt;示例 1：&lt;br&gt;输入：root = [1,2,2,3,4,4,3]&lt;br&gt;输出：true &lt;/p&gt;
-&lt;p&gt;示例 2：&lt;br&gt;输入：root =</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>328. 奇偶链表</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode-odd-even-linked-list/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode-odd-even-linked-list/</id>
-    <published>2022-04-12T00:02:43.000Z</published>
-    <updated>2022-04-12T00:37:18.389Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给定单链表的头节点head，将所有索引为奇数的节点和索引为偶数的节点分别组合在一起，然后返回重新排序的列表。&lt;/p&gt;
-&lt;p&gt;第一个节点的索引被认为是 奇数 ， 第二个节点的索引为偶数</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="linklist" scheme="http://kingsleynuaa.github.io/tags/linklist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>41. 缺失的第一个正数</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/10/leetcode-first-missing-positive/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/10/leetcode-first-missing-positive/</id>
-    <published>2022-04-10T12:14:27.000Z</published>
-    <updated>2022-04-11T23:58:21.446Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。&lt;/p&gt;
-&lt;p&gt;请你实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案。&lt;/p&gt;
-&lt;p&gt;示例 1：&lt;/p&gt;
-&lt;p&gt;输入：nums = [1,2,0]&lt;br&gt;输出：3&lt;br&gt;示例</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>排序矩阵查找(系列)</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/10/leetcode-sorted-matrix-search-lcci/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/10/leetcode-sorted-matrix-search-lcci/</id>
-    <published>2022-04-10T08:56:37.000Z</published>
-    <updated>2022-04-10T12:12:41.925Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;240-搜索二维矩阵-II&quot;&gt;&lt;a href=&quot;#240-搜索二维矩阵-II&quot; class=&quot;headerlink&quot; title=&quot;240. 搜索二维矩阵 II&quot;&gt;&lt;/a&gt;240. 搜索二维矩阵</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="search" scheme="http://kingsleynuaa.github.io/tags/search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>删除排序链表中的重复元素(系列)</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/10/leetcode-remove-duplicates-from-sorted-list/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/10/leetcode-remove-duplicates-from-sorted-list/</id>
-    <published>2022-04-10T07:49:40.000Z</published>
-    <updated>2022-04-10T08:52:40.910Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;删除重复元素，保留一个&quot;&gt;&lt;a href=&quot;#删除重复元素，保留一个&quot; class=&quot;headerlink&quot; title=&quot;删除重复元素，保留一个&quot;&gt;&lt;/a&gt;删除重复元素，保留一个&lt;/h1&gt;&lt;p&gt;给定一个已排序的链表的头 head ，</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="linklist" scheme="http://kingsleynuaa.github.io/tags/linklist/"/>
     
   </entry>
   
