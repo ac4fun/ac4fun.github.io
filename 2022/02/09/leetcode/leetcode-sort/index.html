@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon16_16.png">
+  <link rel="mask-icon" href="/images/apple-touch-icon-next.png" color="#222">
+  <meta name="baidu-site-verification" content="de7394d3a9d02511c7555414af9b2c02">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kingsleynuaa.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":{"valine":null,"text":"Load Valine","order":-1,"gitalk":{"order":-2}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="python3冒泡排序核心动作：比较和交换  n-1次循环(因为最后一个数不用冒泡了)，每次循环将一个值”冒泡”至最终位置，i为循环轮次 每次循环两两比较相邻数，若不符合要求就交换，j表示比较的数 若上一次循环没有交换数据，则表示已完成排序，可以终止循环了，flag标记  复杂度：时间复杂度O(n^2), 空间复杂度O(1) 稳定性：比较的时候可以设定相等的元素不交换，所以是稳定的 1234567">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法梳理">
+<meta property="og:url" content="http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/index.html">
+<meta property="og:site_name" content="汇芳书院">
+<meta property="og:description" content="python3冒泡排序核心动作：比较和交换  n-1次循环(因为最后一个数不用冒泡了)，每次循环将一个值”冒泡”至最终位置，i为循环轮次 每次循环两两比较相邻数，若不符合要求就交换，j表示比较的数 若上一次循环没有交换数据，则表示已完成排序，可以终止循环了，flag标记  复杂度：时间复杂度O(n^2), 空间复杂度O(1) 稳定性：比较的时候可以设定相等的元素不交换，所以是稳定的 1234567">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-09T13:47:38.000Z">
+<meta property="article:modified_time" content="2022-04-06T23:54:31.891Z">
+<meta property="article:author" content="Jacob Jin">
+<meta property="article:tag" content="sort">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>排序算法梳理 | 汇芳书院</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C70KE9W36G"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C70KE9W36G');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?de7394d3a9d02511c7555414af9b2c02";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="汇芳书院" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">汇芳书院</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">专注计算机视觉、机器学习、分布式计算等领域, 兼聊投资、写作、生活</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-fab fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">98</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">34</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-fab fa-th"></i>分类<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/aboutMe/" rel="section"><i class="fa fa-fw fa-fab fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-留言灌水区">
+
+    <a href="/message/" rel="section"><i class="fa fa-fw fa-fab fa-telegram"></i>留言灌水区</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          排序算法梳理
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-09 21:47:38" itemprop="dateCreated datePublished" datetime="2022-02-09T21:47:38+08:00">2022-02-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-07 07:54:31" itemprop="dateModified" datetime="2022-04-07T07:54:31+08:00">2022-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/02/09/leetcode/leetcode-sort/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/09/leetcode/leetcode-sort/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>核心动作：比较和交换</p>
+<ol>
+<li>n-1次循环(因为最后一个数不用冒泡了)，每次循环将一个值”冒泡”至最终位置，i为循环轮次</li>
+<li>每次循环两两比较相邻数，若不符合要求就交换，j表示比较的数</li>
+<li>若上一次循环没有交换数据，则表示已完成排序，可以终止循环了，flag标记</li>
+</ol>
+<p>复杂度：时间复杂度O(n^2), 空间复杂度O(1)</p>
+<p>稳定性：比较的时候可以设定相等的元素不交换，所以是稳定的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NC140 排序</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>-i):</span><br><span class="line">                <span class="comment"># 升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">                <span class="keyword">if</span> nums[j] &gt; nums[j+<span class="number">1</span>]:</span><br><span class="line">                    tmp = nums[j]</span><br><span class="line">                    nums[j] = nums[j+<span class="number">1</span>]</span><br><span class="line">                    nums[j+<span class="number">1</span>] = tmp</span><br><span class="line">                    flag = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> flag:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>每次选择最小的一个数据放置在指定位置<br>核心动作：比较和交换</p>
+<ol>
+<li>循环n-1次，每次循环选择一个最小的数，与未处理部分的第一个元素交换</li>
+</ol>
+<p>复杂度：时间复杂度O(n^2), 空间复杂度O(1)</p>
+<p>稳定性：交换动作可能会导致未处理部分的第一个元素与其重复值相对顺序改变，所以是不稳定的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>):</span><br><span class="line">            min_index = i</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, length):</span><br><span class="line">                <span class="comment"># 升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">                <span class="keyword">if</span> nums[j] &lt; nums[min_index]:</span><br><span class="line">                    min_index = j</span><br><span class="line">            <span class="comment"># 未排序部分中的最小值 与 未排序部分的第一个元素 交换</span></span><br><span class="line">            <span class="comment"># 此部分导致选择排序的不稳定性，因为如果「未排序部分的第一个元素」存在重复元素，交换时会导致这个值相对顺序的改变</span></span><br><span class="line">            <span class="comment"># 如果需要改变稳定性，可以改为：将未排序部分中的最小值 插入 到未排序部分第一个元素 之前</span></span><br><span class="line">            <span class="comment"># 如果是链表实现的，则比较容易实现上述插入动作</span></span><br><span class="line">            tmp = nums[i]</span><br><span class="line">            nums[i] = nums[min_index]</span><br><span class="line">            nums[min_index] = tmp</span><br><span class="line">        <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><p>将数组分为已排序和未排序两部分，然后将未排序部分的数依次插入到已排序数组中的合适位置<br>核心动作：比较和移动<br>1.将第1个数视为已排序部分，剩下部分视为未排序部分<br>2.未排序部分：i表示需要依次遍历的数，从第二个数到最后一个数<br>3.已排序部分：i左边的所有数<br>4.将本次需要插入的数和已排序部分依次比较，如果需要插入的数比已排序部分这个数大，就将这个数后移一位，直到第0个数<br>5.将待插入数据插入到查到到的位置</p>
+<p>复杂度：时间复杂度O(n^2), 空间复杂度O(1)</p>
+<p>稳定性：插入的过程不改变相对位置，是稳定排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, length):</span><br><span class="line">            j = i - <span class="number">1</span></span><br><span class="line">            tmp = nums[i]</span><br><span class="line">            <span class="comment"># 同样的，升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">            <span class="keyword">while</span> j &gt;=<span class="number">0</span> <span class="keyword">and</span> nums[j] &gt; tmp:</span><br><span class="line">                nums[j+<span class="number">1</span>] = nums[j]</span><br><span class="line">                j = j - <span class="number">1</span></span><br><span class="line">            nums[j+<span class="number">1</span>] = tmp</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+
+<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><p>寻找需要插入位置的时候，其实是一个二分查找过程，可以使用二分查找减少比较次数，但是移动次数不会改变</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def sortArray(self, nums: List[int]) -&gt; List[int]:</span><br><span class="line">        <span class="built_in">length</span> = <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="built_in">length</span>):</span><br><span class="line">            j = i - <span class="number">1</span></span><br><span class="line">            low = <span class="number">0</span></span><br><span class="line">            high = j</span><br><span class="line">            tmp = nums[i]</span><br><span class="line">            <span class="comment"># 注意这里是&lt;=, 可以保证最终值在low和high之间。</span></span><br><span class="line">            <span class="keyword">while</span> low &lt;= high:</span><br><span class="line">                <span class="keyword">mid</span> = low + (high - low<span class="comment">)//2</span></span><br><span class="line">                <span class="comment"># 如果数值相同，右边的数认为更大，可以保持排序稳定</span></span><br><span class="line">                <span class="comment"># 同样的，升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">                <span class="keyword">if</span> nums[<span class="keyword">mid</span>] &lt;= tmp:</span><br><span class="line">                    low = <span class="keyword">mid</span> + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    high = <span class="keyword">mid</span> - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> j &gt;=<span class="number">0</span> <span class="keyword">and</span> j &gt; high:</span><br><span class="line">                nums[j+<span class="number">1</span>] = nums[j]</span><br><span class="line">                j = j - <span class="number">1</span></span><br><span class="line">                </span><br><span class="line">            nums[high+<span class="number">1</span>] = tmp</span><br><span class="line">        <span class="literal">return</span> nums</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>核心在于partition动作, 实现方式有多种，这里的这种比较巧妙</p>
+<p>复杂度：时间复杂度O(nlogn), 空间复杂度O(1)</p>
+<p>稳定性：大间隔交换动作可能导致相对顺序改变，不稳定排序</p>
+<h3 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def partition(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        # 选择pivot是一个比较关键的点，影响最好最快的复杂度</span><br><span class="line">        <span class="keyword">if</span> nums[<span class="keyword">left</span>] &lt; nums[<span class="keyword">right</span>]:</span><br><span class="line">            self.swap(nums, <span class="keyword">left</span>, <span class="keyword">left</span>+(<span class="keyword">right</span>-<span class="keyword">left</span>)//<span class="number">2</span>)</span><br><span class="line">        pivot = <span class="keyword">left</span></span><br><span class="line">        <span class="built_in">index</span> = <span class="keyword">left</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">index</span>, <span class="keyword">right</span>+<span class="number">1</span>):</span><br><span class="line">            # 同样的，升序或降序只需要修改下面的比较符号即可</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt; nums[pivot]:</span><br><span class="line">                self.swap(nums, i, <span class="built_in">index</span>)</span><br><span class="line">                <span class="built_in">index</span> += <span class="number">1</span></span><br><span class="line">        self.swap(nums, <span class="built_in">index</span>-<span class="number">1</span>, pivot)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">index</span>-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    def swap(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        nums[<span class="keyword">left</span>], nums[<span class="keyword">right</span>] = nums[<span class="keyword">right</span>], nums[<span class="keyword">left</span>]</span><br><span class="line">    </span><br><span class="line">    def quickSort(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span> &lt; righ<span class="variable">t:</span></span><br><span class="line">            pivot_index = self.partition(nums, <span class="keyword">left</span>, <span class="keyword">right</span>)</span><br><span class="line">            self.quickSort(nums, <span class="keyword">left</span>, pivot_index-<span class="number">1</span>)</span><br><span class="line">            self.quickSort(nums, pivot_index+<span class="number">1</span>, <span class="keyword">right</span>)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line">    def sortArray(self, num<span class="variable">s:</span> List[<span class="keyword">int</span>]) -&gt; List[<span class="keyword">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.quickSort(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<p>Partition函数还有一种写法，pivot，内存2个while顺序和最后1次交换者，很值得琢磨</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def <span class="keyword">partition</span>(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        if nums[<span class="keyword">left</span>] <span class="operator">&lt;</span> nums[<span class="keyword">right</span>]:</span><br><span class="line">            self.swap(nums, <span class="keyword">right</span>, <span class="keyword">left</span><span class="operator">+</span>(<span class="keyword">right</span><span class="operator">-</span><span class="keyword">left</span>)<span class="operator">/</span><span class="operator">/</span><span class="number">2</span>)</span><br><span class="line">        <span class="keyword">begin</span><span class="operator">=</span><span class="keyword">left</span></span><br><span class="line">        <span class="keyword">end</span><span class="operator">=</span><span class="keyword">right</span></span><br><span class="line">        pivot<span class="operator">=</span><span class="keyword">right</span></span><br><span class="line">        # 最终<span class="keyword">begin</span>和<span class="keyword">end</span>都指向一处。</span><br><span class="line">        # 若pivot指向右边，则需要先走左边的while，否则先走右边</span><br><span class="line">        while <span class="keyword">begin</span> <span class="operator">&lt;</span> <span class="keyword">end</span>:</span><br><span class="line">            while <span class="keyword">begin</span> <span class="operator">&lt;</span> <span class="keyword">end</span> <span class="keyword">and</span> nums[<span class="keyword">begin</span>] <span class="operator">&lt;=</span> nums[pivot]:</span><br><span class="line">                <span class="keyword">begin</span> <span class="operator">+</span><span class="operator">=</span> <span class="number">1</span></span><br><span class="line">            while <span class="keyword">begin</span> <span class="operator">&lt;</span> <span class="keyword">end</span> <span class="keyword">and</span> nums[<span class="keyword">end</span>] <span class="operator">&gt;=</span> nums[pivot]:</span><br><span class="line">                <span class="keyword">end</span> <span class="operator">=</span> <span class="keyword">end</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">            self.swap(nums, <span class="keyword">begin</span>, <span class="keyword">end</span>)</span><br><span class="line">        self.swap(nums, <span class="keyword">begin</span>, pivot)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">begin</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h3><p>只修改了quickSort部分的代码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def partition(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">if</span> nums[<span class="keyword">left</span>] &lt; nums[<span class="keyword">right</span>]:</span><br><span class="line">            self.swap(nums, <span class="keyword">left</span>, <span class="keyword">left</span>+(<span class="keyword">right</span>-<span class="keyword">left</span>)//<span class="number">2</span>)</span><br><span class="line">        pivot = <span class="keyword">left</span></span><br><span class="line">        <span class="built_in">index</span> = <span class="keyword">left</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">index</span>, <span class="keyword">right</span>+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt; nums[pivot]:</span><br><span class="line">                self.swap(nums, i, <span class="built_in">index</span>)</span><br><span class="line">                <span class="built_in">index</span> += <span class="number">1</span></span><br><span class="line">        self.swap(nums, <span class="built_in">index</span>-<span class="number">1</span>, pivot)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">index</span>-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    def swap(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        nums[<span class="keyword">left</span>], nums[<span class="keyword">right</span>] = nums[<span class="keyword">right</span>], nums[<span class="keyword">left</span>]</span><br><span class="line">    </span><br><span class="line">    def quickSort(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span> &lt; righ<span class="variable">t:</span></span><br><span class="line">            stack = [<span class="keyword">right</span>, <span class="keyword">left</span>]</span><br><span class="line">            <span class="keyword">while</span> stack:</span><br><span class="line">                i = stack.<span class="keyword">pop</span>()</span><br><span class="line">                <span class="keyword">j</span> = stack.<span class="keyword">pop</span>()</span><br><span class="line">                pivot_index = self.partition(nums, i, <span class="keyword">j</span>)</span><br><span class="line">                <span class="keyword">if</span> i &lt; pivot_index:</span><br><span class="line">                    stack.<span class="keyword">append</span>(pivot_index-<span class="number">1</span>)</span><br><span class="line">                    stack.<span class="keyword">append</span>(i)</span><br><span class="line">                <span class="keyword">if</span> pivot_index &lt; <span class="keyword">j</span>:</span><br><span class="line">                    stack.<span class="keyword">append</span>(<span class="keyword">j</span>)</span><br><span class="line">                    stack.<span class="keyword">append</span>(pivot_index+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line">    def sortArray(self, num<span class="variable">s:</span> List[<span class="keyword">int</span>]) -&gt; List[<span class="keyword">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.quickSort(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h3 id="C-版本"><a href="#C-版本" class="headerlink" title="C++版本"></a>C++版本</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">quickSort2</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">        <span class="comment">// quickSort(nums, 0, nums.size()-1);</span></span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 递归版本</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> pivot = <span class="built_in">partition</span>(nums, left, right);</span><br><span class="line">            <span class="built_in">quickSort</span>(nums, left, pivot<span class="number">-1</span>);</span><br><span class="line">            <span class="built_in">quickSort</span>(nums, pivot+<span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 非递归版本</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">quickSort2</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">            stack&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">            s.<span class="built_in">push</span>(right);</span><br><span class="line">            s.<span class="built_in">push</span>(left);</span><br><span class="line">            <span class="keyword">while</span> (!s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                <span class="keyword">int</span> l = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">int</span> r = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">int</span> pivot = <span class="built_in">partition</span>(nums, l, r);</span><br><span class="line">                <span class="comment">// l, pivot-1</span></span><br><span class="line">                <span class="comment">// pivot+1, r</span></span><br><span class="line">                <span class="keyword">if</span> (l &lt; pivot<span class="number">-1</span>)&#123;</span><br><span class="line">                    s.<span class="built_in">push</span>(pivot<span class="number">-1</span>);</span><br><span class="line">                    s.<span class="built_in">push</span>(l);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (pivot+<span class="number">1</span> &lt; r)&#123;</span><br><span class="line">                    s.<span class="built_in">push</span>(r);</span><br><span class="line">                    s.<span class="built_in">push</span>(pivot+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//快排的核心函数</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[left] &lt; nums[right])&#123;</span><br><span class="line">            <span class="built_in">swap</span>(nums[left], nums[mid]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> pivot = left;</span><br><span class="line">        <span class="keyword">int</span> index = left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = left+<span class="number">1</span>; i &lt;= right; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt; nums[pivot])&#123;</span><br><span class="line">                <span class="built_in">swap</span>(nums[i], nums[index++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(nums[index<span class="number">-1</span>], nums[pivot]);</span><br><span class="line">        <span class="keyword">return</span> index<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>核心是merge函数，主体函数里面先将数组划分为两部分，分别mergesort后，执行两部分结果的merge</p>
+<p>时间复杂度：O(nlogn), 但是空间复杂度为O(n)<br>稳定性：属于稳定排序</p>
+<h3 id="递归版本-1"><a href="#递归版本-1" class="headerlink" title="递归版本"></a>递归版本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def sortArray(self, num<span class="variable">s:</span> List[<span class="keyword">int</span>]) -&gt; List[<span class="keyword">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.mergeSort(nums)</span><br><span class="line"></span><br><span class="line">    def mergeSort(self, nums):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums) &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> nums</span><br><span class="line">        mid = <span class="built_in">len</span>(nums)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">left</span> = self.mergeSort(nums[<span class="number">0</span>:mid])</span><br><span class="line">        <span class="keyword">right</span> = self.mergeSort(nums[mid:])</span><br><span class="line">        <span class="keyword">return</span> self.merge(<span class="keyword">left</span>, <span class="keyword">right</span>)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    def merge(self, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">left</span> <span class="built_in">and</span> righ<span class="variable">t:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">left</span>[<span class="number">0</span>] &lt;= <span class="keyword">right</span>[<span class="number">0</span>]:</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">left</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">right</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">        <span class="keyword">while</span> lef<span class="variable">t:</span></span><br><span class="line">            result.<span class="keyword">append</span>(<span class="keyword">left</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">        <span class="keyword">while</span> righ<span class="variable">t:</span></span><br><span class="line">            result.<span class="keyword">append</span>(<span class="keyword">right</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="非递归版本-1"><a href="#非递归版本-1" class="headerlink" title="非递归版本"></a>非递归版本</h3><p>假设 nums = [5,4,0,3,1,6,2,7]<br>第一次：我们将数组分为 8个子数组 每个数组 1 个元素，对相邻的两个数组进行排序合并。<br>第二次：我们将数组分为 4个子数组 每个数组 2 个元素，对相邻的两个数组进行排序合并。<br>第三次：我们将数组分为 2个子数组 每个数组 4 个元素，对相邻的两个数组进行排序合并。<br>第一步：划分每个子数组元素的个数（也就是子数组的长度)</p>
+<ol>
+<li>第一次 每个子数组元素 个数 为 1.</li>
+<li>第二次 每个子数组元素 个数 为 2.</li>
+<li>第三次 每个子数组元素 个数 为 4.<br>可以看出来 每个子数组元素个数 以2的倍数递增. 设置step步长，初始1，2倍递增<br>首先：求得要合并的两个相邻数组的区间 [low:mid) [mid:high)</li>
+<li>当子数组长度为 1 的时候 要合并的相邻两个数组的区间为：<br>[0,1) [1,2) [2,3) [3,4) [4,5) [5,6) [6,7) [7,8) 子数组长度为 1</li>
+<li>子数组长度为 2 要合并的相邻两个数组的区间为：<br>[0,2) [2,4) [4,6) [6,8) 子数组长度为 2</li>
+<li>子数组长度为 4 要合并的相邻两个数组的区间为：<br>[0,4) [4,8) 子数组长度为 4<br>下面来求 区间中的 low mid height:<br>low = low + 2 x step<br>mid = low + step<br>high = low + 2 x step</li>
+</ol>
+<p>但是要注意nums长度不为2的整数倍时，high可能越界，需要优化。</p>
+<p>中间过程可能存在轮空的情况，mid和high的关系也需要确保mid&lt;high</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def sortArray(self, nums: List[int]) -&gt; List[int]:</span><br><span class="line">        <span class="literal">return</span> self.mergeSort(nums)</span><br><span class="line"></span><br><span class="line">    def mergeSort(self, nums):</span><br><span class="line">        step = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> step &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            low = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> low &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">                <span class="keyword">mid</span> = low + step</span><br><span class="line">                high = <span class="built_in">min</span>(<span class="built_in">len</span>(nums), low+<span class="number">2</span>*step)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">mid</span> &lt; high:</span><br><span class="line">                    self.<span class="built_in">merge</span>(nums, low, <span class="keyword">mid</span>, high)</span><br><span class="line">                low += <span class="number">2</span>*step</span><br><span class="line">            step = step * <span class="number">2</span></span><br><span class="line">        <span class="literal">return</span> nums</span><br><span class="line">                </span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    def <span class="built_in">merge</span>(self, nums, begin, <span class="keyword">mid</span>, <span class="keyword">end</span>):</span><br><span class="line">        <span class="built_in">result</span> = []</span><br><span class="line">        i, j = begin, <span class="keyword">mid</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="keyword">mid</span> <span class="keyword">and</span> j &lt; <span class="keyword">end</span>:</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt;= nums[j]:</span><br><span class="line">                <span class="built_in">result</span>.append(nums[i])</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">result</span>.append(nums[j])</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">        <span class="built_in">result</span> += nums[i:<span class="keyword">mid</span>]</span><br><span class="line">        <span class="built_in">result</span> += nums[j:<span class="keyword">end</span>]</span><br><span class="line">        nums[begin:<span class="keyword">end</span>] = <span class="built_in">result</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>核心是一个调整动作adjust函数，</p>
+<p>建堆过程，从倒数第一个非叶子节点开始调整，直到第一个节点。<br>排序过程，每次选择堆顶元素与最后一个交换后调整第一个节点。</p>
+<p>时间复杂度：O(nlogn), 有空可以详细推导一下<br>稳定性：中间交换过程不可控，不稳定</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        <span class="keyword">return</span> self.heapSort(nums)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heapSort</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">        self.buildHeap(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            self.swap(nums, i, <span class="number">0</span>)</span><br><span class="line">            self.adjust(nums, <span class="number">0</span>, i)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line">                </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">swap</span>(<span class="params">self, nums, i, j</span>):</span></span><br><span class="line">        nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildHeap</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)//<span class="number">2</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            self.adjust(nums, i, <span class="built_in">len</span>(nums))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adjust</span>(<span class="params">self, nums, i, length</span>):</span></span><br><span class="line">        temp = nums[i]</span><br><span class="line">        k = <span class="number">2</span>*i + <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> k &lt; length:</span><br><span class="line">            <span class="comment"># 升序和降序修改此处第二个比较符号</span></span><br><span class="line">            <span class="keyword">if</span> k+<span class="number">1</span> &lt; length <span class="keyword">and</span> nums[k+<span class="number">1</span>] &gt; nums[k]:</span><br><span class="line">                k += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 升序和降序修改此处比较符号</span></span><br><span class="line">            <span class="keyword">if</span> nums[k] &gt; temp:</span><br><span class="line">                nums[i] = nums[k]</span><br><span class="line">                i = k</span><br><span class="line">            k = <span class="number">2</span>*k + <span class="number">1</span></span><br><span class="line">        nums[i] = temp</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h2 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h2>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jacob Jin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jacob Jin 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacob Jin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/" title="排序算法梳理">http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/kingsleynuaa">
+            <span class="icon">
+              <i class="fa fa-fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/mp_weixin.jpg">
+            <span class="icon">
+              <i class="fa fa-fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <div>
+        
+          <div>
+    
+      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本文结束,感谢阅读 <i class="fa fa-paw"></i> 如有问题可留言交流 -------------</div>
+    
+</div>
+
+        
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/sort/" rel="tag"><i class="fa fa-tag"></i> sort</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/08/leetcode/leetcode-reverse-list/" rel="prev" title="反转链表(系列)">
+      <i class="fa fa-chevron-left"></i> 反转链表(系列)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/18/leetcode/leetcode-lru/" rel="next" title="LRU缓存结构">
+      LRU缓存结构 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="valine-comments"></div>
+            </div>
+        </div>
+      </div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python3"><span class="nav-number">1.</span> <span class="nav-text">python3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">直接插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">折半插入排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%89%88%E6%9C%AC"><span class="nav-number">1.4.1.</span> <span class="nav-text">递归版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%89%88%E6%9C%AC"><span class="nav-number">1.4.2.</span> <span class="nav-text">非递归版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E7%89%88%E6%9C%AC"><span class="nav-number">1.4.3.</span> <span class="nav-text">C++版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.5.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%89%88%E6%9C%AC-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">递归版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%89%88%E6%9C%AC-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">非递归版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-number">1.6.</span> <span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.7.</span> <span class="nav-text">桶排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">1.8.</span> <span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">1.9.</span> <span class="nav-text">计数排序</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jacob Jin"
+      src="/images/mpp.jpg">
+  <p class="site-author-name" itemprop="name">Jacob Jin</p>
+  <div class="site-description" itemprop="description">终身成长，持续提升认知，走向财富和精神自由，迈向美好生活</div>
+</div>
+
+
+   <div class="feed-link motion-element">
+     <a href="/atom.xml" rel="alternate">
+       <i class="fa fa-rss"></i>
+       RSS
+     </a>
+   </div>
+
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-fa fa-comment"></i>
+    留言信箱
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:ximuzmzj@gmail.com" title="E-Mail → mailto:ximuzmzj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-fab fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/AC4Fun" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;AC4Fun" rel="noopener" target="_blank"><i class="fa fa-fw fa-fab fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/images/mp_weixin.jpg" title="微信公众号 → &#x2F;images&#x2F;mp_weixin.jpg"><i class="fa fa-fw fa-fab fa-weixin"></i>微信公众号</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-fa fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/images/mp_weixin.jpg" title="&#x2F;images&#x2F;mp_weixin.jpg">汇芳书院微信公众号</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-fab fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jacob Jin</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">224k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:24</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60e55c23a7a37a32" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      总阅读次数<span class="post-meta-item-icon">
+        <i class="fa fa-fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>次
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1280101085&web_id=1280101085"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 31237,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 300,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2be373aa63799541ae8b',
+      clientSecret: 'e5cbbfdc659cbc7514c9cf06069828f91e592695',
+      repo        : 'ac4fun.github.io',
+      owner       : 'ac4fun',
+      admin       : ['ac4fun'],
+      id          : 'e8424b55f5dfdcea351ad25fcad7da13',
+        language: 'zh-cn',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'hVSpjGv2o2uBeKOW2HujJ8Qy-gzGzoHsz',
+      appKey     : 'b393luVLTTbPfeOP83kOdyNi',
+      placeholder: "在这里输入评论...",
+      avatar     : 'mp',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
