@@ -143,12 +143,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">98</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">100</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">34</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">35</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -218,6 +218,194 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-valid-palindrome/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/20/leetcode/leetcode-valid-palindrome/" class="post-title-link" itemprop="url">验证回文串</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-20 16:39:43 / 修改时间：17:17:05" itemprop="dateCreated datePublished" datetime="2022-03-20T16:39:43+08:00">2022-03-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>811</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
+<p> </p>
+<p>示例 1:</p>
+<p>输入: “A man, a plan, a canal: Panama”<br>输出: true<br>解释：”amanaplanacanalpanama” 是回文串<br>示例 2:</p>
+<p>输入: “race a car”<br>输出: false<br>解释：”raceacar” 不是回文串</p>
+<hr>
+<p>一种是先过滤掉非数字和字符串的字符，然后判断<br>一种是直接判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidChar</span>(<span class="params">self, s</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;0&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = n-<span class="number">1</span></span><br><span class="line">        mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            <span class="keyword">while</span> left &lt; n <span class="keyword">and</span> <span class="keyword">not</span> self.isValidChar(s[left]):</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &gt; -<span class="number">1</span> <span class="keyword">and</span> <span class="keyword">not</span> self.isValidChar(s[right]):</span><br><span class="line">                right = right - <span class="number">1</span></span><br><span class="line">            <span class="comment"># print(left, right)</span></span><br><span class="line">            <span class="keyword">if</span> left &lt; right:</span><br><span class="line">                <span class="keyword">if</span> s[left].lower() != s[right].lower():</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                    right = right - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-maximum-depth-of-binary-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/20/leetcode/leetcode-maximum-depth-of-binary-tree/" class="post-title-link" itemprop="url">二叉树的最大深度</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-20 16:14:03 / 修改时间：16:38:36" itemprop="dateCreated datePublished" datetime="2022-03-20T16:14:03+08:00">2022-03-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>929</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个二叉树，找出其最大深度。</p>
+<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
+<p>说明: 叶子节点是指没有子节点的节点。</p>
+<p>示例：<br>给定二叉树 [3,9,20,null,null,15,7]，</p>
+<pre><code>3
+</code></pre>
+<p>   / <br>  9  20<br>    /  <br>   15   7<br>返回它的最大深度 3 。</p>
+<h1 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h1><p>也就是广度优先</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.append((root, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">                p, _ = queue.popleft()</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append((p.left, <span class="number">1</span>))</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    queue.append((p.right, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        left_level = self.maxDepth(root.left)</span><br><span class="line">        right_level = self.maxDepth(root.right)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(left_level, right_level)+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -503,217 +691,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/19/leetcode/leetcode-permutation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/19/leetcode/leetcode-permutation/" class="post-title-link" itemprop="url">字符串排列(系列)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-19 14:08:38" itemprop="dateCreated datePublished" datetime="2022-03-19T14:08:38+08:00">2022-03-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-17 20:15:09" itemprop="dateModified" datetime="2022-04-17T20:15:09+08:00">2022-04-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h1><p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
-<p>你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。</p>
-<p> </p>
-<p>示例:</p>
-<p>输入：s = “abc”<br>输出：[“abc”,”acb”,”bac”,”bca”,”cab”,”cba”]</p>
-<h2 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h2><p>其实就是穷举法</p>
-<p>从左往右依次填入字符，为了避免在同一位置填入相同元素需要设置一个标记数组来记录元素访问情况</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permutation</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">str</span>]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">backtrack</span>(<span class="params">s, i, n, res</span>):</span></span><br><span class="line">            <span class="keyword">if</span> i == n:</span><br><span class="line">                result.append(res)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> visited[j] <span class="keyword">or</span> (j &gt; <span class="number">0</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[j-<span class="number">1</span>] <span class="keyword">and</span> s[j-<span class="number">1</span>]==s[j]):</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                visited[j] = <span class="literal">True</span></span><br><span class="line">                res += s[j]</span><br><span class="line">                backtrack(<span class="built_in">list</span>(s), i+<span class="number">1</span>, n, res)</span><br><span class="line">                visited[j] = <span class="literal">False</span></span><br><span class="line">                res = res[:-<span class="number">1</span>]</span><br><span class="line">        result = []</span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        visited = [<span class="literal">False</span>]*n</span><br><span class="line">        s = <span class="built_in">list</span>(s)</span><br><span class="line">        s.sort()</span><br><span class="line">        backtrack(s, <span class="number">0</span>, n, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-
-<h1 id="47-全排列-II"><a href="#47-全排列-II" class="headerlink" title="47. 全排列 II"></a>47. 全排列 II</h1><p>给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。</p>
-<p>示例 1：<br>输入：nums = [1,1,2]<br>输出：<br>[[1,1,2],<br> [1,2,1],<br> [2,1,1]]</p>
-<p>示例 2：<br>输入：nums = [1,2,3]<br>输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; vis;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; ans, vector&lt;<span class="keyword">int</span>&gt;&amp; perm, <span class="keyword">int</span> index, vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (index == nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">                ans.<span class="built_in">emplace_back</span>(perm);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (vis[i] || (i &gt; <span class="number">0</span> &amp;&amp; nums[i<span class="number">-1</span>] == nums[i] &amp;&amp; !vis[i<span class="number">-1</span>])) <span class="keyword">continue</span>;</span><br><span class="line">                perm.<span class="built_in">emplace_back</span>(nums[i]);</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">backtrack</span>(ans, perm, index+<span class="number">1</span>, nums);</span><br><span class="line">                vis[i] = <span class="number">0</span>;</span><br><span class="line">                perm.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">permuteUnique</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vis.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; perm;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">backtrack</span>(ans, perm, <span class="number">0</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/13/leetcode/leetcode-merge-k-sorted-lists/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/13/leetcode/leetcode-merge-k-sorted-lists/" class="post-title-link" itemprop="url">合并K个升序链表</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-13 08:35:55" itemprop="dateCreated datePublished" datetime="2022-03-13T08:35:55+08:00">2022-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-19 14:01:17" itemprop="dateModified" datetime="2022-03-19T14:01:17+08:00">2022-03-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="23-合并K个升序链表"><a href="#23-合并K个升序链表" class="headerlink" title="23. 合并K个升序链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">23. 合并K个升序链表</a></h4><p>给你一个链表数组，每个链表都已经按升序排列。</p>
-<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
-<p> </p>
-<p>示例 1：</p>
-<p>输入：lists = [[1,4,5],[1,3,4],[2,6]]<br>输出：[1,1,2,3,4,4,5,6]<br>解释：链表数组如下：<br>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]<br>将它们合并到一个有序链表中得到。<br>1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6<br>示例 2：</p>
-<p>输入：lists = []<br>输出：[]<br>示例 3：</p>
-<p>输入：lists = [[]]<br>输出：[]</p>
-<hr>
-<p>没想到居然是一个困难题</p>
-<h1 id="循环使用-2个链表合并的思路处理"><a href="#循环使用-2个链表合并的思路处理" class="headerlink" title="循环使用 2个链表合并的思路处理"></a>循环使用 2个链表合并的思路处理</h1><p>时间复杂度：由于除第一个链表外，其他每个链表都要被遍历多次，<br>等差数列：<br>第一次合并后，链表长度：2n<br>第二次合并后，链表长度：3n<br>第k-1次合并后，链表长度：kn<br>合计遍历(2+k)n*(k-1)/2=O(k^2*n)</p>
-<p>空间复杂度O(1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span>(<span class="params">self, lists: <span class="type">List</span>[<span class="type">Optional</span>[ListNode]]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span>(<span class="params">list1, list2</span>):</span></span><br><span class="line">            dummy = ListNode()</span><br><span class="line">            p = dummy</span><br><span class="line">            <span class="keyword">while</span> list1 <span class="keyword">and</span> list2:</span><br><span class="line">                <span class="keyword">if</span> list1.val &lt; list2.val:</span><br><span class="line">                    p.<span class="built_in">next</span> = list1</span><br><span class="line">                    list1 = list1.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p.<span class="built_in">next</span> = list2</span><br><span class="line">                    list2 = list2.<span class="built_in">next</span></span><br><span class="line">                p = p.<span class="built_in">next</span></span><br><span class="line">            </span><br><span class="line">            p.<span class="built_in">next</span> = list1 <span class="keyword">if</span> list1 <span class="keyword">else</span> list2</span><br><span class="line">            <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(lists) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        p = lists[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(lists)):</span><br><span class="line">            p = mergeTwoLists(p, lists[i])</span><br><span class="line">        <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
-
-<h1 id="分治-归并"><a href="#分治-归并" class="headerlink" title="分治+归并"></a>分治+归并</h1><p>k个数组，先两两合并，然后逐步归并。<br>划分深度为logk层，每层每个数都要遍历一次，每层k*n个数<br>时间复杂度O(logk * kn)<br>空间复杂度：栈空间logk，<br>若改为递归，则实际需要kn的额外空间</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span>(<span class="params">self, lists: <span class="type">List</span>[<span class="type">Optional</span>[ListNode]]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span>(<span class="params">list1, list2</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> list1: <span class="keyword">return</span> list2</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> list2: <span class="keyword">return</span> list1</span><br><span class="line">            dummy = ListNode()</span><br><span class="line">            p = dummy</span><br><span class="line">            <span class="keyword">while</span> list1 <span class="keyword">and</span> list2:</span><br><span class="line">                <span class="keyword">if</span> list1.val &lt; list2.val:</span><br><span class="line">                    p.<span class="built_in">next</span> = list1</span><br><span class="line">                    list1 = list1.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p.<span class="built_in">next</span> = list2</span><br><span class="line">                    list2 = list2.<span class="built_in">next</span></span><br><span class="line">                p = p.<span class="built_in">next</span></span><br><span class="line">            </span><br><span class="line">            p.<span class="built_in">next</span> = list1 <span class="keyword">if</span> list1 <span class="keyword">else</span> list2</span><br><span class="line">            <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">mergeHelper</span>(<span class="params">lists, left, right</span>):</span></span><br><span class="line">            <span class="keyword">if</span> left == right: <span class="keyword">return</span> lists[left]</span><br><span class="line">            <span class="keyword">if</span> left &lt; right:</span><br><span class="line">                mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">                list1 = mergeHelper(lists, left, mid)</span><br><span class="line">                list2 = mergeHelper(lists, mid+<span class="number">1</span>, right)</span><br><span class="line">                <span class="keyword">return</span> mergeTwoLists(list1, list2)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> mergeHelper(lists, <span class="number">0</span>, <span class="built_in">len</span>(lists)-<span class="number">1</span>)</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
-
-<h1 id="同时比较k个链表中开头的值，并用最小堆优化"><a href="#同时比较k个链表中开头的值，并用最小堆优化" class="headerlink" title="同时比较k个链表中开头的值，并用最小堆优化"></a>同时比较k个链表中开头的值，并用最小堆优化</h1><p>时间复杂度：n个节点，k为最小堆的大小，每个节点必进出最小堆一次,堆调整O(logk),整体O(nlogk)<br>空间复杂度：即为堆的大小，O(logk)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span>(<span class="params">self, lists: <span class="type">List</span>[<span class="type">Optional</span>[ListNode]]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span></span><br><span class="line">        <span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line">        heaq = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lists)):</span><br><span class="line">            <span class="keyword">if</span> lists[i]:</span><br><span class="line">                heappush(heaq, (lists[i].val, i))</span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        head = dummy</span><br><span class="line">        <span class="keyword">while</span> heaq:</span><br><span class="line">            _, min_index = heappop(heaq)</span><br><span class="line">            head.<span class="built_in">next</span> = lists[min_index]</span><br><span class="line">            head = head.<span class="built_in">next</span></span><br><span class="line">            lists[min_index] = lists[min_index].<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">if</span> lists[min_index]:</span><br><span class="line">                heappush(heaq, (lists[min_index].val, min_index))</span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -794,7 +771,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -807,7 +784,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -873,13 +850,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">225k</span>
+    <span title="站点总字数">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:24</span>
+    <span title="站点阅读时长">3:28</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

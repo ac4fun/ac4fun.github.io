@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/</loc>
+    <lastmod>2022-05-12</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-remove-nth-node-from-end-of-list/</loc>
+    <lastmod>2022-05-12</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/10/leetcode-subsets/</loc>
+    <lastmod>2022-05-12</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/05/09/leetcode/leetcode-multiply-strings/</loc>
     <lastmod>2022-05-10</lastmod>
   </url>
@@ -294,10 +306,6 @@
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-add-strings/</loc>
-    <lastmod>2022-02-28</lastmod>
-  </url>
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-remove-nth-node-from-end-of-list/</loc>
     <lastmod>2022-02-28</lastmod>
   </url>
   <url>
