@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/</loc>
+    <lastmod>2022-05-13</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/</loc>
-    <lastmod>2022-05-12</lastmod>
+    <lastmod>2022-05-13</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-remove-nth-node-from-end-of-list/</loc>

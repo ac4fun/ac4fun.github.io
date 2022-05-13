@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">100</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">101</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -218,6 +218,110 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/04/leetcode/leetcode-add-two-numbers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/04/leetcode/leetcode-add-two-numbers/" class="post-title-link" itemprop="url">链表两数相加</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-04 08:19:02" itemprop="dateCreated datePublished" datetime="2022-03-04T08:19:02+08:00">2022-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-06 23:11:58" itemprop="dateModified" datetime="2022-03-06T23:11:58+08:00">2022-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="逆序"><a href="#逆序" class="headerlink" title="逆序"></a>逆序</h1><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<h2 id="模拟法"><a href="#模拟法" class="headerlink" title="模拟法"></a>模拟法</h2><p>思路比较清晰，按照加法的方式顺序处理即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span>(<span class="params">self, l1: ListNode, l2: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        p = dummy</span><br><span class="line">        carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> l1 <span class="keyword">or</span> l2 <span class="keyword">or</span> carry:</span><br><span class="line">            l1_val = l1.val <span class="keyword">if</span> l1 <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            l2_val = l2.val <span class="keyword">if</span> l2 <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            tmp = l1_val + l2_val + carry</span><br><span class="line">            l_tmp = ListNode(tmp%<span class="number">10</span>)</span><br><span class="line">            carry = tmp//<span class="number">10</span></span><br><span class="line">            p.<span class="built_in">next</span> = l_tmp</span><br><span class="line">            p = l_tmp</span><br><span class="line">            l1 = l1.<span class="built_in">next</span> <span class="keyword">if</span> l1 <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            l2 = l2.<span class="built_in">next</span> <span class="keyword">if</span> l2 <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h1><p>给你两个 非空 链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数字都不会以零开头。</p>
+<hr>
+<h1 id="同样是模拟法-不过需要考虑使用栈"><a href="#同样是模拟法-不过需要考虑使用栈" class="headerlink" title="同样是模拟法 不过需要考虑使用栈"></a>同样是模拟法 不过需要考虑使用栈</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span>(<span class="params">self, l1: ListNode, l2: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        l1_stack = []</span><br><span class="line">        l2_stack = []</span><br><span class="line">        <span class="keyword">while</span> l1:</span><br><span class="line">            l1_stack.append(l1.val)</span><br><span class="line">            l1 = l1.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> l2:</span><br><span class="line">            l2_stack.append(l2.val)</span><br><span class="line">            l2 = l2.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">        carry = <span class="number">0</span></span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        <span class="keyword">while</span> l1_stack <span class="keyword">or</span> l2_stack <span class="keyword">or</span> carry:</span><br><span class="line">            l1_val = l1_stack.pop() <span class="keyword">if</span> l1_stack <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            l2_val = l2_stack.pop() <span class="keyword">if</span> l2_stack <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            tmp = l1_val + l2_val + carry</span><br><span class="line">            tmp_Node = ListNode(tmp%<span class="number">10</span>)</span><br><span class="line">            carry = tmp//<span class="number">10</span></span><br><span class="line">            tmp_Node.<span class="built_in">next</span> = dummy.<span class="built_in">next</span></span><br><span class="line">            dummy.<span class="built_in">next</span> = tmp_Node</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -632,109 +736,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-add-strings/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/27/leetcode/leetcode-add-strings/" class="post-title-link" itemprop="url">大数加法</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-27 23:10:02" itemprop="dateCreated datePublished" datetime="2022-02-27T23:10:02+08:00">2022-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-28 23:11:42" itemprop="dateModified" datetime="2022-02-28T23:11:42+08:00">2022-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>683</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和并同样以字符串形式返回。</p>
-<p>你不能使用任何內建的用于处理大整数的库（比如 BigInteger）， 也不能直接将输入的字符串转换为整数形式。</p>
-<p> </p>
-<p>示例 1：</p>
-<p>输入：num1 = “11”, num2 = “123”<br>输出：”134”<br>示例 2：</p>
-<p>输入：num1 = “456”, num2 = “77”<br>输出：”533”<br>示例 3：</p>
-<p>输入：num1 = “0”, num2 = “0”<br>输出：”0”</p>
-<hr>
-<p>大数加法</p>
-<h1 id="模拟的思路"><a href="#模拟的思路" class="headerlink" title="模拟的思路"></a>模拟的思路</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">class</span> Solution:</span><br><span class="line">    <span class="attribute">def</span> addStrings(self, num<span class="number">1</span>: str, num<span class="number">2</span>: str) -&gt; str:</span><br><span class="line">        <span class="attribute">if</span> not num<span class="number">1</span>:</span><br><span class="line">            <span class="attribute">return</span> num<span class="number">2</span></span><br><span class="line">        <span class="attribute">if</span> not num<span class="number">2</span>:</span><br><span class="line">            <span class="attribute">return</span> num<span class="number">1</span></span><br><span class="line">        <span class="attribute">i</span> = len(num<span class="number">1</span>)-<span class="number">1</span></span><br><span class="line">        <span class="attribute">j</span> = len(num<span class="number">2</span>)-<span class="number">1</span></span><br><span class="line">        <span class="attribute">carry</span> = <span class="number">0</span></span><br><span class="line">        <span class="attribute">result</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attribute">while</span> i &gt;= <span class="number">0</span> or j &gt;= <span class="number">0</span> or carry:</span><br><span class="line">            <span class="attribute">if</span> i &gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="attribute">first</span> = num<span class="number">1</span>[i]</span><br><span class="line">            <span class="attribute">else</span>:</span><br><span class="line">                <span class="attribute">first</span> = <span class="number">0</span></span><br><span class="line">            <span class="attribute">if</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="attribute">second</span> = num<span class="number">2</span>[j]</span><br><span class="line">            <span class="attribute">else</span>:</span><br><span class="line">                <span class="attribute">second</span> = <span class="number">0</span></span><br><span class="line">            <span class="comment"># print(&#x27;i, j&#x27;, i, j)</span></span><br><span class="line">            <span class="comment"># print(&#x27;first, second, carry&#x27;, first, second, carry)</span></span><br><span class="line">            <span class="attribute">tmp</span> = int(first) + int(second) + carry</span><br><span class="line">            <span class="attribute">result</span> = str(tmp%<span class="number">10</span>) + result</span><br><span class="line">            <span class="attribute">carry</span> = tmp // <span class="number">10</span></span><br><span class="line">            <span class="attribute">i</span> = i - <span class="number">1</span></span><br><span class="line">            <span class="attribute">j</span> = j - <span class="number">1</span></span><br><span class="line">        <span class="attribute">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -811,7 +816,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -890,13 +895,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">231k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

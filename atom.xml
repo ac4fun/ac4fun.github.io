@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-05-12T14:53:41.770Z</updated>
+  <updated>2022-05-13T00:51:29.692Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>983. 最低票价</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/</id>
+    <published>2022-05-13T00:50:56.000Z</published>
+    <updated>2022-05-13T00:51:29.692Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为 days 的数组给出。每一项是一个从 1 到 365 的整数。&lt;/p&gt;
+&lt;p&gt;火车票有 三种不同的销售方式 ：&lt;/p&gt;
+&lt;p&gt;一张 为期一天</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>322. 零钱兑换</title>
     <link href="http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/"/>
     <id>http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/</id>
     <published>2022-05-12T10:47:45.000Z</published>
-    <updated>2022-05-12T14:53:41.770Z</updated>
+    <updated>2022-05-13T00:49:23.383Z</updated>
     
     
       
@@ -527,32 +554,6 @@
     
     
     <category term="hash" scheme="http://kingsleynuaa.github.io/tags/hash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>93. 复原 IP 地址</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/12/leetcode/leetcode-restore-ip-addresses/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/12/leetcode/leetcode-restore-ip-addresses/</id>
-    <published>2022-04-12T15:28:13.000Z</published>
-    <updated>2022-04-15T00:16:31.311Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 ‘.’ 分隔。&lt;/p&gt;
-&lt;p&gt;例如：”0.1.2.201” 和 “192.168.1.1” 是 有效 IP 地址，但是</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
     
   </entry>
   
