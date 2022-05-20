@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/18/leetcode-maximal-square/</loc>
+    <lastmod>2022-05-20</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/18/leetcode-number-of-1-bits/</loc>
+    <lastmod>2022-05-18</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/15/leetcode-reversePairs/</loc>
+    <lastmod>2022-05-18</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/04/10/leetcode/leetcode-sorted-matrix-search-lcci/</loc>
+    <lastmod>2022-05-15</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/14/leetcode-minimum-window-substring/</loc>
+    <lastmod>2022-05-15</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/03/leetcode/leetcode-binary-search/</loc>
+    <lastmod>2022-05-14</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/</loc>
-    <lastmod>2022-05-13</lastmod>
+    <lastmod>2022-05-14</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/</loc>
@@ -58,10 +82,6 @@
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/05/04/leetcode/leetcode-super-egg-drop/</loc>
-    <lastmod>2022-05-04</lastmod>
-  </url>
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/05/03/leetcode/leetcode-binary-search/</loc>
     <lastmod>2022-05-04</lastmod>
   </url>
   <url>
@@ -127,10 +147,6 @@
   <url>
     <loc>http://kingsleynuaa.github.io/2022/04/10/leetcode/leetcode-first-missing-positive/</loc>
     <lastmod>2022-04-11</lastmod>
-  </url>
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/04/10/leetcode/leetcode-sorted-matrix-search-lcci/</loc>
-    <lastmod>2022-04-10</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/04/10/leetcode/leetcode-remove-duplicates-from-sorted-list/</loc>
