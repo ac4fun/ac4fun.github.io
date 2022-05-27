@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-05-20T00:28:13.856Z</updated>
+  <updated>2022-05-27T01:39:10.700Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,19 +17,152 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>221. 最大正方形</title>
+    <title>N皇后(系列)</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/</id>
+    <published>2022-05-27T01:37:09.000Z</published>
+    <updated>2022-05-27T01:39:10.700Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;51-N-皇后&quot;&gt;&lt;a href=&quot;#51-N-皇后&quot; class=&quot;headerlink&quot; title=&quot;51. N 皇后&quot;&gt;&lt;/a&gt;51. N 皇后&lt;/h1&gt;&lt;p&gt;n 皇后问题 研究的是如何将 n 个皇后放置在 n×n</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="backtracking" scheme="http://kingsleynuaa.github.io/tags/backtracking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>295. 数据流的中位数</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/24/leetcode-find-median-from-data-stream/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/24/leetcode-find-median-from-data-stream/</id>
+    <published>2022-05-24T04:23:52.000Z</published>
+    <updated>2022-05-27T01:36:14.064Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。&lt;/p&gt;
+&lt;p&gt;例如，&lt;/p&gt;
+&lt;p&gt;[2,3,4] 的中位数是 3&lt;/p&gt;
+&lt;p&gt;[2,3] 的中位数是 (2 + 3) / 2 =</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="sort" scheme="http://kingsleynuaa.github.io/tags/sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>10. 正则表达式匹配&amp;44. 通配符匹配</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/23/leetcode-regular-expression-matching/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/23/leetcode-regular-expression-matching/</id>
+    <published>2022-05-23T11:40:45.000Z</published>
+    <updated>2022-05-24T04:22:52.981Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;10-正则表达式匹配&quot;&gt;&lt;a href=&quot;#10-正则表达式匹配&quot; class=&quot;headerlink&quot; title=&quot;10. 正则表达式匹配&quot;&gt;&lt;/a&gt;10. 正则表达式匹配&lt;/h1&gt;&lt;p&gt;给你一个字符串 s 和一个字符规律 p，请你来实现一个支持</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>189. 轮转数组</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/22/leetcode-rotate-array/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/22/leetcode-rotate-array/</id>
+    <published>2022-05-22T04:35:32.000Z</published>
+    <updated>2022-05-23T11:41:12.053Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例 1:&lt;/p&gt;
+&lt;p&gt;输入: nums = [1,2,3,4,5,6,7], k = 3&lt;br&gt;输出: [5,6,7,1,2,3,4]&lt;br&gt;解释:&lt;br&gt;向右轮转</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1277. 统计全为 1 的正方形子矩阵</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/20/leetcode-count-square-submatrices-with-all-ones/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/20/leetcode-count-square-submatrices-with-all-ones/</id>
+    <published>2022-05-20T14:01:23.000Z</published>
+    <updated>2022-05-20T14:03:31.528Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个 m * n 的矩阵，矩阵中的元素不是 0 就是 1，请你统计并返回其中完全由 1 组成的 正方形 子矩阵的个数。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：matrix =&lt;br&gt;[&lt;br&gt;  [0,1,1,1],&lt;br&gt; </summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最大正方形和最大矩形</title>
     <link href="http://kingsleynuaa.github.io/2022/05/18/leetcode-maximal-square/"/>
     <id>http://kingsleynuaa.github.io/2022/05/18/leetcode-maximal-square/</id>
     <published>2022-05-18T15:30:39.000Z</published>
-    <updated>2022-05-20T00:28:13.856Z</updated>
+    <updated>2022-05-22T04:26:29.986Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;在一个由 ‘0’ 和 ‘1’ 组成的二维矩阵内，找到只包含 ‘1’ 的最大正方形，并返回其面积。&lt;/p&gt;
-&lt;p&gt;示例 1：&lt;br&gt;输入：matrix =</summary>
+    <summary type="html">&lt;h1 id=&quot;221-最大正方形&quot;&gt;&lt;a href=&quot;#221-最大正方形&quot; class=&quot;headerlink&quot; title=&quot;221. 最大正方形&quot;&gt;&lt;/a&gt;221. 最大正方形&lt;/h1&gt;&lt;p&gt;在一个由 ‘0’ 和 ‘1’ 组成的二维矩阵内，找到只包含 ‘1’</summary>
         
       
     
@@ -423,142 +556,6 @@
     
     
     <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>887. 鸡蛋掉落</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/04/leetcode/leetcode-super-egg-drop/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/04/leetcode/leetcode-super-egg-drop/</id>
-    <published>2022-05-04T01:03:48.000Z</published>
-    <updated>2022-05-04T03:43:31.360Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你 k 枚相同的鸡蛋，并可以使用一栋从第 1 层到第 n 层共有 n 层楼的建筑。&lt;/p&gt;
-&lt;p&gt;已知存在楼层 f ，满足 0 &amp;lt;= f &amp;lt;= n ，任何从 高于 f 的楼层落下的鸡蛋都会碎，从 f</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>二分查找以及多种变形</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/03/leetcode/leetcode-binary-search/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/03/leetcode/leetcode-binary-search/</id>
-    <published>2022-05-03T05:17:59.000Z</published>
-    <updated>2022-05-14T08:22:21.011Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;原始题&quot;&gt;&lt;a href=&quot;#原始题&quot; class=&quot;headerlink&quot; title=&quot;原始题&quot;&gt;&lt;/a&gt;原始题&lt;/h1&gt;&lt;p&gt;给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="search" scheme="http://kingsleynuaa.github.io/tags/search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>9. 回文数</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/29/leetcode/leetcode-palindrome-number/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/29/leetcode/leetcode-palindrome-number/</id>
-    <published>2022-04-29T05:16:00.000Z</published>
-    <updated>2022-05-03T05:17:33.530Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。&lt;/p&gt;
-&lt;p&gt;回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。&lt;/p&gt;
-&lt;p&gt;例如，121 是回文，而 123 不是。
- &lt;/p&gt;
-&lt;p&gt;示例</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="math" scheme="http://kingsleynuaa.github.io/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>14. 最长公共前缀</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/27/leetcode/leetcode-longest-common-prefix/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/27/leetcode/leetcode-longest-common-prefix/</id>
-    <published>2022-04-27T00:54:02.000Z</published>
-    <updated>2022-05-03T05:15:39.982Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
-&lt;p&gt;如果不存在公共前缀，返回空字符串 “”。&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;p&gt;示例 1：&lt;/p&gt;
-&lt;p&gt;输入：strs = [“flower”,”flow”,”flight”]&lt;br&gt;输出：”fl”&lt;br&gt;示例</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>32. 最长有效括号</title>
-    <link href="http://kingsleynuaa.github.io/2022/04/23/leetcode/leetcode-longest-valid-parentheses/"/>
-    <id>http://kingsleynuaa.github.io/2022/04/23/leetcode/leetcode-longest-valid-parentheses/</id>
-    <published>2022-04-23T00:00:59.000Z</published>
-    <updated>2022-04-27T00:54:30.140Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个只包含 ‘(‘和 ‘)’的字符串，找出最长有效（格式正确且连续）括号子串的长度。&lt;/p&gt;
-&lt;p&gt;示例 1：&lt;br&gt;输入：s = “(()”&lt;br&gt;输出：2&lt;br&gt;解释：最长有效括号子串是 “()”&lt;/p&gt;
-&lt;p&gt;示例 2：&lt;br&gt;输入：s =</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
     
   </entry>
   

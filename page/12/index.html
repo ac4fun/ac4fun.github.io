@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">105</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">110</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -222,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/19/leetcode/leetcode-permutation/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-valid-palindrome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -236,7 +236,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/19/leetcode/leetcode-permutation/" class="post-title-link" itemprop="url">字符串排列(系列)</a>
+            <a href="/2022/03/20/leetcode/leetcode-valid-palindrome/" class="post-title-link" itemprop="url">验证回文串</a>
         </h2>
 
         <div class="post-meta">
@@ -246,16 +246,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-03-19 14:08:38" itemprop="dateCreated datePublished" datetime="2022-03-19T14:08:38+08:00">2022-03-19</time>
+              <time title="创建时间：2022-03-20 16:39:43 / 修改时间：17:17:05" itemprop="dateCreated datePublished" datetime="2022-03-20T16:39:43+08:00">2022-03-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-17 20:15:09" itemprop="dateModified" datetime="2022-04-17T20:15:09+08:00">2022-04-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -274,7 +268,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>811</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,20 +287,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h1><p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
-<p>你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。</p>
+          <p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
 <p> </p>
-<p>示例:</p>
-<p>输入：s = “abc”<br>输出：[“abc”,”acb”,”bac”,”bca”,”cab”,”cba”]</p>
-<h2 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h2><p>其实就是穷举法</p>
-<p>从左往右依次填入字符，为了避免在同一位置填入相同元素需要设置一个标记数组来记录元素访问情况</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permutation</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">str</span>]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">backtrack</span>(<span class="params">s, i, n, res</span>):</span></span><br><span class="line">            <span class="keyword">if</span> i == n:</span><br><span class="line">                result.append(res)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> visited[j] <span class="keyword">or</span> (j &gt; <span class="number">0</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[j-<span class="number">1</span>] <span class="keyword">and</span> s[j-<span class="number">1</span>]==s[j]):</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                visited[j] = <span class="literal">True</span></span><br><span class="line">                res += s[j]</span><br><span class="line">                backtrack(<span class="built_in">list</span>(s), i+<span class="number">1</span>, n, res)</span><br><span class="line">                visited[j] = <span class="literal">False</span></span><br><span class="line">                res = res[:-<span class="number">1</span>]</span><br><span class="line">        result = []</span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        visited = [<span class="literal">False</span>]*n</span><br><span class="line">        s = <span class="built_in">list</span>(s)</span><br><span class="line">        s.sort()</span><br><span class="line">        backtrack(s, <span class="number">0</span>, n, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-
-<h1 id="47-全排列-II"><a href="#47-全排列-II" class="headerlink" title="47. 全排列 II"></a>47. 全排列 II</h1><p>给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。</p>
-<p>示例 1：<br>输入：nums = [1,1,2]<br>输出：<br>[[1,1,2],<br> [1,2,1],<br> [2,1,1]]</p>
-<p>示例 2：<br>输入：nums = [1,2,3]<br>输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</p>
+<p>示例 1:</p>
+<p>输入: “A man, a plan, a canal: Panama”<br>输出: true<br>解释：”amanaplanacanalpanama” 是回文串<br>示例 2:</p>
+<p>输入: “race a car”<br>输出: false<br>解释：”raceacar” 不是回文串</p>
 <hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; vis;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; ans, vector&lt;<span class="keyword">int</span>&gt;&amp; perm, <span class="keyword">int</span> index, vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (index == nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">                ans.<span class="built_in">emplace_back</span>(perm);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (vis[i] || (i &gt; <span class="number">0</span> &amp;&amp; nums[i<span class="number">-1</span>] == nums[i] &amp;&amp; !vis[i<span class="number">-1</span>])) <span class="keyword">continue</span>;</span><br><span class="line">                perm.<span class="built_in">emplace_back</span>(nums[i]);</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">backtrack</span>(ans, perm, index+<span class="number">1</span>, nums);</span><br><span class="line">                vis[i] = <span class="number">0</span>;</span><br><span class="line">                perm.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">permuteUnique</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vis.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; perm;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">backtrack</span>(ans, perm, <span class="number">0</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一种是先过滤掉非数字和字符串的字符，然后判断<br>一种是直接判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidChar</span>(<span class="params">self, s</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;0&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = n-<span class="number">1</span></span><br><span class="line">        mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            <span class="keyword">while</span> left &lt; n <span class="keyword">and</span> <span class="keyword">not</span> self.isValidChar(s[left]):</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &gt; -<span class="number">1</span> <span class="keyword">and</span> <span class="keyword">not</span> self.isValidChar(s[right]):</span><br><span class="line">                right = right - <span class="number">1</span></span><br><span class="line">            <span class="comment"># print(left, right)</span></span><br><span class="line">            <span class="keyword">if</span> left &lt; right:</span><br><span class="line">                <span class="keyword">if</span> s[left].lower() != s[right].lower():</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                    right = right - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -326,7 +315,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/13/leetcode/leetcode-merge-k-sorted-lists/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-maximum-depth-of-binary-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -340,7 +329,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/13/leetcode/leetcode-merge-k-sorted-lists/" class="post-title-link" itemprop="url">合并K个升序链表</a>
+            <a href="/2022/03/20/leetcode/leetcode-maximum-depth-of-binary-tree/" class="post-title-link" itemprop="url">二叉树的最大深度</a>
         </h2>
 
         <div class="post-meta">
@@ -350,16 +339,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-03-13 08:35:55" itemprop="dateCreated datePublished" datetime="2022-03-13T08:35:55+08:00">2022-03-13</time>
+              <time title="创建时间：2022-03-20 16:14:03 / 修改时间：16:38:36" itemprop="dateCreated datePublished" datetime="2022-03-20T16:14:03+08:00">2022-03-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-19 14:01:17" itemprop="dateModified" datetime="2022-03-19T14:01:17+08:00">2022-03-19</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -378,7 +361,102 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>929</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个二叉树，找出其最大深度。</p>
+<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
+<p>说明: 叶子节点是指没有子节点的节点。</p>
+<p>示例：<br>给定二叉树 [3,9,20,null,null,15,7]，</p>
+<pre><code>3
+</code></pre>
+<p>   / <br>  9  20<br>    /  <br>   15   7<br>返回它的最大深度 3 。</p>
+<h1 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h1><p>也就是广度优先</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.append((root, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">                p, _ = queue.popleft()</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append((p.left, <span class="number">1</span>))</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    queue.append((p.right, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        left_level = self.maxDepth(root.left)</span><br><span class="line">        right_level = self.maxDepth(root.right)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(left_level, right_level)+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-number-of-islands/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/20/leetcode/leetcode-number-of-islands/" class="post-title-link" itemprop="url">岛屿数量</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-20 14:07:40 / 修改时间：16:14:43" itemprop="dateCreated datePublished" datetime="2022-03-20T14:07:40+08:00">2022-03-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -397,162 +475,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="23-合并K个升序链表"><a href="#23-合并K个升序链表" class="headerlink" title="23. 合并K个升序链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">23. 合并K个升序链表</a></h4><p>给你一个链表数组，每个链表都已经按升序排列。</p>
-<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
-<p> </p>
+          <p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p>
+<p>此外，你可以假设该网格的四条边均被水包围。</p>
 <p>示例 1：</p>
-<p>输入：lists = [[1,4,5],[1,3,4],[2,6]]<br>输出：[1,1,2,3,4,4,5,6]<br>解释：链表数组如下：<br>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]<br>将它们合并到一个有序链表中得到。<br>1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6<br>示例 2：</p>
-<p>输入：lists = []<br>输出：[]<br>示例 3：</p>
-<p>输入：lists = [[]]<br>输出：[]</p>
+<p>输入：grid = [<br>  [“1”,”1”,”1”,”1”,”0”],<br>  [“1”,”1”,”0”,”1”,”0”],<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“0”,”0”,”0”,”0”,”0”]<br>]<br>输出：1<br>示例 2：</p>
+<p>输入：grid = [<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“0”,”0”,”1”,”0”,”0”],<br>  [“0”,”0”,”0”,”1”,”1”]<br>]<br>输出：3</p>
 <hr>
-<p>没想到居然是一个困难题</p>
-<h1 id="循环使用-2个链表合并的思路处理"><a href="#循环使用-2个链表合并的思路处理" class="headerlink" title="循环使用 2个链表合并的思路处理"></a>循环使用 2个链表合并的思路处理</h1><p>时间复杂度：由于除第一个链表外，其他每个链表都要被遍历多次，<br>等差数列：<br>第一次合并后，链表长度：2n<br>第二次合并后，链表长度：3n<br>第k-1次合并后，链表长度：kn<br>合计遍历(2+k)n*(k-1)/2=O(k^2*n)</p>
-<p>空间复杂度O(1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span>(<span class="params">self, lists: <span class="type">List</span>[<span class="type">Optional</span>[ListNode]]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span>(<span class="params">list1, list2</span>):</span></span><br><span class="line">            dummy = ListNode()</span><br><span class="line">            p = dummy</span><br><span class="line">            <span class="keyword">while</span> list1 <span class="keyword">and</span> list2:</span><br><span class="line">                <span class="keyword">if</span> list1.val &lt; list2.val:</span><br><span class="line">                    p.<span class="built_in">next</span> = list1</span><br><span class="line">                    list1 = list1.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p.<span class="built_in">next</span> = list2</span><br><span class="line">                    list2 = list2.<span class="built_in">next</span></span><br><span class="line">                p = p.<span class="built_in">next</span></span><br><span class="line">            </span><br><span class="line">            p.<span class="built_in">next</span> = list1 <span class="keyword">if</span> list1 <span class="keyword">else</span> list2</span><br><span class="line">            <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(lists) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        p = lists[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(lists)):</span><br><span class="line">            p = mergeTwoLists(p, lists[i])</span><br><span class="line">        <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+<h1 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h1><p>遍历网格中的每个元素，如果为”1”，则答案ans计数加1，<br>同时启动深度优先遍历，将上下左右四个方向的连接元素全部标记为非”1”<br>遍历下一个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span>(<span class="params">self, grid: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">grid, row, column</span>):</span></span><br><span class="line">            <span class="comment"># 标记着色</span></span><br><span class="line">            grid[row][column] = ans</span><br><span class="line">            <span class="comment"># 上</span></span><br><span class="line">            <span class="keyword">if</span> row&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row-<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row-<span class="number">1</span>, column)</span><br><span class="line">            <span class="comment"># 下</span></span><br><span class="line">            <span class="keyword">if</span> row &lt; rows-<span class="number">1</span> <span class="keyword">and</span> grid[row+<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row+<span class="number">1</span>, column)</span><br><span class="line">            <span class="comment"># 左</span></span><br><span class="line">            <span class="keyword">if</span> column&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row][column-<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row, column-<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># 右</span></span><br><span class="line">            <span class="keyword">if</span> column&lt;columns-<span class="number">1</span> <span class="keyword">and</span> grid[row][column+<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row, column+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        rows = <span class="built_in">len</span>(grid)</span><br><span class="line">        columns = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(rows):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(columns):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                    ans += <span class="number">1</span></span><br><span class="line">                    dfs(grid, i, j)</span><br><span class="line">        <span class="comment"># print(grid)</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="分治-归并"><a href="#分治-归并" class="headerlink" title="分治+归并"></a>分治+归并</h1><p>k个数组，先两两合并，然后逐步归并。<br>划分深度为logk层，每层每个数都要遍历一次，每层k*n个数<br>时间复杂度O(logk * kn)<br>空间复杂度：栈空间logk，<br>若改为递归，则实际需要kn的额外空间</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span>(<span class="params">self, lists: <span class="type">List</span>[<span class="type">Optional</span>[ListNode]]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span>(<span class="params">list1, list2</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> list1: <span class="keyword">return</span> list2</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> list2: <span class="keyword">return</span> list1</span><br><span class="line">            dummy = ListNode()</span><br><span class="line">            p = dummy</span><br><span class="line">            <span class="keyword">while</span> list1 <span class="keyword">and</span> list2:</span><br><span class="line">                <span class="keyword">if</span> list1.val &lt; list2.val:</span><br><span class="line">                    p.<span class="built_in">next</span> = list1</span><br><span class="line">                    list1 = list1.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p.<span class="built_in">next</span> = list2</span><br><span class="line">                    list2 = list2.<span class="built_in">next</span></span><br><span class="line">                p = p.<span class="built_in">next</span></span><br><span class="line">            </span><br><span class="line">            p.<span class="built_in">next</span> = list1 <span class="keyword">if</span> list1 <span class="keyword">else</span> list2</span><br><span class="line">            <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">mergeHelper</span>(<span class="params">lists, left, right</span>):</span></span><br><span class="line">            <span class="keyword">if</span> left == right: <span class="keyword">return</span> lists[left]</span><br><span class="line">            <span class="keyword">if</span> left &lt; right:</span><br><span class="line">                mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">                list1 = mergeHelper(lists, left, mid)</span><br><span class="line">                list2 = mergeHelper(lists, mid+<span class="number">1</span>, right)</span><br><span class="line">                <span class="keyword">return</span> mergeTwoLists(list1, list2)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> mergeHelper(lists, <span class="number">0</span>, <span class="built_in">len</span>(lists)-<span class="number">1</span>)</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+<h1 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h1><p>这个就是最直观的思路，<br>用一个队列存储已访问的节点，然后出队列的时候，将其上下左右方向”连通”(即值为1)的元素放入队列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span>(<span class="params">self, grid: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        rows = <span class="built_in">len</span>(grid)</span><br><span class="line">        columns = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(rows):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(columns):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                    ans += <span class="number">1</span></span><br><span class="line">                    queue.append((i, j))</span><br><span class="line">                    grid[i][j] = ans</span><br><span class="line">                    queue.append((i, j))</span><br><span class="line">                    <span class="keyword">while</span> queue:</span><br><span class="line">                        row, column = queue.popleft()</span><br><span class="line">                        <span class="keyword">if</span> row&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row-<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row-<span class="number">1</span>, column))</span><br><span class="line">                            grid[row-<span class="number">1</span>][column] = ans</span><br><span class="line">                        <span class="keyword">if</span> row &lt; rows-<span class="number">1</span> <span class="keyword">and</span> grid[row+<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row+<span class="number">1</span>, column))</span><br><span class="line">                            grid[row+<span class="number">1</span>][column] = ans</span><br><span class="line">                        <span class="keyword">if</span> column&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row][column-<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row, column-<span class="number">1</span>))</span><br><span class="line">                            grid[row][column-<span class="number">1</span>] = ans</span><br><span class="line">                        <span class="keyword">if</span> column&lt;columns-<span class="number">1</span> <span class="keyword">and</span> grid[row][column+<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row, column+<span class="number">1</span>))</span><br><span class="line">                            grid[row][column+<span class="number">1</span>] = ans</span><br><span class="line">        <span class="comment"># print(grid)</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        </span><br></pre></td></tr></table></figure>
 
-<h1 id="同时比较k个链表中开头的值，并用最小堆优化"><a href="#同时比较k个链表中开头的值，并用最小堆优化" class="headerlink" title="同时比较k个链表中开头的值，并用最小堆优化"></a>同时比较k个链表中开头的值，并用最小堆优化</h1><p>时间复杂度：n个节点，k为最小堆的大小，每个节点必进出最小堆一次,堆调整O(logk),整体O(nlogk)<br>空间复杂度：即为堆的大小，O(logk)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span>(<span class="params">self, lists: <span class="type">List</span>[<span class="type">Optional</span>[ListNode]]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span></span><br><span class="line">        <span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line">        heaq = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lists)):</span><br><span class="line">            <span class="keyword">if</span> lists[i]:</span><br><span class="line">                heappush(heaq, (lists[i].val, i))</span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        head = dummy</span><br><span class="line">        <span class="keyword">while</span> heaq:</span><br><span class="line">            _, min_index = heappop(heaq)</span><br><span class="line">            head.<span class="built_in">next</span> = lists[min_index]</span><br><span class="line">            head = head.<span class="built_in">next</span></span><br><span class="line">            lists[min_index] = lists[min_index].<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">if</span> lists[min_index]:</span><br><span class="line">                heappush(heaq, (lists[min_index].val, min_index))</span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/12/leetcode/leetcode-best-time-to-buy-and-sell-stock/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/12/leetcode/leetcode-best-time-to-buy-and-sell-stock/" class="post-title-link" itemprop="url">买卖股票的最佳时机-系列</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-12 08:35:10" itemprop="dateCreated datePublished" datetime="2022-03-12T08:35:10+08:00">2022-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-18 08:35:43" itemprop="dateModified" datetime="2022-03-18T08:35:43+08:00">2022-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="第一种类型：买卖限制各一次"><a href="#第一种类型：买卖限制各一次" class="headerlink" title="第一种类型：买卖限制各一次"></a>第一种类型：买卖限制各一次</h1><p>给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。</p>
-<p>你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
-<p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p>
-<p> </p>
-<p>示例 1：</p>
-<p>输入：[7,1,5,3,6,4]<br>输出：5<br>解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。<br>示例 2：</p>
-<p>输入：prices = [7,6,4,3,1]<br>输出：0<br>解释：在这种情况下, 没有交易完成, 所以最大利润为 0。</p>
-<hr>
-<h2 id="暴力法-无法通过OJ"><a href="#暴力法-无法通过OJ" class="headerlink" title="暴力法 无法通过OJ"></a>暴力法 无法通过OJ</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        result = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(prices)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(prices)):</span><br><span class="line">                tmp = prices[j] - prices[i]</span><br><span class="line">                <span class="keyword">if</span> tmp &gt; result:</span><br><span class="line">                    result = tmp</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-
-<h2 id="一次遍历"><a href="#一次遍历" class="headerlink" title="一次遍历"></a>一次遍历</h2><p>因此，我们只需要遍历价格数组一遍，记录历史最低点，然后在每一天考虑这么一个问题：如果我是在历史最低点买进的，那么我今天卖出能赚多少钱？当考虑完所有天数之时，我们就得到了最好的答案。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        result = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(prices) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">        min_price = prices[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(prices)):</span><br><span class="line">            <span class="keyword">if</span> prices[i] &lt; min_price:</span><br><span class="line">                min_price = prices[i]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                profit = prices[i] - min_price</span><br><span class="line">                <span class="keyword">if</span> profit &gt; result:</span><br><span class="line">                    result = profit</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="不限制买卖次数-但是持有股票不超过1支"><a href="#不限制买卖次数-但是持有股票不超过1支" class="headerlink" title="不限制买卖次数, 但是持有股票不超过1支"></a>不限制买卖次数, 但是持有股票不超过1支</h1><p> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">买卖股票的最佳时机 II</a><br>给定一个数组 prices ，其中 prices[i] 表示股票第 i 天的价格。</p>
-<p>在每一天，你可能会决定购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以购买它，然后在 同一天 出售。<br>返回 你能获得的 最大 利润 。</p>
-<p> <br>示例 1:<br>输入: prices = [7,1,5,3,6,4]<br>输出: 7<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。<br>     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。</p>
-<p>示例 2:<br>输入: prices = [1,2,3,4,5]<br>输出: 4<br>解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。<br>     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</p>
-<p>示例 3:<br>输入: prices = [7,6,4,3,1]<br>输出: 0<br>解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</p>
-<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>收集所有的上坡即可拿到所有的收益</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxProfit</span><span class="params">(prices []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    ans := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(prices); i++&#123;</span><br><span class="line">        ans += max(<span class="number">0</span>, prices[i]-prices[i<span class="number">-1</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> x &gt; y&#123;</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="动态规划的思想"><a href="#动态规划的思想" class="headerlink" title="动态规划的思想"></a>动态规划的思想</h2><p>由于限制了每天的最多只能持有一只股票，所以每天手头可以拥有的股票数是0或1只。<br>分别用dp[i][0]、dp[i][1]表示第i天交易完成后手头有0和1只股票情况下的最大收益。<br>dp[i][0] = max(dp[i-1][1]+prices[i], dp[i-1][0])<br>dp[i][1] = max(dp[i-1][0]-prices[i], dp[i-1][1])</p>
-<p>其中dp[0][0] = 0, dp[0][1] = -prices[0]</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">func maxProfit(prices <span class="comment">[]</span>int) int &#123;</span><br><span class="line">    dp := make(<span class="comment">[]</span><span class="comment">[2]</span>int, len(prices))</span><br><span class="line">    dp<span class="comment">[0]</span><span class="comment">[1]</span> = -prices<span class="comment">[0]</span></span><br><span class="line">    for i := 1; i &lt; len(prices); i++&#123;</span><br><span class="line">        dp<span class="comment">[i]</span><span class="comment">[0]</span> = max(dp<span class="comment">[i-1]</span><span class="comment">[1]</span>+prices<span class="comment">[i]</span>, dp<span class="comment">[i-1]</span><span class="comment">[0]</span>)</span><br><span class="line">        dp<span class="comment">[i]</span><span class="comment">[1]</span> = max(dp<span class="comment">[i-1]</span><span class="comment">[0]</span>-prices<span class="comment">[i]</span>, dp<span class="comment">[i-1]</span><span class="comment">[1]</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    return dp<span class="comment">[len(prices)-1]</span><span class="comment">[0]</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func max(x, y int) int&#123;</span><br><span class="line">    if x &gt; y&#123;</span><br><span class="line">        return x</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="限制只能交易2次"><a href="#限制只能交易2次" class="headerlink" title="限制只能交易2次"></a>限制只能交易2次</h1><h4 id="123-买卖股票的最佳时机-III"><a href="#123-买卖股票的最佳时机-III" class="headerlink" title="123. 买卖股票的最佳时机 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">123. 买卖股票的最佳时机 III</a></h4><p>给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。</p>
-<p>设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。</p>
-<p>注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
-<p> </p>
-<p>示例 1:</p>
-<p>输入：prices = [3,3,5,0,0,3,1,4]<br>输出：6<br>解释：在第 4 天（股票价格 = 0）的时候买入，在第 6 天（股票价格 = 3）的时候卖出，这笔交易所能获得利润 = 3-0 = 3 。<br>     随后，在第 7 天（股票价格 = 1）的时候买入，在第 8 天 （股票价格 = 4）的时候卖出，这笔交易所能获得利润 = 4-1 = 3 。<br>示例 2：</p>
-<p>输入：prices = [1,2,3,4,5]<br>输出：4<br>解释：在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。  <br>     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。  <br>     因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。<br>示例 3：</p>
-<p>输入：prices = [7,6,4,3,1]<br>输出：0<br>解释：在这个情况下, 没有交易完成, 所以最大利润为 0。<br>示例 4：</p>
-<p>输入：prices = [1]<br>输出：0</p>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>只允许交易两次，那么任意一天的状态可以分为5种：</p>
-<ul>
-<li>0次交易</li>
-<li>1次买入</li>
-<li>1次买入1次卖出</li>
-<li>1次交易 1次买入</li>
-<li>2次交易<br>第一种情况收益为0，不考虑<br>分别记为buy1，sell1，buy2，sell2，则转移方程为：<br>buy1[i] = max(buy1[i-1], -prices[i])<br>sell1[i] = max(sell1[i-1], buy[i-1]+prices[i])<br>buy2[i] = max(buy2[i-1], sell1[i-1]-prices[i])<br>sell2[i] = max(sell2[i-1], buy2[i-1]+prices[i])<br>初始化值为：<br>buy1[0] = -prices[0]<br>sell1[0] = 0<br>buy2=-prices[0]<br>sell2=0</li>
-</ul>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">func maxProfit(prices <span class="comment">[]</span>int) int &#123;</span><br><span class="line">    n := len(prices)</span><br><span class="line">    buy1 := make(<span class="comment">[]</span>int, n)</span><br><span class="line">    sell1 := make(<span class="comment">[]</span>int, n)</span><br><span class="line">    buy2 := make(<span class="comment">[]</span>int, n)</span><br><span class="line">    sell2 := make(<span class="comment">[]</span>int, n)</span><br><span class="line">    buy1<span class="comment">[0]</span>, sell1<span class="comment">[0]</span> = -prices<span class="comment">[0]</span>, 0</span><br><span class="line">    buy2<span class="comment">[0]</span>, sell2<span class="comment">[0]</span> = -prices<span class="comment">[0]</span>, 0</span><br><span class="line">    // fmt.Println(buy1,sell1, buy2, sell2)</span><br><span class="line">    for i := 1; i &lt; len(prices);i++&#123;</span><br><span class="line">        buy1<span class="comment">[i]</span> = max(buy1<span class="comment">[i-1]</span>, -prices<span class="comment">[i]</span>)</span><br><span class="line">        sell1<span class="comment">[i]</span> = max(sell1<span class="comment">[i-1]</span>, buy1<span class="comment">[i-1]</span>+prices<span class="comment">[i]</span>)</span><br><span class="line">        buy2<span class="comment">[i]</span> = max(buy2<span class="comment">[i-1]</span>, sell1<span class="comment">[i-1]</span>-prices<span class="comment">[i]</span>)</span><br><span class="line">        sell2<span class="comment">[i]</span> = max(sell2<span class="comment">[i-1]</span>, buy2<span class="comment">[i-1]</span>+prices<span class="comment">[i]</span>)</span><br><span class="line">        // fmt.Println(i, -prices<span class="comment">[i]</span>, buy1,sell1, buy2, sell2)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(sell1, sell2)</span><br><span class="line">    return max(sell2<span class="comment">[n-1]</span>, sell1<span class="comment">[n-1]</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func max(a, b int) int &#123;</span><br><span class="line">    if a &gt; b &#123;</span><br><span class="line">        return a</span><br><span class="line">    &#125;</span><br><span class="line">    return b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="限制改为最多进行k次交易，仍然限制最多只能同时持有1只股票"><a href="#限制改为最多进行k次交易，仍然限制最多只能同时持有1只股票" class="headerlink" title="限制改为最多进行k次交易，仍然限制最多只能同时持有1只股票"></a>限制改为最多进行k次交易，仍然限制最多只能同时持有1只股票</h1><p>这块还没有特别懂</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">func maxProfit(k int, prices <span class="comment">[]</span>int) int &#123;</span><br><span class="line">    n := len(prices)</span><br><span class="line">    if n == 0&#123;</span><br><span class="line">        return 0</span><br><span class="line">    &#125;</span><br><span class="line">    buy := make(<span class="comment">[]</span><span class="comment">[]</span>int, n)</span><br><span class="line">    sell := make(<span class="comment">[]</span><span class="comment">[]</span>int, n)</span><br><span class="line">    for i, _ := range buy&#123;</span><br><span class="line">        buy<span class="comment">[i]</span> = make(<span class="comment">[]</span>int, k+1)</span><br><span class="line">        sell<span class="comment">[i]</span> = make(<span class="comment">[]</span>int, k+1)</span><br><span class="line">    &#125;</span><br><span class="line">    for i := 1; i &lt;= k; i++ &#123;</span><br><span class="line">        buy<span class="comment">[0]</span><span class="comment">[i]</span> = math.MinInt64 / 2</span><br><span class="line">        sell<span class="comment">[0]</span><span class="comment">[i]</span> = math.MinInt64 / 2</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    buy<span class="comment">[0]</span><span class="comment">[0]</span> = -prices<span class="comment">[0]</span></span><br><span class="line">    for i := 1; i &lt; n; i++&#123;</span><br><span class="line">        buy<span class="comment">[i]</span><span class="comment">[0]</span> = max(buy<span class="comment">[i-1]</span><span class="comment">[0]</span>, sell<span class="comment">[i-1]</span><span class="comment">[0]</span>-prices<span class="comment">[i]</span>)</span><br><span class="line">        </span><br><span class="line">        for j := 1; j &lt;= k; j++&#123;</span><br><span class="line">            buy<span class="comment">[i]</span><span class="comment">[j]</span> = max(buy<span class="comment">[i-1]</span><span class="comment">[j]</span>, sell<span class="comment">[i-1]</span><span class="comment">[j]</span>-prices<span class="comment">[i]</span>)</span><br><span class="line">            sell<span class="comment">[i]</span><span class="comment">[j]</span> = max(sell<span class="comment">[i-1]</span><span class="comment">[j]</span>, buy<span class="comment">[i-1]</span><span class="comment">[j-1]</span>+prices<span class="comment">[i]</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return max(sell<span class="comment">[n-1]</span>...)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func max(a ...int) int&#123;</span><br><span class="line">    res := a<span class="comment">[0]</span></span><br><span class="line">    for _, v := range a&#123;</span><br><span class="line">        if v &gt; res&#123;</span><br><span class="line">            res = v</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p>TODO</p>
 
       
     </div>
@@ -572,7 +508,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/12/leetcode/leetcode-min-stack/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-binary-tree-right-side-view/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -586,7 +522,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/12/leetcode/leetcode-min-stack/" class="post-title-link" itemprop="url">最小栈</a>
+            <a href="/2022/03/20/leetcode/leetcode-binary-tree-right-side-view/" class="post-title-link" itemprop="url">二叉树的右视图</a>
         </h2>
 
         <div class="post-meta">
@@ -596,16 +532,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-03-12 08:33:30" itemprop="dateCreated datePublished" datetime="2022-03-12T08:33:30+08:00">2022-03-12</time>
+              <time title="创建时间：2022-03-20 13:49:07 / 修改时间：14:06:30" itemprop="dateCreated datePublished" datetime="2022-03-20T13:49:07+08:00">2022-03-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-18 08:34:59" itemprop="dateModified" datetime="2022-03-18T08:34:59+08:00">2022-03-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -624,115 +554,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
-<p>实现 MinStack 类:</p>
-<p>MinStack() 初始化堆栈对象。<br>void push(int val) 将元素val推入堆栈。<br>void pop() 删除堆栈顶部的元素。<br>int top() 获取堆栈顶部的元素。<br>int getMin() 获取堆栈中的最小元素。
- </p>
-<p>示例 1:</p>
-<p>输入：<br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
-<p>输出：<br>[null,null,null,null,-3,null,0,-2]</p>
-<p>解释：<br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
-<hr>
-<h1 id="辅助栈-python实现"><a href="#辅助栈-python实现" class="headerlink" title="辅助栈-python实现"></a>辅助栈-python实现</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.stack = []</span><br><span class="line">        self.min_stack = [math.inf]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        self.stack.append(val)</span><br><span class="line">        self.min_stack.append(<span class="built_in">min</span>(val, self.getMin()))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        self.stack.pop()</span><br><span class="line">        self.min_stack.pop()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.stack[-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getMin</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.min_stack[-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = MinStack()</span></span><br><span class="line"><span class="comment"># obj.push(val)</span></span><br><span class="line"><span class="comment"># obj.pop()</span></span><br><span class="line"><span class="comment"># param_3 = obj.top()</span></span><br><span class="line"><span class="comment"># param_4 = obj.getMin()</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="辅助栈-go实现"><a href="#辅助栈-go实现" class="headerlink" title="辅助栈-go实现"></a>辅助栈-go实现</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">type MinStack struct &#123;</span><br><span class="line">    stack []int</span><br><span class="line">    minStack []int</span><br><span class="line">    length int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func Constructor() MinStack &#123;</span><br><span class="line">    <span class="keyword">return</span> MinStack&#123;</span><br><span class="line">        stack: []int&#123;&#125;,</span><br><span class="line">        minStack: []int&#123;math.MaxInt64&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) Push(<span class="keyword">val</span> int)  &#123;</span><br><span class="line">    <span class="keyword">this</span>.stack = append(<span class="keyword">this</span>.stack, <span class="keyword">val</span>)</span><br><span class="line">    top := <span class="keyword">this</span>.minStack[len(<span class="keyword">this</span>.minStack)-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">this</span>.minStack = append(<span class="keyword">this</span>.minStack, min(top, <span class="keyword">val</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) Pop()  &#123;</span><br><span class="line">    <span class="keyword">this</span>.stack = <span class="keyword">this</span>.stack[:len(<span class="keyword">this</span>.stack)-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">this</span>.minStack = <span class="keyword">this</span>.minStack[:len(<span class="keyword">this</span>.minStack)-<span class="number">1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) Top() int &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack[len(<span class="keyword">this</span>.stack)-<span class="number">1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) GetMin() int &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.minStack[len(<span class="keyword">this</span>.minStack)-<span class="number">1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func min(x, y int) int &#123;</span><br><span class="line">    <span class="keyword">if</span> x &lt; y &#123;</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * obj := Constructor();</span></span><br><span class="line"><span class="comment"> * obj.Push(val);</span></span><br><span class="line"><span class="comment"> * obj.Pop();</span></span><br><span class="line"><span class="comment"> * param_3 := obj.Top();</span></span><br><span class="line"><span class="comment"> * param_4 := obj.GetMin();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="存储和最小值的差值"><a href="#存储和最小值的差值" class="headerlink" title="存储和最小值的差值"></a>存储和最小值的差值</h1><h2 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.stack = []</span><br><span class="line">        self.min_value = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.stack:</span><br><span class="line">            self.stack.append(<span class="number">0</span>)</span><br><span class="line">            self.min_value = val</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        diff = val - self.min_value</span><br><span class="line">        <span class="comment"># 当出现更小的数时，此时更新min_value</span></span><br><span class="line">        <span class="keyword">if</span> diff &lt; <span class="number">0</span>:</span><br><span class="line">            self.min_value = val</span><br><span class="line">        self.stack.append(diff)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.stack:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        diff = self.stack.pop()</span><br><span class="line">        top = self.min_value + diff</span><br><span class="line">        <span class="comment"># 弹出时为负数，此时最小值即为栈顶值</span></span><br><span class="line">        <span class="keyword">if</span> diff &lt; <span class="number">0</span>:</span><br><span class="line">            top = self.min_value</span><br><span class="line">            self.min_value = self.min_value - diff</span><br><span class="line">        <span class="keyword">return</span> top</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.stack:</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        diff = self.stack[-<span class="number">1</span>]</span><br><span class="line">        top = self.min_value + diff</span><br><span class="line">        <span class="keyword">if</span> diff &lt; <span class="number">0</span>:</span><br><span class="line">            top = self.min_value</span><br><span class="line">        <span class="keyword">return</span> top</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getMin</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.stack:</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.min_value</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = MinStack()</span></span><br><span class="line"><span class="comment"># obj.push(val)</span></span><br><span class="line"><span class="comment"># obj.pop()</span></span><br><span class="line"><span class="comment"># param_3 = obj.top()</span></span><br><span class="line"><span class="comment"># param_4 = obj.getMin()</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="go实现"><a href="#go实现" class="headerlink" title="go实现"></a>go实现</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">type MinStack struct &#123;</span><br><span class="line">    stack []int</span><br><span class="line">    minValue int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func Constructor() MinStack &#123;</span><br><span class="line">    <span class="keyword">return</span> MinStack&#123;</span><br><span class="line">        stack: []int&#123;&#125;,</span><br><span class="line">        minValue: <span class="number">0</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) Push(<span class="keyword">val</span> int)  &#123;</span><br><span class="line">    <span class="keyword">if</span> len(<span class="keyword">this</span>.stack) == <span class="number">0</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stack = append(<span class="keyword">this</span>.stack, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">this</span>.minValue = <span class="keyword">val</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        diff := <span class="keyword">val</span> - <span class="keyword">this</span>.minValue</span><br><span class="line">        <span class="keyword">this</span>.stack = append(<span class="keyword">this</span>.stack, diff)</span><br><span class="line">        <span class="keyword">if</span> diff &lt; <span class="number">0</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.minValue = <span class="keyword">val</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) Pop()  &#123;</span><br><span class="line">    <span class="keyword">if</span> len(<span class="keyword">this</span>.stack) &gt; <span class="number">0</span>&#123;</span><br><span class="line">        diff := <span class="keyword">this</span>.stack[len(<span class="keyword">this</span>.stack)-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> diff &lt; <span class="number">0</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.minValue = <span class="keyword">this</span>.minValue - diff</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.stack = <span class="keyword">this</span>.stack[:len(<span class="keyword">this</span>.stack)-<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) Top() int &#123;</span><br><span class="line">    <span class="keyword">if</span> len(<span class="keyword">this</span>.stack) &gt; <span class="number">0</span>&#123;</span><br><span class="line">        diff := <span class="keyword">this</span>.stack[len(<span class="keyword">this</span>.stack)-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> diff &lt; <span class="number">0</span>&#123;</span><br><span class="line">            top := <span class="keyword">this</span>.minValue</span><br><span class="line">            <span class="keyword">return</span> top</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            top := diff + <span class="keyword">this</span>.minValue</span><br><span class="line">            <span class="keyword">return</span> top</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (<span class="keyword">this</span> *MinStack) GetMin() int &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.minValue</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * obj := Constructor();</span></span><br><span class="line"><span class="comment"> * obj.Push(val);</span></span><br><span class="line"><span class="comment"> * obj.Pop();</span></span><br><span class="line"><span class="comment"> * param_3 := obj.Top();</span></span><br><span class="line"><span class="comment"> * param_4 := obj.GetMin();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/12/leetcode/leetcode-search-in-rotated-sorted-array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/12/leetcode/leetcode-search-in-rotated-sorted-array/" class="post-title-link" itemprop="url">搜索旋转排序数组</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-12 08:32:46" itemprop="dateCreated datePublished" datetime="2022-03-12T08:32:46+08:00">2022-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-18 08:33:18" itemprop="dateModified" datetime="2022-03-18T08:33:18+08:00">2022-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>519</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -751,22 +573,109 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>整数数组 nums 按升序排列，数组中的值 互不相同 。</p>
-<p>在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], …, nums[n-1], nums[0], nums[1], …, nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。</p>
-<p>给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。</p>
-<p> </p>
-<p>示例 1：<br>输入：nums = [4,5,6,7,0,1,2], target = 0<br>输出：4</p>
-<p>示例 2：<br>输入：nums = [4,5,6,7,0,1,2], target = 3<br>输出：-1</p>
-<p>示例 3：<br>输入：nums = [1], target = 0<br>输出：-1</p>
+          <p>给定一个二叉树的 根节点 root，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。</p>
+<h1 id="层序遍历的思路"><a href="#层序遍历的思路" class="headerlink" title="层序遍历的思路"></a>层序遍历的思路</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rightSideView</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        queue = [root]</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            size = <span class="built_in">len</span>(queue)</span><br><span class="line">            ans.append(queue[size-<span class="number">1</span>].val)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">                <span class="comment"># 需要用dequeue改造</span></span><br><span class="line">                p = queue.pop(<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append(p.left)</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    queue.append(p.right)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+
+<h1 id="还可以用深度优先遍历的思路"><a href="#还可以用深度优先遍历的思路" class="headerlink" title="还可以用深度优先遍历的思路"></a>还可以用深度优先遍历的思路</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/19/leetcode/leetcode-trapping-rain-water/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/19/leetcode/leetcode-trapping-rain-water/" class="post-title-link" itemprop="url">接雨水</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-19 20:17:24" itemprop="dateCreated datePublished" datetime="2022-03-19T20:17:24+08:00">2022-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-20 13:41:32" itemprop="dateModified" datetime="2022-03-20T13:41:32+08:00">2022-03-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
+<p>输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]<br>输出：6<br>解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 </p>
 <hr>
-<h1 id="python语言"><a href="#python语言" class="headerlink" title="python语言"></a>python语言</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def search(self, nums: List[int], target: int) -&gt; int:</span><br><span class="line">        low, high = <span class="number">0</span>, <span class="built_in">len</span>(nums)<span class="number">-1</span></span><br><span class="line">        <span class="comment"># 将数组一分为二，其中一定有一个是有序的，另一个可能是有序，也能是部分有序。</span></span><br><span class="line">        <span class="comment"># 此时有序部分用二分法查找。无序部分再一分为二，其中一个一定有序，另一个可能有序，可能无序。就这样循环.</span></span><br><span class="line">        <span class="keyword">while</span> low &lt;= high:</span><br><span class="line">            <span class="keyword">mid</span> = low + (high-low<span class="comment">)//2</span></span><br><span class="line">            print(<span class="string">&#x27;low,high,mid&#x27;</span>, low, high, <span class="keyword">mid</span>)</span><br><span class="line">            <span class="keyword">if</span> nums[<span class="keyword">mid</span>] == target:</span><br><span class="line">                <span class="literal">return</span> <span class="keyword">mid</span></span><br><span class="line">            elif nums[low] &lt;= nums[<span class="keyword">mid</span>]:</span><br><span class="line">                <span class="comment"># 左半有序 且目标值在左部分</span></span><br><span class="line">                <span class="keyword">if</span> nums[low] &lt;= target &lt; nums[<span class="keyword">mid</span>]:</span><br><span class="line">                    high = <span class="keyword">mid</span> - <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    low = <span class="keyword">mid</span> + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 右半有序 且目标值在右部分</span></span><br><span class="line">                <span class="keyword">if</span> nums[high] &gt;= target &gt; nums[<span class="keyword">mid</span>]:</span><br><span class="line">                    low = <span class="keyword">mid</span> + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    high = <span class="keyword">mid</span> - <span class="number">1</span></span><br><span class="line">        <span class="literal">return</span> <span class="number">-1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>从左向右记录当前值及其左边所有数的最大值，left_max<br>从右向左记录right_max</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span>(<span class="params">self, height: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        n = <span class="built_in">len</span>(height)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        left_max = [height[<span class="number">0</span>]] + [<span class="number">0</span>]*(n-<span class="number">1</span>)</span><br><span class="line">        right_max = [<span class="number">0</span>]*(n-<span class="number">1</span>) + [height[-<span class="number">1</span>]]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">            left_max[i] = <span class="built_in">max</span>(left_max[i-<span class="number">1</span>], height[i])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">2</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            right_max[i] = <span class="built_in">max</span>(right_max[i+<span class="number">1</span>], height[i])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            ans += <span class="built_in">min</span>(left_max[i], right_max[i]) - height[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="go语言"><a href="#go语言" class="headerlink" title="go语言"></a>go语言</h1><p>go的执行效率比python真是高太多了</p>
-<figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">func search(nums []<span class="keyword">int</span>, <span class="built_in">target</span> <span class="keyword">int</span>) <span class="keyword">int</span> &#123;</span><br><span class="line">    low, high := <span class="number">0</span>, len(nums)-<span class="number">1</span></span><br><span class="line">    <span class="comment">// 将数组一分为二，其中一定有一个是有序的，另一个可能是有序，也能是部分有序。</span></span><br><span class="line">    <span class="comment">// 此时有序部分用二分法查找。无序部分再一分为二，其中一个一定有序，另一个可能有序，可能无序。就这样循环.</span></span><br><span class="line">    <span class="comment">// fmt.Println(low, high)</span></span><br><span class="line">    <span class="comment">// print(low, high)</span></span><br><span class="line">    <span class="keyword">for</span> low &lt;= high&#123;</span><br><span class="line">        mid := low + (high-low)/<span class="number">2</span></span><br><span class="line">        <span class="comment">// fmt.Println(low, mid, highc)</span></span><br><span class="line">        <span class="keyword">if</span> nums[mid] == <span class="built_in">target</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> nums[low] &lt;= nums[mid]&#123;    <span class="comment">//左半数组有序, 注意&lt;=</span></span><br><span class="line">            <span class="keyword">if</span> nums[low] &lt;= <span class="built_in">target</span> &amp;&amp; <span class="built_in">target</span> &lt; nums[mid]&#123;</span><br><span class="line">                high = mid - <span class="number">1</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low = mid + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> nums[high] &gt;= <span class="built_in">target</span> &amp;&amp; <span class="built_in">target</span> &gt; nums[mid]&#123;</span><br><span class="line">                low = mid + <span class="number">1</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                high = mid - <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// fmt.Println(&quot;-----&quot;, low, mid, high)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><p>left_max和right_max只记录当前值，一次遍历即可<br>时间复杂度还是O(n)<br>空间复杂度将为O(1)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span>(<span class="params">self, height: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        n = <span class="built_in">len</span>(height)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = n-<span class="number">1</span></span><br><span class="line">        left_max = <span class="number">0</span></span><br><span class="line">        right_max = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            left_max = <span class="built_in">max</span>(left_max, height[left])</span><br><span class="line">            right_max = <span class="built_in">max</span>(right_max, height[right])</span><br><span class="line">            <span class="keyword">if</span> left_max &lt; right_max:</span><br><span class="line">                ans += left_max - height[left]</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ans += right_max - height[right]</span><br><span class="line">                right = right - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-
+<h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><p>TODO</p>
 
       
     </div>
@@ -785,7 +694,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -862,7 +771,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -941,13 +850,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">242k</span>
+    <span title="站点总字数">254k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:40</span>
+    <span title="站点阅读时长">3:51</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

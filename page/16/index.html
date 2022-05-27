@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">105</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">110</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -222,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-remove-nth-node-from-end-of-list/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/03/leetcode/leetcode-intersection-of-two-linked-lists/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -236,7 +236,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/02/27/leetcode/leetcode-remove-nth-node-from-end-of-list/" class="post-title-link" itemprop="url">链表的倒数第K个节点(系列)</a>
+            <a href="/2022/03/03/leetcode/leetcode-intersection-of-two-linked-lists/" class="post-title-link" itemprop="url">两个链表的第一个公共结点</a>
         </h2>
 
         <div class="post-meta">
@@ -247,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-02-27 23:07:58" itemprop="dateCreated datePublished" datetime="2022-02-27T23:07:58+08:00">2022-02-27</time>
+              <time title="创建时间：2022-03-03 23:09:56" itemprop="dateCreated datePublished" datetime="2022-03-03T23:09:56+08:00">2022-03-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-12 18:47:05" itemprop="dateModified" datetime="2022-05-12T18:47:05+08:00">2022-05-12</time>
+                <time title="修改时间：2022-03-04 08:17:08" itemprop="dateModified" datetime="2022-03-04T08:17:08+08:00">2022-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,30 +293,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="剑指-Offer-22-链表中倒数第k个节点"><a href="#剑指-Offer-22-链表中倒数第k个节点" class="headerlink" title="剑指 Offer 22. 链表中倒数第k个节点"></a>剑指 Offer 22. 链表中倒数第k个节点</h1><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
-<p>例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。</p>
-<p> </p>
-<p>示例：</p>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2.</p>
-<p>返回链表 4-&gt;5.</p>
+          <p>给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。</p>
+<p>图示两个链表在节点 c1 开始相交：<br>题目数据 保证 整个链式结构中不存在环。</p>
+<p>注意，函数返回结果后，链表必须 保持其原始结构 。</p>
+<p>自定义评测：</p>
+<p>评测系统 的输入如下（你设计的程序 不适用 此输入）：</p>
+<p>intersectVal - 相交的起始节点的值。如果不存在相交节点，这一值为 0<br>listA - 第一个链表<br>listB - 第二个链表<br>skipA - 在 listA 中（从头节点开始）跳到交叉节点的节点数<br>skipB - 在 listB 中（从头节点开始）跳到交叉节点的节点数<br>评测系统将根据这些输入创建链式数据结构，并将两个头节点 headA 和 headB 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 视作正确答案 。</p>
 <hr>
-<h2 id="双指针法"><a href="#双指针法" class="headerlink" title="双指针法"></a>双指针法</h2><p>让fast和slow均指向dummy，然后先让fast走k步，然后二者一起走，k为NULL时，slow到达目的地。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">getKthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (k &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode *fast = dummy, *slow = dummy;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; fast != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            k--;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (fast == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="直观解法"><a href="#直观解法" class="headerlink" title="直观解法"></a>直观解法</h1><p>先计算长度，然后长链表先走，最后一起走</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span>(<span class="params">self, headA: ListNode, headB: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">        b = <span class="number">0</span></span><br><span class="line">        p = headA</span><br><span class="line">        q = headB</span><br><span class="line">        <span class="comment"># 先计算各自长度</span></span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line">            p = p.<span class="built_in">next</span></span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            q = q.<span class="built_in">next</span></span><br><span class="line">            b += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        p = headA</span><br><span class="line">        q = headB</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;a,b&#x27;</span>, a, b)</span><br><span class="line">        c = a - b</span><br><span class="line">        <span class="keyword">if</span> c &gt; <span class="number">0</span>:</span><br><span class="line">            p = headA</span><br><span class="line">            q = headB</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p = headB</span><br><span class="line">            q = headA</span><br><span class="line">            c = -c</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 长链表先走，然后一起走 </span></span><br><span class="line">        <span class="keyword">while</span> c:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">or</span> <span class="keyword">not</span> q:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            p = p.<span class="built_in">next</span></span><br><span class="line">            c = c - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> p <span class="keyword">and</span> q:</span><br><span class="line">            <span class="keyword">if</span> p == q:</span><br><span class="line">                <span class="keyword">return</span> p</span><br><span class="line">            p = p.<span class="built_in">next</span></span><br><span class="line">            q = q.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
 
+<h1 id="哈希集合"><a href="#哈希集合" class="headerlink" title="哈希集合"></a>哈希集合</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span>(<span class="params">self, headA: ListNode, headB: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        a_dict = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">while</span> headA:</span><br><span class="line">            a_dict[headA] = <span class="number">1</span></span><br><span class="line">            headA = headA.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> headB:</span><br><span class="line">            <span class="keyword">if</span> headB <span class="keyword">in</span> a_dict:</span><br><span class="line">                <span class="keyword">return</span> headB</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                headB = headB.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
 
-<hr>
-<h1 id="19-删除链表的倒数第-N-个结点"><a href="#19-删除链表的倒数第-N-个结点" class="headerlink" title="19. 删除链表的倒数第 N 个结点"></a>19. 删除链表的倒数第 N 个结点</h1><p>给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。<br>输入：head = [1,2,3,4,5], n = 2<br>输出：[1,2,3,5]<br>示例 2：</p>
-<p>输入：head = [1], n = 1<br>输出：[]<br>示例 3：</p>
-<p>输入：head = [1,2], n = 1<br>输出：[1]
- </p>
-<p>提示：</p>
-<p>链表中结点的数目为 sz<br>1 &lt;= sz &lt;= 30<br>0 &lt;= Node.val &lt;= 100<br>1 &lt;= n &lt;= sz</p>
-<hr>
-<h2 id="双指针思路"><a href="#双指针思路" class="headerlink" title="双指针思路"></a>双指针思路</h2><p>先让一个节点early早点出发，先走N步，然后再让另一个节点normal一起走。<br>当early节点走到链表结尾的时候，另一个节点normal就是需要被删除的节点。<br>注意记录normal节点的上一个节点</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># Definition <span class="keyword">for</span> singly-linked <span class="keyword">list</span>.</span><br><span class="line"># class ListNode:</span><br><span class="line">#     def __init__(self, val=<span class="number">0</span>, <span class="keyword">next</span>=None):</span><br><span class="line">#         self.val = val</span><br><span class="line">#         self.<span class="keyword">next</span> = <span class="keyword">next</span></span><br><span class="line">class Solution:</span><br><span class="line">    def removeNthFromEnd(self, head: ListNode, n: <span class="keyword">int</span>) -&gt; ListNode:</span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        dummy.<span class="keyword">next</span> = head</span><br><span class="line"></span><br><span class="line">        early = dummy</span><br><span class="line">        <span class="keyword">while</span> early <span class="built_in">and</span> n &gt; <span class="number">0</span>:</span><br><span class="line">            early = early.<span class="keyword">next</span></span><br><span class="line">            n = n - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">normal</span> = dummy</span><br><span class="line">        <span class="keyword">prev</span> = dummy</span><br><span class="line">        <span class="keyword">while</span> early:</span><br><span class="line">            <span class="keyword">prev</span> = <span class="keyword">normal</span></span><br><span class="line">            <span class="keyword">normal</span> = <span class="keyword">normal</span>.<span class="keyword">next</span></span><br><span class="line">            early = early.<span class="keyword">next</span></span><br><span class="line">        # <span class="keyword">print</span>(early, <span class="keyword">normal</span>)</span><br><span class="line">        <span class="keyword">prev</span>.<span class="keyword">next</span> = <span class="keyword">normal</span>.<span class="keyword">next</span></span><br><span class="line">        del <span class="keyword">normal</span></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用栈"><a href="#使用栈" class="headerlink" title="使用栈"></a>使用栈</h2><p>略</p>
-<h2 id="计算长度"><a href="#计算长度" class="headerlink" title="计算长度"></a>计算长度</h2><p>略</p>
+<h1 id="双指针法，比较巧妙"><a href="#双指针法，比较巧妙" class="headerlink" title="双指针法，比较巧妙"></a>双指针法，比较巧妙</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span>(<span class="params">self, headA: ListNode, headB: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        pA = headA</span><br><span class="line">        pB = headB</span><br><span class="line">        <span class="keyword">while</span> pA != pB:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> pA:</span><br><span class="line">                pA = headB</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pA = pA.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> pB:</span><br><span class="line">                pB = headA</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pB = pB.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> pA</span><br><span class="line">        </span><br><span class="line">            </span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -336,7 +325,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-valid-parentheses/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/03/leetcode/leetcode-longest-common-subsequence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -350,7 +339,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/02/27/leetcode/leetcode-valid-parentheses/" class="post-title-link" itemprop="url">判断括号是否有效</a>
+            <a href="/2022/03/03/leetcode/leetcode-longest-common-subsequence/" class="post-title-link" itemprop="url">最长公共子序列</a>
         </h2>
 
         <div class="post-meta">
@@ -361,14 +350,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-02-27 23:06:57" itemprop="dateCreated datePublished" datetime="2022-02-27T23:06:57+08:00">2022-02-27</time>
+              <time title="创建时间：2022-03-03 08:46:37" itemprop="dateCreated datePublished" datetime="2022-03-03T08:46:37+08:00">2022-03-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-28 23:09:22" itemprop="dateModified" datetime="2022-02-28T23:09:22+08:00">2022-02-28</time>
+                <time title="修改时间：2022-04-05 22:41:35" itemprop="dateModified" datetime="2022-04-05T22:41:35+08:00">2022-04-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -388,7 +377,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>637</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -407,24 +396,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。
- </p>
-<p>示例 1：</p>
-<p>输入：s = “()”<br>输出：true<br>示例 2：</p>
-<p>输入：s = “()[]{}”<br>输出：true<br>示例 3：</p>
-<p>输入：s = “(]”<br>输出：false<br>示例 4：</p>
-<p>输入：s = “([)]”<br>输出：false<br>示例 5：</p>
-<p>输入：s = “{[]}”<br>输出：true
- </p>
-<p>提示：</p>
-<p>1 &lt;= s.length &lt;= 104<br>s 仅由括号 ‘()[]{}’ 组成</p>
+          <p>给定两个字符串 text1 和 text2，返回这两个字符串的最长 公共子序列 的长度。如果不存在 公共子序列 ，返回 0 。</p>
+<p>一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</p>
+<p>例如，”ace” 是 “abcde” 的子序列，但 “aec” 不是 “abcde” 的子序列。</p>
+<p>两个字符串的 公共子序列 是这两个字符串所共同拥有的子序列。</p>
+<p>示例 1：<br>输入：text1 = “abcde”, text2 = “ace”<br>输出：3<br>解释：最长公共子序列是 “ace” ，它的长度为 3 。</p>
+<p>示例 2：<br>输入：text1 = “abc”, text2 = “abc”<br>输出：3<br>解释：最长公共子序列是 “abc” ，它的长度为 3 。</p>
+<p>示例 3：<br>输入：text1 = “abc”, text2 = “def”<br>输出：0<br>解释：两个字符串没有公共子序列，返回 0 。</p>
 <hr>
-<p>和表达式计算器类似，考虑使用栈来实现</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="comment"># 若长度为偶数, 必然不是合法串</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        stack = []</span><br><span class="line">        pairs = &#123;</span><br><span class="line">            <span class="string">&#x27;)&#x27;</span>: <span class="string">&#x27;(&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;]&#x27;</span>: <span class="string">&#x27;[&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;&#125;&#x27;</span>: <span class="string">&#x27;&#123;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> e <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 碰到右括号则一定要有对应的左括号</span></span><br><span class="line">            <span class="keyword">if</span> e <span class="keyword">in</span> pairs:</span><br><span class="line">                <span class="keyword">if</span> stack <span class="keyword">and</span> stack.pop() == pairs[e]:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(e)</span><br><span class="line">        <span class="comment"># 最后如果有落单的左括号，则非法</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">not</span> stack</span><br></pre></td></tr></table></figure>
+<h1 id="动态规划的解法"><a href="#动态规划的解法" class="headerlink" title="动态规划的解法"></a>动态规划的解法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestCommonSubsequence</span>(<span class="params">self, text1: <span class="built_in">str</span>, text2: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(text1)</span><br><span class="line">        n = <span class="built_in">len</span>(text2)</span><br><span class="line">        dp = [[<span class="number">0</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m+<span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> text1[i-<span class="number">1</span>] == text2[j-<span class="number">1</span>]:</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][j], dp[i][j-<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">return</span> dp[m][n]</span><br><span class="line">                </span><br></pre></td></tr></table></figure>
 
 
+<h1 id="输出最长子序列"><a href="#输出最长子序列" class="headerlink" title="输出最长子序列"></a>输出最长子序列</h1><p>输出所有的最长子序列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">traceBack</span>(<span class="params">self, i, j, text1, text2, dp, path, ans</span>):</span></span><br><span class="line">        <span class="keyword">while</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> j &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> text1[i-<span class="number">1</span>] == text2[j-<span class="number">1</span>]:</span><br><span class="line">                path.appendleft(text1[i-<span class="number">1</span>])</span><br><span class="line">                i = i - <span class="number">1</span>;</span><br><span class="line">                j = j - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 上方的大</span></span><br><span class="line">                <span class="keyword">if</span> dp[i-<span class="number">1</span>][j] &gt; dp[i][j-<span class="number">1</span>]:</span><br><span class="line">                    i = i - <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> dp[i-<span class="number">1</span>][j] &lt; dp[i][j-<span class="number">1</span>]:   <span class="comment"># 左边大</span></span><br><span class="line">                    j = j - <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.traceBack(i-<span class="number">1</span>, j, text1, text2, dp, collections.deque(path), ans)</span><br><span class="line">                    self.traceBack(i, j-<span class="number">1</span>, text1, text2, dp, collections.deque(path), ans)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">        ans.append(<span class="string">&#x27;&#x27;</span>.join(path))</span><br><span class="line"></span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestCommonSubsequence</span>(<span class="params">self, text1: <span class="built_in">str</span>, text2: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(text1)</span><br><span class="line">        n = <span class="built_in">len</span>(text2)</span><br><span class="line">        dp = [[<span class="number">0</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m+<span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> text1[i-<span class="number">1</span>] == text2[j-<span class="number">1</span>]:</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][j], dp[i][j-<span class="number">1</span>])</span><br><span class="line">        </span><br><span class="line">        path = collections.deque()</span><br><span class="line">        ans = []</span><br><span class="line">        self.traceBack(m, n, text1, text2, dp, path, ans)</span><br><span class="line">        <span class="built_in">print</span>(ans)</span><br><span class="line">        <span class="keyword">return</span> dp[m][n]</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -443,7 +427,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-linked-list-cycle/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-maximum-length-of-repeated-subarray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -457,7 +441,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/02/27/leetcode/leetcode-linked-list-cycle/" class="post-title-link" itemprop="url">单链表是否有环已经环的入口</a>
+            <a href="/2022/02/27/leetcode/leetcode-maximum-length-of-repeated-subarray/" class="post-title-link" itemprop="url">最长公共子串(最长重复子数组)</a>
         </h2>
 
         <div class="post-meta">
@@ -468,14 +452,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-02-27 23:04:08" itemprop="dateCreated datePublished" datetime="2022-02-27T23:04:08+08:00">2022-02-27</time>
+              <time title="创建时间：2022-02-27 23:12:43" itemprop="dateCreated datePublished" datetime="2022-02-27T23:12:43+08:00">2022-02-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-28 23:06:43" itemprop="dateModified" datetime="2022-02-28T23:06:43+08:00">2022-02-28</time>
+                <time title="修改时间：2022-03-03 23:09:46" itemprop="dateModified" datetime="2022-03-03T23:09:46+08:00">2022-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -495,7 +479,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -514,23 +498,123 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-判断单链表是否有环"><a href="#1-判断单链表是否有环" class="headerlink" title="1.判断单链表是否有环"></a>1.判断单链表是否有环</h1><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
-<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
-<h3 id="使用hash表标记法"><a href="#使用hash表标记法" class="headerlink" title="使用hash表标记法"></a>使用hash表标记法</h3><p>遍历一次链表，用hash表记录已访问的链表，如果遍历中第二次出现已访问的元素，则证明存在环</p>
-<h3 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span>(<span class="params">self, head: <span class="type">Optional</span>[ListNode]</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># 构建虚拟节点</span></span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        dummy.<span class="built_in">next</span> = head</span><br><span class="line">        <span class="comment"># 慢指针一次走一步，快指针一次走两步</span></span><br><span class="line">        slow = dummy.<span class="built_in">next</span></span><br><span class="line">        fast = dummy.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">while</span> slow != fast:</span><br><span class="line">            <span class="comment"># 若无环，则快指针必然会先到达链表尾部</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> fast <span class="keyword">or</span> <span class="keyword">not</span> fast.<span class="built_in">next</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            slow = slow.<span class="built_in">next</span></span><br><span class="line">            fast = fast.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <p>给两个整数数组 nums1 和 nums2 ，返回 两个数组中 公共的 、长度最长的子数组的长度 。</p>
 <hr>
-<h1 id="2-寻找环的入口"><a href="#2-寻找环的入口" class="headerlink" title="2.寻找环的入口"></a>2.寻找环的入口</h1><p>给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。</p>
-<p>不允许修改 链表。</p>
-<hr>
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detectCycle</span>(<span class="params">self, head: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        exists = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            <span class="keyword">if</span> head <span class="keyword">in</span> exists:</span><br><span class="line">                <span class="keyword">return</span> head</span><br><span class="line">            exists[head] = <span class="number">1</span></span><br><span class="line">            head = head.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">     </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h1><p>这种解法过于粗暴，无法通过OJ</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLength</span>(<span class="params">self, nums1: <span class="type">List</span>[<span class="built_in">int</span>], nums2: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums1)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums2)):</span><br><span class="line">                k = <span class="number">0</span></span><br><span class="line">                <span class="keyword">while</span> i+k &lt; <span class="built_in">len</span>(nums1) <span class="keyword">and</span> j+k &lt; <span class="built_in">len</span>(nums2) <span class="keyword">and</span> nums1[i+k] == nums2[j+k]:</span><br><span class="line">                    k += <span class="number">1</span></span><br><span class="line">                ans = <span class="built_in">max</span>(ans, k)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="快慢指针-1"><a href="#快慢指针-1" class="headerlink" title="快慢指针"></a>快慢指针</h2><p>设链表中环外部分的长度为 a。<br>slow指针进入环后，又走了 b 的距离与fast 相遇。<br>此时，fast 指针已经走完了环的 n 圈，因此它走过的总距离为 a+n(b+c)+b=a+(n+1)b+nc</p>
-<p>根据题意，任意时刻，fast 指针走过的距离都为slow 指针的 2 倍。因此，有:<br>a+(n+1)b+nc=2(a+b)       ⟹         a=c+(n−1)(b+c)</p>
-<p>有了 a=c+(n-1)(b+c) 的等量关系，我们会发现：<br>从相遇点到入环点的距离加上 n-1圈的环长，恰好等于从链表头部到入环点的距离。</p>
-<p>因此，当发现slow 与 fast 相遇时，我们再额外使用一个指针p。起始，它指向链表头部；随后，它和slow 每次向后移动一个位置。最终，它们会在入环点相遇。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detectCycle</span>(<span class="params">self, head: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        dummy = ListNode()</span><br><span class="line">        dummy.<span class="built_in">next</span> = head</span><br><span class="line">        slow = dummy.<span class="built_in">next</span></span><br><span class="line">        fast = dummy.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">        p = dummy</span><br><span class="line">        <span class="comment"># 当slow和fast相遇时，p和slow继续前进后一定会在环入口处相遇</span></span><br><span class="line">        <span class="keyword">while</span> slow:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> fast <span class="keyword">or</span> <span class="keyword">not</span> fast.<span class="built_in">next</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            slow = slow.<span class="built_in">next</span></span><br><span class="line">            fast = fast.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> slow == fast:</span><br><span class="line">                <span class="keyword">while</span> p != slow:</span><br><span class="line">                    p = p.<span class="built_in">next</span></span><br><span class="line">                    slow = slow.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">return</span> p</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="不太优雅的滑动窗口？"><a href="#不太优雅的滑动窗口？" class="headerlink" title="不太优雅的滑动窗口？"></a>不太优雅的滑动窗口？</h1><p>分别使用A数组的每一个数为起点与B数组比较，如果数字相同计数加1<br>然后交换A B重新比较</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLength</span>(<span class="params">self, nums1: <span class="type">List</span>[<span class="built_in">int</span>], nums2: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(nums1)</span><br><span class="line">        n = <span class="built_in">len</span>(nums2)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        j = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> offset <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            i = offset</span><br><span class="line">            j = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> i &lt; m <span class="keyword">and</span> j &lt; n:</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">                <span class="keyword">while</span> i &lt; m <span class="keyword">and</span> j &lt; n <span class="keyword">and</span> nums1[i] == nums2[j]:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                ans = <span class="built_in">max</span>(ans, count)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> offset <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            j = offset</span><br><span class="line">            i = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> i &lt; m <span class="keyword">and</span> j &lt; n:</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">                <span class="comment"># print(&#x27;i, j, count&#x27;, i, j, count)</span></span><br><span class="line">                <span class="keyword">while</span> i &lt; m <span class="keyword">and</span> j &lt; n <span class="keyword">and</span> nums1[i] == nums2[j]:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                ans = <span class="built_in">max</span>(ans, count)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+
+<h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><p>假设已经对齐了两个数组的起点，我们就可以对两个数组进行一趟遍历，求得最长的数组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLength</span>(<span class="params">self, nums1: <span class="type">List</span>[<span class="built_in">int</span>], nums2: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">start1, start2, length</span>):</span></span><br><span class="line">            k = <span class="number">0</span></span><br><span class="line">            ans = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">                <span class="keyword">if</span> nums1[start1+i] == nums2[start2+i]:</span><br><span class="line">                    k += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    k = <span class="number">0</span></span><br><span class="line">                ans = <span class="built_in">max</span>(ans, k)</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        m = <span class="built_in">len</span>(nums1)</span><br><span class="line">        n = <span class="built_in">len</span>(nums2)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            length = <span class="built_in">min</span>(m-i, n)</span><br><span class="line">            <span class="comment"># 小优化，length如果小于ans，则无需比较了</span></span><br><span class="line">            <span class="keyword">if</span> length &gt; ans:</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, helper(i, <span class="number">0</span>, length))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            length = <span class="built_in">min</span>(n-i, m)</span><br><span class="line">            <span class="keyword">if</span> length &gt; ans:</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, helper(<span class="number">0</span>, i, length))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h1 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h1><p>dp[i][j] 表示长度为i，结尾index为i-1的nums1数组与长度为j，结尾index为j-1的nums2数组的最长公共子数组的长度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLength</span>(<span class="params">self, nums1: <span class="type">List</span>[<span class="built_in">int</span>], nums2: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(nums1)</span><br><span class="line">        n = <span class="built_in">len</span>(nums2)</span><br><span class="line">        dp = [[<span class="number">0</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m+<span class="number">1</span>)]</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> nums1[i-<span class="number">1</span>] == nums2[j-<span class="number">1</span>]:</span><br><span class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = <span class="number">0</span></span><br><span class="line">                ans = <span class="built_in">max</span>(dp[i][j], ans)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h1 id="动态规划算法优化"><a href="#动态规划算法优化" class="headerlink" title="动态规划算法优化"></a>动态规划算法优化</h1><p>发现上述dp其实每次只依赖上一行左上角的值，也就是内层循环。可以优化一下空间复杂度。<br>但是为了避免左上角的值被覆盖，内层循环需要从右向左计算。</p>
+<p>可以将空间复杂度降低为O(n)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLength</span>(<span class="params">self, nums1: <span class="type">List</span>[<span class="built_in">int</span>], nums2: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(nums1)</span><br><span class="line">        n = <span class="built_in">len</span>(nums2)</span><br><span class="line">        dp = [<span class="number">0</span>]*(n+<span class="number">1</span>)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> nums1[i-<span class="number">1</span>] == nums2[j-<span class="number">1</span>]:</span><br><span class="line">                    dp[j] = dp[j-<span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[j] = <span class="number">0</span></span><br><span class="line">                ans = <span class="built_in">max</span>(dp[j], ans)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h1 id="二分法-hash"><a href="#二分法-hash" class="headerlink" title="二分法+hash"></a>二分法+hash</h1><p>TODO</p>
+<h1 id="输出子串"><a href="#输出子串" class="headerlink" title="输出子串"></a>输出子串</h1><p>TODO</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-zhi-levelOrder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/27/leetcode/leetcode-zhi-levelOrder/" class="post-title-link" itemprop="url">之字型层序打印二叉树</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-27 23:11:53" itemprop="dateCreated datePublished" datetime="2022-02-27T23:11:53+08:00">2022-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-28 23:12:29" itemprop="dateModified" datetime="2022-02-28T23:12:29+08:00">2022-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p>
+<hr>
+<h1 id="结果集双端队列，避免翻转"><a href="#结果集双端队列，避免翻转" class="headerlink" title="结果集双端队列，避免翻转"></a>结果集双端队列，避免翻转</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="literal">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.append(root)</span><br><span class="line">        flag = False</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            <span class="built_in">length</span> = <span class="built_in">len</span>(queue)</span><br><span class="line">            <span class="comment"># 结果集也用双端队列，省去一次翻转动作</span></span><br><span class="line">            <span class="built_in">result</span> = collections.deque()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="built_in">length</span>):</span><br><span class="line">                p = queue.popleft()</span><br><span class="line">                <span class="keyword">if</span> flag:</span><br><span class="line">                    <span class="built_in">result</span>.appendleft(p.val)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">result</span>.append(p.val)</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append(p.left)</span><br><span class="line">                <span class="keyword">if</span> p.<span class="literal">right</span>:</span><br><span class="line">                    queue.append(p.<span class="literal">right</span>) </span><br><span class="line">            ans.append(list(<span class="built_in">result</span>))</span><br><span class="line">            flag = <span class="keyword">not</span> flag</span><br><span class="line">        <span class="literal">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="双端队列-奇偶层逻辑分离"><a href="#双端队列-奇偶层逻辑分离" class="headerlink" title="双端队列 奇偶层逻辑分离"></a>双端队列 奇偶层逻辑分离</h1><p>可以实际画一个双端队列感受一下</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"># Definition <span class="keyword">for</span> <span class="keyword">a</span> binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, <span class="keyword">x</span>):</span><br><span class="line">#         self.val = <span class="keyword">x</span></span><br><span class="line">#         self.<span class="keyword">left</span> = None</span><br><span class="line">#         self.<span class="keyword">right</span> = None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def levelOrder(self, roo<span class="variable">t:</span> TreeNode) -&gt; List[List[<span class="keyword">int</span>]]:</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">if</span> not roo<span class="variable">t:</span></span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.<span class="keyword">append</span>(root)</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            # 处理奇数层 从左向右打印 从左向右添加下层节点</span><br><span class="line">            length = <span class="built_in">len</span>(queue)</span><br><span class="line">            result = <span class="keyword">list</span>()</span><br><span class="line">            <span class="keyword">for</span> i in <span class="built_in">range</span>(length):</span><br><span class="line">                <span class="keyword">p</span> = queue.popleft()</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">p</span>.val)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.lef<span class="variable">t:</span></span><br><span class="line">                    queue.<span class="keyword">append</span>(<span class="keyword">p</span>.<span class="keyword">left</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.righ<span class="variable">t:</span></span><br><span class="line">                    queue.<span class="keyword">append</span>(<span class="keyword">p</span>.<span class="keyword">right</span>) </span><br><span class="line">            ans.<span class="keyword">append</span>(<span class="keyword">list</span>(result))</span><br><span class="line">            <span class="keyword">if</span> not queue:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">            # 处理偶数层 从右向左打印 从右向左添加下层节点</span><br><span class="line">            length = <span class="built_in">len</span>(queue)</span><br><span class="line">            result = <span class="keyword">list</span>()</span><br><span class="line">            <span class="keyword">for</span> i in <span class="built_in">range</span>(length):</span><br><span class="line">                <span class="keyword">p</span> = queue.<span class="keyword">pop</span>()</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">p</span>.val)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.righ<span class="variable">t:</span></span><br><span class="line">                    queue.appendleft(<span class="keyword">p</span>.<span class="keyword">right</span>) </span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.lef<span class="variable">t:</span></span><br><span class="line">                    queue.appendleft(<span class="keyword">p</span>.<span class="keyword">left</span>)</span><br><span class="line">            ans.<span class="keyword">append</span>(<span class="keyword">list</span>(result))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
 
 
@@ -552,7 +636,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/26/leetcode/leetcode-longest-substring-without-duplicate-strings/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-add-strings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -566,7 +650,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/02/26/leetcode/leetcode-longest-substring-without-duplicate-strings/" class="post-title-link" itemprop="url">无重复字符的最长子串</a>
+            <a href="/2022/02/27/leetcode/leetcode-add-strings/" class="post-title-link" itemprop="url">大数加法</a>
         </h2>
 
         <div class="post-meta">
@@ -577,14 +661,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-02-26 09:11:09" itemprop="dateCreated datePublished" datetime="2022-02-26T09:11:09+08:00">2022-02-26</time>
+              <time title="创建时间：2022-02-27 23:10:02" itemprop="dateCreated datePublished" datetime="2022-02-27T23:10:02+08:00">2022-02-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-27 09:14:07" itemprop="dateModified" datetime="2022-02-27T09:14:07+08:00">2022-02-27</time>
+                <time title="修改时间：2022-02-28 23:11:42" itemprop="dateModified" datetime="2022-02-28T23:11:42+08:00">2022-02-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -604,7 +688,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>741</span>
+              <span>683</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -623,123 +707,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
-<p>示例 1:<br>输入: s = “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。</p>
-<p>示例 2:<br>输入: s = “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。</p>
-<p>示例 3:<br>输入: s = “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>     请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。
- </p>
-<p>提示：<br>0 &lt;= s.length &lt;= 5 * 104<br>s 由英文字母、数字、符号和空格组成</p>
-<hr>
-<h1 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def lengthOfLongestSubstring(self, <span class="variable">s:</span> str) -&gt; in<span class="variable">t:</span></span><br><span class="line">        result = []</span><br><span class="line">        <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> <span class="keyword">e</span> in <span class="variable">s:</span></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">e</span> in resul<span class="variable">t:</span></span><br><span class="line">                result.<span class="keyword">pop</span>(<span class="number">0</span>)</span><br><span class="line">                <span class="built_in">count</span> = <span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">            result.<span class="keyword">append</span>(<span class="keyword">e</span>)</span><br><span class="line">            <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">            ans = <span class="built_in">max</span>(<span class="built_in">count</span>, ans)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">                </span><br></pre></td></tr></table></figure>
-
-<h1 id="双指针的思路"><a href="#双指针的思路" class="headerlink" title="双指针的思路"></a>双指针的思路</h1><p>使用队列，在查找效率方面比较低，改为双指针。<br>时间复杂度O(n), 空间复杂度O(k)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lengthOfLongestSubstring</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        allchar = <span class="built_in">dict</span>()</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        i =<span class="number">0</span></span><br><span class="line">        j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> j &lt; <span class="built_in">len</span>(s):</span><br><span class="line">            <span class="keyword">while</span> s[j] <span class="keyword">in</span> allchar:</span><br><span class="line">                allchar.pop(s[i])</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            allchar[s[j]] = j</span><br><span class="line">            count = j - i + <span class="number">1</span></span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">            ans = <span class="built_in">max</span>(ans, count)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/26/leetcode/leetcode-sum-of-longest-sub-array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/26/leetcode/leetcode-sum-of-longest-sub-array/" class="post-title-link" itemprop="url">最大子数组和</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-26 09:07:21" itemprop="dateCreated datePublished" datetime="2022-02-26T09:07:21+08:00">2022-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-27 09:09:11" itemprop="dateModified" datetime="2022-02-27T09:09:11+08:00">2022-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
-<p>子数组 是数组中的一个连续部分。</p>
+          <p>给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和并同样以字符串形式返回。</p>
+<p>你不能使用任何內建的用于处理大整数的库（比如 BigInteger）， 也不能直接将输入的字符串转换为整数形式。</p>
 <p> </p>
-<p>示例 1：<br>输入：nums = [-2,1,-3,4,-1,2,1,-5,4]<br>输出：6<br>解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</p>
-<p>示例 2：<br>输入：nums = [1]<br>输出：1</p>
-<p>示例 3：<br>输入：nums = [5,4,-1,7,8]<br>输出：23
- </p>
-<p>提示：<br>1 &lt;= nums.length &lt;= 105<br>-104 &lt;= nums[i] &lt;= 104</p>
+<p>示例 1：</p>
+<p>输入：num1 = “11”, num2 = “123”<br>输出：”134”<br>示例 2：</p>
+<p>输入：num1 = “456”, num2 = “77”<br>输出：”533”<br>示例 3：</p>
+<p>输入：num1 = “0”, num2 = “0”<br>输出：”0”</p>
 <hr>
-<h1 id="动态规划的思想"><a href="#动态规划的思想" class="headerlink" title="动态规划的思想"></a>动态规划的思想</h1><p>假设nums 数组的长度是 n，下标从 0 到 n−1。<br>我们用 f(i) 代表以第 i个数结尾的「连续子数组的最大和」<br>则f(i) = max{f(i-1)+nums[i], nums[i]}<br>最后，求出这里面的最大值即可。<br>时间复杂度和空间复杂度均为O(n)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        result = nums[<span class="number">0</span>]</span><br><span class="line">        f = [nums[<span class="number">0</span>]]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            tmp = f[i-<span class="number">1</span>] + nums[i]</span><br><span class="line">            <span class="keyword">if</span> tmp &gt;= nums[i]:</span><br><span class="line">                f.append(tmp)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                f.append(nums[i])</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(f)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="考虑到题目中只需要求出最大值即可，可以对空间复杂度做一些优化"><a href="#考虑到题目中只需要求出最大值即可，可以对空间复杂度做一些优化" class="headerlink" title="考虑到题目中只需要求出最大值即可，可以对空间复杂度做一些优化"></a>考虑到题目中只需要求出最大值即可，可以对空间复杂度做一些优化</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def maxSubArray(self, nums: List[<span class="type">int</span>]) <span class="operator">-</span><span class="operator">&gt;</span> <span class="type">int</span>:</span><br><span class="line">        if <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">result</span> <span class="operator">=</span> nums[<span class="number">0</span>]</span><br><span class="line">        f <span class="operator">=</span> nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">1</span>, len(nums)):</span><br><span class="line">            f <span class="operator">=</span> <span class="built_in">max</span>(f<span class="operator">+</span>nums[i], nums[i])</span><br><span class="line">            <span class="keyword">result</span> <span class="operator">=</span> <span class="built_in">max</span>(f, <span class="keyword">result</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">result</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="如果需要打印出这个子数组"><a href="#如果需要打印出这个子数组" class="headerlink" title="如果需要打印出这个子数组"></a>如果需要打印出这个子数组</h2><p>可以记录最大子数组的结尾序号，然后倒序查找和为最大值的数组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        result = nums[<span class="number">0</span>]</span><br><span class="line">        f = nums[<span class="number">0</span>]</span><br><span class="line">        maxIndex = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            tmp = f + nums[i]</span><br><span class="line">            <span class="keyword">if</span> tmp &gt;= nums[i]:</span><br><span class="line">                f = tmp</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                f = nums[i]</span><br><span class="line">            <span class="keyword">if</span> f &gt; result:</span><br><span class="line">                result = f</span><br><span class="line">                maxIndex = i</span><br><span class="line">        <span class="comment"># print(f,maxIndex)</span></span><br><span class="line">        resultList = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(maxIndex, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span>(resultList) == result:</span><br><span class="line">                <span class="built_in">print</span>(resultList)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                resultList.insert(<span class="number">0</span>, nums[i])</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<h1 id="分治法-线段树"><a href="#分治法-线段树" class="headerlink" title="分治法: 线段树"></a>分治法: 线段树</h1>
+<p>大数加法</p>
+<h1 id="模拟的思路"><a href="#模拟的思路" class="headerlink" title="模拟的思路"></a>模拟的思路</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">class</span> Solution:</span><br><span class="line">    <span class="attribute">def</span> addStrings(self, num<span class="number">1</span>: str, num<span class="number">2</span>: str) -&gt; str:</span><br><span class="line">        <span class="attribute">if</span> not num<span class="number">1</span>:</span><br><span class="line">            <span class="attribute">return</span> num<span class="number">2</span></span><br><span class="line">        <span class="attribute">if</span> not num<span class="number">2</span>:</span><br><span class="line">            <span class="attribute">return</span> num<span class="number">1</span></span><br><span class="line">        <span class="attribute">i</span> = len(num<span class="number">1</span>)-<span class="number">1</span></span><br><span class="line">        <span class="attribute">j</span> = len(num<span class="number">2</span>)-<span class="number">1</span></span><br><span class="line">        <span class="attribute">carry</span> = <span class="number">0</span></span><br><span class="line">        <span class="attribute">result</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attribute">while</span> i &gt;= <span class="number">0</span> or j &gt;= <span class="number">0</span> or carry:</span><br><span class="line">            <span class="attribute">if</span> i &gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="attribute">first</span> = num<span class="number">1</span>[i]</span><br><span class="line">            <span class="attribute">else</span>:</span><br><span class="line">                <span class="attribute">first</span> = <span class="number">0</span></span><br><span class="line">            <span class="attribute">if</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="attribute">second</span> = num<span class="number">2</span>[j]</span><br><span class="line">            <span class="attribute">else</span>:</span><br><span class="line">                <span class="attribute">second</span> = <span class="number">0</span></span><br><span class="line">            <span class="comment"># print(&#x27;i, j&#x27;, i, j)</span></span><br><span class="line">            <span class="comment"># print(&#x27;first, second, carry&#x27;, first, second, carry)</span></span><br><span class="line">            <span class="attribute">tmp</span> = int(first) + int(second) + carry</span><br><span class="line">            <span class="attribute">result</span> = str(tmp%<span class="number">10</span>) + result</span><br><span class="line">            <span class="attribute">carry</span> = tmp // <span class="number">10</span></span><br><span class="line">            <span class="attribute">i</span> = i - <span class="number">1</span></span><br><span class="line">            <span class="attribute">j</span> = j - <span class="number">1</span></span><br><span class="line">        <span class="attribute">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -757,7 +734,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -834,7 +811,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -913,13 +890,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">242k</span>
+    <span title="站点总字数">254k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:40</span>
+    <span title="站点阅读时长">3:51</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

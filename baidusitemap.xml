@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/</loc>
+    <lastmod>2022-05-27</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/24/leetcode-find-median-from-data-stream/</loc>
+    <lastmod>2022-05-27</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/23/leetcode-regular-expression-matching/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/22/leetcode-rotate-array/</loc>
+    <lastmod>2022-05-23</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/05/18/leetcode-maximal-square/</loc>
+    <lastmod>2022-05-22</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/20/leetcode-count-square-submatrices-with-all-ones/</loc>
     <lastmod>2022-05-20</lastmod>
   </url>
   <url>
