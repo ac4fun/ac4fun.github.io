@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/31/leetcode-implement-trie-prefix-tree/</loc>
+    <lastmod>2022-05-31</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/</loc>
-    <lastmod>2022-05-27</lastmod>
+    <lastmod>2022-05-31</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/05/24/leetcode-find-median-from-data-stream/</loc>

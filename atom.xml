@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-05-27T01:39:10.700Z</updated>
+  <updated>2022-05-31T14:50:46.054Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>208. 实现 Trie (前缀树)</title>
+    <link href="http://kingsleynuaa.github.io/2022/05/31/leetcode-implement-trie-prefix-tree/"/>
+    <id>http://kingsleynuaa.github.io/2022/05/31/leetcode-implement-trie-prefix-tree/</id>
+    <published>2022-05-31T14:49:53.000Z</published>
+    <updated>2022-05-31T14:50:46.054Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Trie（发音类似 “try”）或者说 前缀树 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。&lt;/p&gt;
+&lt;p&gt;请你实现 Trie 类：&lt;/p&gt;
+&lt;p&gt;Trie() 初始化前缀树对象。&lt;br&gt;void</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="trie" scheme="http://kingsleynuaa.github.io/tags/trie/"/>
+    
+  </entry>
+  
+  <entry>
     <title>N皇后(系列)</title>
     <link href="http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/"/>
     <id>http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/</id>
     <published>2022-05-27T01:37:09.000Z</published>
-    <updated>2022-05-27T01:39:10.700Z</updated>
+    <updated>2022-05-31T14:47:51.144Z</updated>
     
     
       
@@ -521,32 +548,6 @@
 &lt;p&gt; &lt;/p&gt;
 &lt;p&gt;示例 1:&lt;/p&gt;
 &lt;p&gt;输入: root = [3,1,4,null,2], k = 1&lt;br&gt;   3&lt;br&gt;  / &lt;br&gt; 1   4&lt;br&gt;  &lt;br&gt;   2&lt;br&gt;输出:</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>297. 二叉树的序列化与反序列化</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/04/leetcode/leetcode-serialize-and-deserialize-binary-tree/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/04/leetcode/leetcode-serialize-and-deserialize-binary-tree/</id>
-    <published>2022-05-04T04:28:26.000Z</published>
-    <updated>2022-05-04T04:42:29.756Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。&lt;/p&gt;
-&lt;p&gt;请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 /</summary>
         
       
     
