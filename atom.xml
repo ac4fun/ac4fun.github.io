@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-06-04T14:46:35.551Z</updated>
+  <updated>2022-06-07T13:52:36.963Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,120 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>剑指 Offer 36. 二叉搜索树与双向链表</title>
+    <link href="http://kingsleynuaa.github.io/2022/06/07/leetcode-convert-binary-search-tree-to-sorted-doubly-linked-list/"/>
+    <id>http://kingsleynuaa.github.io/2022/06/07/leetcode-convert-binary-search-tree-to-sorted-doubly-linked-list/</id>
+    <published>2022-06-07T13:51:51.000Z</published>
+    <updated>2022-06-07T13:52:36.963Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;为了让您更好地理解问题，以下面的二叉搜索树为例：&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;我们希望将这个二叉搜索</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>方阵乘法</title>
+    <link href="http://kingsleynuaa.github.io/2022/06/07/leetcode-Square-matrix-multiplication/"/>
+    <id>http://kingsleynuaa.github.io/2022/06/07/leetcode-Square-matrix-multiplication/</id>
+    <published>2022-06-07T13:49:05.000Z</published>
+    <updated>2022-06-07T13:50:29.428Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;描述&lt;br&gt;给定两个 n&lt;em&gt;n 的矩阵 A 和 B ，求 A&lt;/em&gt;B 。&lt;/p&gt;
+&lt;p&gt;数据范围：1 \le n \le 1001≤n≤100，-100 \le Matrix_{i,j}\le 100−100≤Matrix&lt;br&gt;i,j&lt;br&gt;​&lt;br&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="matrix" scheme="http://kingsleynuaa.github.io/tags/matrix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>329. 矩阵中的最长递增路径</title>
+    <link href="http://kingsleynuaa.github.io/2022/06/05/leetcode-longest-increasing-path-in-a-matrix/"/>
+    <id>http://kingsleynuaa.github.io/2022/06/05/leetcode-longest-increasing-path-in-a-matrix/</id>
+    <published>2022-06-05T13:45:30.000Z</published>
+    <updated>2022-06-07T13:39:03.817Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一个 m x n 整数矩阵 matrix ，找出其中 最长递增路径 的长度。&lt;/p&gt;
+&lt;p&gt;对于每个单元格，你可以往上，下，左，右四个方向移动。 你 不能 在 对角线 方向上移动或移动到 边界外（即不允许环绕）。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>617. 合并二叉树</title>
+    <link href="http://kingsleynuaa.github.io/2022/06/05/leetcode-merge-two-binary-trees/"/>
+    <id>http://kingsleynuaa.github.io/2022/06/05/leetcode-merge-two-binary-trees/</id>
+    <published>2022-06-05T12:32:24.000Z</published>
+    <updated>2022-06-05T13:38:27.384Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你两棵二叉树： root1 和 root2</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
+  
+  <entry>
     <title>面试题 04.10. 检查子树</title>
     <link href="http://kingsleynuaa.github.io/2022/06/04/leetcode-check-subtree-lcci/"/>
     <id>http://kingsleynuaa.github.io/2022/06/04/leetcode-check-subtree-lcci/</id>
     <published>2022-06-04T14:46:06.000Z</published>
-    <updated>2022-06-04T14:46:35.551Z</updated>
+    <updated>2022-06-05T12:48:50.483Z</updated>
     
     
       
@@ -453,110 +562,6 @@
     
     
     <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>983. 最低票价</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/</id>
-    <published>2022-05-13T00:50:56.000Z</published>
-    <updated>2022-05-14T03:12:04.811Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为 days 的数组给出。每一项是一个从 1 到 365 的整数。&lt;/p&gt;
-&lt;p&gt;火车票有 三种不同的销售方式 ：&lt;/p&gt;
-&lt;p&gt;一张 为期一天</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>322. 零钱兑换</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/12/leetcode-coin-change/</id>
-    <published>2022-05-12T10:47:45.000Z</published>
-    <updated>2022-05-13T00:49:23.383Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个整数数组 coins ，表示不同面额的硬币；以及一个整数 amount ，表示总金额。&lt;/p&gt;
-&lt;p&gt;计算并返回可以凑成总金额所需的 最少的硬币个数 。如果没有任何一种硬币组合能组成总金额，返回 -1</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="dp" scheme="http://kingsleynuaa.github.io/tags/dp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>子集(系列)</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/10/leetcode-subsets/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/10/leetcode-subsets/</id>
-    <published>2022-05-10T14:35:22.000Z</published>
-    <updated>2022-05-12T10:31:51.347Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;78-子集&quot;&gt;&lt;a href=&quot;#78-子集&quot; class=&quot;headerlink&quot; title=&quot;78. 子集&quot;&gt;&lt;/a&gt;78. 子集&lt;/h1&gt;&lt;p&gt;给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。&lt;/p&gt;
-&lt;p&gt;解集</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="backtracking" scheme="http://kingsleynuaa.github.io/tags/backtracking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数操作</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/09/leetcode/leetcode-multiply-strings/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/09/leetcode/leetcode-multiply-strings/</id>
-    <published>2022-05-09T14:34:32.000Z</published>
-    <updated>2022-05-10T14:34:43.531Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;415-字符串相加&quot;&gt;&lt;a href=&quot;#415-字符串相加&quot; class=&quot;headerlink&quot; title=&quot;415. 字符串相加&quot;&gt;&lt;/a&gt;415. 字符串相加&lt;/h1&gt;&lt;p&gt;给定两个字符串形式的非负整数 num1</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="strings" scheme="http://kingsleynuaa.github.io/tags/strings/"/>
     
   </entry>
   
