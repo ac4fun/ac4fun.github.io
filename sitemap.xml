@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/04/04/leetcode/leetcode-sum-root-to-leaf-numbers/</loc>
+    
+    <lastmod>2022-06-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/06/09/leetcode-recover-binary-search-tree/</loc>
     
     <lastmod>2022-06-08</lastmod>
@@ -458,13 +465,6 @@
   
   <url>
     <loc>http://kingsleynuaa.github.io/2022/02/08/leetcode/leetcode-reverse-list/</loc>
-    
-    <lastmod>2022-04-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/04/04/leetcode/leetcode-sum-root-to-leaf-numbers/</loc>
     
     <lastmod>2022-04-04</lastmod>
     
@@ -935,14 +935,14 @@
   </url>
   
   <url>
-    <loc>http://kingsleynuaa.github.io/tags/%E5%AE%B6%E8%AE%AD/</loc>
+    <loc>http://kingsleynuaa.github.io/tags/plan/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://kingsleynuaa.github.io/tags/plan/</loc>
+    <loc>http://kingsleynuaa.github.io/tags/%E5%AE%B6%E8%AE%AD/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1005,13 +1005,6 @@
   </url>
   
   <url>
-    <loc>http://kingsleynuaa.github.io/tags/math/</loc>
-    <lastmod>2022-06-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://kingsleynuaa.github.io/tags/trie/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
@@ -1019,7 +1012,7 @@
   </url>
   
   <url>
-    <loc>http://kingsleynuaa.github.io/tags/string/</loc>
+    <loc>http://kingsleynuaa.github.io/tags/math/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1033,7 +1026,7 @@
   </url>
   
   <url>
-    <loc>http://kingsleynuaa.github.io/tags/array/</loc>
+    <loc>http://kingsleynuaa.github.io/tags/string/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1041,6 +1034,13 @@
   
   <url>
     <loc>http://kingsleynuaa.github.io/tags/bit/</loc>
+    <lastmod>2022-06-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kingsleynuaa.github.io/tags/array/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1225,13 +1225,6 @@
   
   <url>
     <loc>http://kingsleynuaa.github.io/categories/tech/</loc>
-    <lastmod>2022-06-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://kingsleynuaa.github.io/categories/leetcode/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
