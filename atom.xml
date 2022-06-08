@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-06-07T13:52:36.963Z</updated>
+  <updated>2022-06-08T16:53:00.161Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>面试题 16.05. 阶乘尾数</title>
+    <link href="http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/"/>
+    <id>http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/</id>
+    <published>2022-06-08T00:42:46.000Z</published>
+    <updated>2022-06-08T16:53:00.161Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;设计一个算法，算出 n 阶乘有多少个尾随零。&lt;/p&gt;
+&lt;p&gt;示例 1:&lt;/p&gt;
+&lt;p&gt;输入: 3&lt;br&gt;输出: 0&lt;br&gt;解释: 3! = 6, 尾数中没有零。&lt;br&gt;示例 2:&lt;/p&gt;
+&lt;p&gt;输入: 5&lt;br&gt;输出: 1&lt;br&gt;解释: 5! = 120, 尾数中有 1</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="math" scheme="http://kingsleynuaa.github.io/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指 Offer 36. 二叉搜索树与双向链表</title>
     <link href="http://kingsleynuaa.github.io/2022/06/07/leetcode-convert-binary-search-tree-to-sorted-doubly-linked-list/"/>
     <id>http://kingsleynuaa.github.io/2022/06/07/leetcode-convert-binary-search-tree-to-sorted-doubly-linked-list/</id>
     <published>2022-06-07T13:51:51.000Z</published>
-    <updated>2022-06-07T13:52:36.963Z</updated>
+    <updated>2022-06-08T00:40:40.027Z</updated>
     
     
       
@@ -534,34 +562,6 @@
     
     
     <category term="sort" scheme="http://kingsleynuaa.github.io/tags/sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>76. 最小覆盖子串</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/14/leetcode-minimum-window-substring/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/14/leetcode-minimum-window-substring/</id>
-    <published>2022-05-14T08:23:54.000Z</published>
-    <updated>2022-05-15T10:51:58.696Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 “” 。&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;p&gt;注意：&lt;/p&gt;
-&lt;p&gt;对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
     
   </entry>
   

@@ -24,18 +24,20 @@
     var CONFIG = {"hostname":"kingsleynuaa.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":{"valine":null,"text":"Load Valine","order":-1,"gitalk":{"order":-2}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="汇芳书院">
-<meta property="og:url" content="http://kingsleynuaa.github.io/tags/blog/index.html">
+  <meta name="description" content="设计一个算法，算出 n 阶乘有多少个尾随零。 示例 1: 输入: 3输出: 0解释: 3! &#x3D; 6, 尾数中没有零。示例 2: 输入: 5输出: 1解释: 5! &#x3D; 120, 尾数中有 1 个零.说明: 你算法的时间复杂度应为 O(log n) 。  分析质因子考虑到因子2和5才有可能贡献尾数0，由于2一定比5多，只需考虑因子5的个数。 比如30，有30，25，20，15，10，5共6个数贡献7个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题 16.05. 阶乘尾数">
+<meta property="og:url" content="http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/index.html">
 <meta property="og:site_name" content="汇芳书院">
-<meta property="og:description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+<meta property="og:description" content="设计一个算法，算出 n 阶乘有多少个尾随零。 示例 1: 输入: 3输出: 0解释: 3! &#x3D; 6, 尾数中没有零。示例 2: 输入: 5输出: 1解释: 5! &#x3D; 120, 尾数中有 1 个零.说明: 你算法的时间复杂度应为 O(log n) 。  分析质因子考虑到因子2和5才有可能贡献尾数0，由于2一定比5多，只需考虑因子5的个数。 比如30，有30，25，20，15，10，5共6个数贡献7个">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-08T00:42:46.000Z">
+<meta property="article:modified_time" content="2022-06-08T16:53:00.161Z">
 <meta property="article:author" content="Jacob Jin">
-<meta property="article:tag" content="财富自由">
+<meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://kingsleynuaa.github.io/tags/blog/">
+<link rel="canonical" href="http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/">
 
 
 <script id="page-configurations">
@@ -43,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: blog | 汇芳书院</title>
+  <title>面试题 16.05. 阶乘尾数 | 汇芳书院</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C70KE9W36G"></script>
     <script>
@@ -216,57 +218,247 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面试题 16.05. 阶乘尾数
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-08 08:42:46" itemprop="dateCreated datePublished" datetime="2022-06-08T08:42:46+08:00">2022-06-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-09 00:53:00" itemprop="dateModified" datetime="2022-06-09T00:53:00+08:00">2022-06-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">blog
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/06/08/leetcode-factorial-zeros-lcci/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/06/08/leetcode-factorial-zeros-lcci/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>658</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2016</span>
+        <p>设计一个算法，算出 n 阶乘有多少个尾随零。</p>
+<p>示例 1:</p>
+<p>输入: 3<br>输出: 0<br>解释: 3! = 6, 尾数中没有零。<br>示例 2:</p>
+<p>输入: 5<br>输出: 1<br>解释: 5! = 120, 尾数中有 1 个零.<br>说明: 你算法的时间复杂度应为 O(log n) 。</p>
+<hr>
+<h1 id="分析质因子"><a href="#分析质因子" class="headerlink" title="分析质因子"></a>分析质因子</h1><p>考虑到因子2和5才有可能贡献尾数0，由于2一定比5多，只需考虑因子5的个数。</p>
+<p>比如30，有30，25，20，15，10，5共6个数贡献7个因子5(25贡献了两个5)</p>
+<p>一般通用情况下，考虑[1,n]中质因子p的个数。</p>
+<p>[1, n]中p的倍数有n1=[n/p]个，即至少能贡献n1个质因子；</p>
+<p>[1, n]中p^2的倍数有n2=[n/(p^2)]个，即至少能贡献n2个质因子；</p>
+<p>举个例子，比如n=30, p=5, n1=[30/5]=6,也就是一阶5可以有6个贡献，即5<em>1，5</em>2，5<em>3，5</em>4，5<em>5，5</em>6<br>n2=[30/25]=1, 也就是二阶5有1个贡献，即25*1。</p>
+<p>需要说明的是这里25虽然被计算了两次，但是却没有算重复，累积贡献2个5，其中一阶5和二阶5分别贡献了一次5。</p>
+<p>由于5^3=125已经大于30了，所以就不用考虑三阶的5了。</p>
+<p>推而广之，[1, n]中质因子的个数是<br>[n/p] + [n/(p^2)] + [n/(p^3)] + …</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trailingZeroes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            n = n/<span class="number">5</span>;</span><br><span class="line">            ans += n;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2016-06-22T15:22:29+08:00"
-              content="2016-06-22">
-          06-22
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jacob Jin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jacob Jin 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2016/06/22/why-write-blog/" itemprop="url">
-            <span itemprop="name">为什么要写博客</span>
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jacob Jin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/" title="面试题 16.05. 阶乘尾数">http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/kingsleynuaa">
+            <span class="icon">
+              <i class="fa fa-fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
           </a>
-      </div>
+        </div>
 
-    </header>
-  </article>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/mp_weixin.jpg">
+            <span class="icon">
+              <i class="fa fa-fab fa-weixin"></i>
+            </span>
 
+            <span class="label">微信公众号</span>
+          </a>
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <div>
+        
+          <div>
+    
+      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本文结束,感谢阅读 <i class="fa fa-paw"></i> 如有问题可留言交流 -------------</div>
+    
+</div>
+
+        
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/math/" rel="tag"><i class="fa fa-tag"></i> math</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/07/leetcode-convert-binary-search-tree-to-sorted-doubly-linked-list/" rel="prev" title="剑指 Offer 36. 二叉搜索树与双向链表">
+      <i class="fa fa-chevron-left"></i> 剑指 Offer 36. 二叉搜索树与双向链表
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="valine-comments"></div>
+            </div>
+        </div>
+      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -313,6 +505,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E8%B4%A8%E5%9B%A0%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">分析质因子</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -534,11 +727,30 @@
       quicklink({
         timeout : 300,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'http://kingsleynuaa.github.io/tags/blog/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/',]
       });
       });
   </script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2be373aa63799541ae8b',
+      clientSecret: 'e5cbbfdc659cbc7514c9cf06069828f91e592695',
+      repo        : 'ac4fun.github.io',
+      owner       : 'ac4fun',
+      admin       : ['ac4fun'],
+      id          : '037302c344a2b3d575f288ca418b1181',
+        language: 'zh-cn',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 
 <script>
