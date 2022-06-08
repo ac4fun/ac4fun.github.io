@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">122</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">123</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -218,6 +218,97 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/04/leetcode-invert-binary-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/04/leetcode-invert-binary-tree/" class="post-title-link" itemprop="url">226. 翻转二叉树</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-04 22:34:02 / 修改时间：22:35:05" itemprop="dateCreated datePublished" datetime="2022-06-04T22:34:02+08:00">2022-06-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>714</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：root = [4,2,7,1,3,6,9]<br>输出：[4,7,2,9,6,3,1]<br>示例 2：</p>
+<p>输入：root = [2,1,3]<br>输出：[2,3,1]<br>示例 3：</p>
+<p>输入：root = []<br>输出：[]
+ </p>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">invertTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line">        TreeNode* left = <span class="built_in">invertTree</span>(root-&gt;left);</span><br><span class="line">        TreeNode* right = <span class="built_in">invertTree</span>(root-&gt;right);</span><br><span class="line">        root-&gt;left = right;</span><br><span class="line">        root-&gt;right = left;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -633,147 +724,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/27/leetcode-n-queens/" class="post-title-link" itemprop="url">N皇后(系列)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-27 09:37:09" itemprop="dateCreated datePublished" datetime="2022-05-27T09:37:09+08:00">2022-05-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-31 22:47:51" itemprop="dateModified" datetime="2022-05-31T22:47:51+08:00">2022-05-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="51-N-皇后"><a href="#51-N-皇后" class="headerlink" title="51. N 皇后"></a>51. N 皇后</h1><p>n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。</p>
-<p>每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。</p>
-<p> </p>
-<p>示例 1：<br>输入：n = 4<br>输出：[[“.Q..”,”…Q”,”Q…”,”..Q.”],[“..Q.”,”Q…”,”…Q”,”.Q..”]]<br>解释：如上图所示，4 皇后问题存在两个不同的解法。</p>
-<p>示例 2：<br>输入：n = 1<br>输出：[[“Q”]]
- </p>
-<p>提示：</p>
-<p>1 &lt;= n &lt;= 9</p>
-<h2 id="回溯穷举"><a href="#回溯穷举" class="headerlink" title="回溯穷举"></a>回溯穷举</h2><p>逐行尝试选择皇后放置的列，放置之前先检查可以放置在哪一列。当所有行都判断完后，可以将答案放置在答案数组中</p>
-<p>一个皇后可以放置的位置，需要满足：<br>1.同列上方无皇后<br>2.左右斜对角延伸的上方每一行无皇后</p>
-<h3 id="python3代码"><a href="#python3代码" class="headerlink" title="python3代码"></a>python3代码</h3><p>2020.07.25 15:37:13年的代码</p>
-<p>printN负责打印结果数组</p>
-<p>cal8queens通过递归穷举每一行</p>
-<p>is_valid判断指定行和列是否OK</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solveNQueens</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">printN</span>():</span></span><br><span class="line">            solution = []</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                tmp = [<span class="string">&#x27;.&#x27;</span>]*n</span><br><span class="line">                tmp[result[row]] = <span class="string">&#x27;Q&#x27;</span></span><br><span class="line">                tmp = <span class="string">&#x27;&#x27;</span>.join(tmp)</span><br><span class="line">                solution.append(tmp)</span><br><span class="line">            ans.append(solution)</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">cal8queens</span>(<span class="params">row</span>):</span></span><br><span class="line">            <span class="keyword">if</span> row == n:</span><br><span class="line">                printN()</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> is_valid(row, column, n, result):</span><br><span class="line">                    result[row] = column</span><br><span class="line">                    cal8queens(row+<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">is_valid</span>(<span class="params">row, column, n, result</span>):</span></span><br><span class="line">            leftup = column - <span class="number">1</span></span><br><span class="line">            righttop = column + <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> result[i] == column:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">if</span> leftup &gt;= <span class="number">0</span> <span class="keyword">and</span> result[i] == leftup:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">if</span> righttop &lt; n <span class="keyword">and</span> result[i] == righttop:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                leftup -= <span class="number">1</span></span><br><span class="line">                righttop += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># result记录  第i行的皇后放在第几列</span></span><br><span class="line">        result = [-<span class="number">1</span>]*n</span><br><span class="line">        ans = []</span><br><span class="line">        cal8queens(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-的代码"><a href="#C-的代码" class="headerlink" title="C++的代码"></a>C++的代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;string&gt; chess;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(chess);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; n; column++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">check</span>(row, column, n)) &#123;</span><br><span class="line">                chess[row][column] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">                <span class="comment">// print();</span></span><br><span class="line">                <span class="built_in">backtrack</span>(row+<span class="number">1</span>, n);</span><br><span class="line">                chess[row][column] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = column - <span class="number">1</span>, right = column + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = row<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chess[i][column] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (left &gt;= <span class="number">0</span> &amp;&amp; chess[i][left] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (right &lt; n &amp;&amp; chess[i][right] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chess.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            cout &lt;&lt; chess[i] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        chess.<span class="built_in">resize</span>(n, <span class="built_in">string</span>(n, <span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基于集合的回溯"><a href="#基于集合的回溯" class="headerlink" title="基于集合的回溯"></a>基于集合的回溯</h2><p>前一种方法中，check函数的时间复杂度为O(n)，导致整体的时间复杂度较高为O(n*n!)<br>可以使用集合将check的时间复杂度降低到O(1)</p>
-<p>通过分析，我们可以发现：</p>
-<ul>
-<li><ol>
-<li>左上方斜线上的元素，横纵坐标之差相等</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>右上方斜线上的元素，横纵坐标之和相等</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>纵向方向的元素，纵坐标相等。</li>
-</ol>
-</li>
-</ul>
-<p>所以可以用三个集合存储上述的数，用空间换时间</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;string&gt; chess;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">    <span class="comment">// 分别记录左上方、右上方、垂直方向三条线的值</span></span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; leftup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; rightup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; columns;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(chess);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; n; column++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (leftup.<span class="built_in">find</span>(row-column) != leftup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (rightup.<span class="built_in">find</span>(row+column) != rightup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (columns.<span class="built_in">find</span>(column) != columns.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            chess[row][column] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">            leftup.<span class="built_in">insert</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">insert</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">insert</span>(column);</span><br><span class="line">            <span class="built_in">backtrack</span>(row+<span class="number">1</span>, n);</span><br><span class="line">            <span class="comment">//还原现场</span></span><br><span class="line">            chess[row][column] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">            leftup.<span class="built_in">erase</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">erase</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">erase</span>(column);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        chess.<span class="built_in">resize</span>(n, <span class="built_in">string</span>(n, <span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基于位运算的回溯"><a href="#基于位运算的回溯" class="headerlink" title="基于位运算的回溯"></a>基于位运算的回溯</h2><p>前一种使用集合来记录三个方向是否可以放置皇后，这里用三个数通过位运算来表示，<br>可以将判断是否能放皇后的空间复杂度从O(N)降低为O(1)</p>
-<p>TODO </p>
-<h1 id="52-N皇后-II"><a href="#52-N皇后-II" class="headerlink" title="52. N皇后 II"></a>52. N皇后 II</h1><p>n 皇后问题 研究的是如何将 n 个皇后放置在 n × n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>给你一个整数 n ，返回 n 皇后问题 不同的解决方案的数量。</p>
-<p> </p>
-<p>示例 1：</p>
-<p>输入：n = 4<br>输出：2<br>解释：如上图所示，4 皇后问题存在两个不同的解法。<br>示例 2：</p>
-<p>输入：n = 1<br>输出：1
- </p>
-<p>提示：</p>
-<p>1 &lt;= n &lt;= 9</p>
-<h2 id="基于集合的回溯-1"><a href="#基于集合的回溯-1" class="headerlink" title="基于集合的回溯"></a>基于集合的回溯</h2><p>思路同上</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line">    <span class="comment">// 分别记录左上方、右上方、垂直方向三条线的值</span></span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; leftup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; rightup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; columns;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            ans++;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; n; column++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (leftup.<span class="built_in">find</span>(row-column) != leftup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (rightup.<span class="built_in">find</span>(row+column) != rightup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (columns.<span class="built_in">find</span>(column) != columns.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            leftup.<span class="built_in">insert</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">insert</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">insert</span>(column);</span><br><span class="line">            <span class="built_in">backtrack</span>(row+<span class="number">1</span>, n);</span><br><span class="line">            <span class="comment">//还原现场</span></span><br><span class="line">            leftup.<span class="built_in">erase</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">erase</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">erase</span>(column);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalNQueens</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -854,7 +804,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -939,7 +889,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

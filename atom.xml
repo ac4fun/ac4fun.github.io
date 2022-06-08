@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-06-08T16:53:00.161Z</updated>
+  <updated>2022-06-08T17:02:39.859Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>99. 恢复二叉搜索树</title>
+    <link href="http://kingsleynuaa.github.io/2022/06/09/leetcode-recover-binary-search-tree/"/>
+    <id>http://kingsleynuaa.github.io/2022/06/09/leetcode-recover-binary-search-tree/</id>
+    <published>2022-06-08T17:01:50.000Z</published>
+    <updated>2022-06-08T17:02:39.859Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你二叉搜索树的根节点 root ，该树中的 恰好 两个节点的值被错误地交换。请在不改变其结构的情况下，恢复这棵树 。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：root =</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
+    
+  </entry>
   
   <entry>
     <title>面试题 16.05. 阶乘尾数</title>
@@ -532,36 +560,6 @@
     
     
     <category term="bit" scheme="http://kingsleynuaa.github.io/tags/bit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 51. 数组中的逆序对</title>
-    <link href="http://kingsleynuaa.github.io/2022/05/15/leetcode-reversePairs/"/>
-    <id>http://kingsleynuaa.github.io/2022/05/15/leetcode-reversePairs/</id>
-    <published>2022-05-15T11:14:44.000Z</published>
-    <updated>2022-05-18T00:47:32.615Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;p&gt;示例 1:&lt;/p&gt;
-&lt;p&gt;输入: [7,5,6,4]&lt;br&gt;输出: 5&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="sort" scheme="http://kingsleynuaa.github.io/tags/sort/"/>
     
   </entry>
   
