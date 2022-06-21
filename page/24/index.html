@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">123</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">130</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -222,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2021/08/07/how-to-get-a-motorcycle-driver-licence/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/09/leetcode/leetcode-sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -236,7 +236,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/how-to-get-a-motorcycle-driver-licence/" class="post-title-link" itemprop="url">海淀驾校二轮摩托车驾照考试流程</a>
+            <a href="/2022/02/09/leetcode/leetcode-sort/" class="post-title-link" itemprop="url">排序算法梳理</a>
         </h2>
 
         <div class="post-meta">
@@ -247,14 +247,571 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-07 23:36:16" itemprop="dateCreated datePublished" datetime="2021-08-07T23:36:16+08:00">2021-08-07</time>
+              <time title="创建时间：2022-02-09 21:47:38" itemprop="dateCreated datePublished" datetime="2022-02-09T21:47:38+08:00">2022-02-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-06 21:03:51" itemprop="dateModified" datetime="2021-10-06T21:03:51+08:00">2021-10-06</time>
+                <time title="修改时间：2022-04-07 07:54:31" itemprop="dateModified" datetime="2022-04-07T07:54:31+08:00">2022-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>核心动作：比较和交换</p>
+<ol>
+<li>n-1次循环(因为最后一个数不用冒泡了)，每次循环将一个值”冒泡”至最终位置，i为循环轮次</li>
+<li>每次循环两两比较相邻数，若不符合要求就交换，j表示比较的数</li>
+<li>若上一次循环没有交换数据，则表示已完成排序，可以终止循环了，flag标记</li>
+</ol>
+<p>复杂度：时间复杂度O(n^2), 空间复杂度O(1)</p>
+<p>稳定性：比较的时候可以设定相等的元素不交换，所以是稳定的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NC140 排序</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>-i):</span><br><span class="line">                <span class="comment"># 升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">                <span class="keyword">if</span> nums[j] &gt; nums[j+<span class="number">1</span>]:</span><br><span class="line">                    tmp = nums[j]</span><br><span class="line">                    nums[j] = nums[j+<span class="number">1</span>]</span><br><span class="line">                    nums[j+<span class="number">1</span>] = tmp</span><br><span class="line">                    flag = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> flag:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>每次选择最小的一个数据放置在指定位置<br>核心动作：比较和交换</p>
+<ol>
+<li>循环n-1次，每次循环选择一个最小的数，与未处理部分的第一个元素交换</li>
+</ol>
+<p>复杂度：时间复杂度O(n^2), 空间复杂度O(1)</p>
+<p>稳定性：交换动作可能会导致未处理部分的第一个元素与其重复值相对顺序改变，所以是不稳定的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>):</span><br><span class="line">            min_index = i</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, length):</span><br><span class="line">                <span class="comment"># 升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">                <span class="keyword">if</span> nums[j] &lt; nums[min_index]:</span><br><span class="line">                    min_index = j</span><br><span class="line">            <span class="comment"># 未排序部分中的最小值 与 未排序部分的第一个元素 交换</span></span><br><span class="line">            <span class="comment"># 此部分导致选择排序的不稳定性，因为如果「未排序部分的第一个元素」存在重复元素，交换时会导致这个值相对顺序的改变</span></span><br><span class="line">            <span class="comment"># 如果需要改变稳定性，可以改为：将未排序部分中的最小值 插入 到未排序部分第一个元素 之前</span></span><br><span class="line">            <span class="comment"># 如果是链表实现的，则比较容易实现上述插入动作</span></span><br><span class="line">            tmp = nums[i]</span><br><span class="line">            nums[i] = nums[min_index]</span><br><span class="line">            nums[min_index] = tmp</span><br><span class="line">        <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><p>将数组分为已排序和未排序两部分，然后将未排序部分的数依次插入到已排序数组中的合适位置<br>核心动作：比较和移动<br>1.将第1个数视为已排序部分，剩下部分视为未排序部分<br>2.未排序部分：i表示需要依次遍历的数，从第二个数到最后一个数<br>3.已排序部分：i左边的所有数<br>4.将本次需要插入的数和已排序部分依次比较，如果需要插入的数比已排序部分这个数大，就将这个数后移一位，直到第0个数<br>5.将待插入数据插入到查到到的位置</p>
+<p>复杂度：时间复杂度O(n^2), 空间复杂度O(1)</p>
+<p>稳定性：插入的过程不改变相对位置，是稳定排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, length):</span><br><span class="line">            j = i - <span class="number">1</span></span><br><span class="line">            tmp = nums[i]</span><br><span class="line">            <span class="comment"># 同样的，升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">            <span class="keyword">while</span> j &gt;=<span class="number">0</span> <span class="keyword">and</span> nums[j] &gt; tmp:</span><br><span class="line">                nums[j+<span class="number">1</span>] = nums[j]</span><br><span class="line">                j = j - <span class="number">1</span></span><br><span class="line">            nums[j+<span class="number">1</span>] = tmp</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+
+<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><p>寻找需要插入位置的时候，其实是一个二分查找过程，可以使用二分查找减少比较次数，但是移动次数不会改变</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def sortArray(self, nums: List[int]) -&gt; List[int]:</span><br><span class="line">        <span class="built_in">length</span> = <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="built_in">length</span>):</span><br><span class="line">            j = i - <span class="number">1</span></span><br><span class="line">            low = <span class="number">0</span></span><br><span class="line">            high = j</span><br><span class="line">            tmp = nums[i]</span><br><span class="line">            <span class="comment"># 注意这里是&lt;=, 可以保证最终值在low和high之间。</span></span><br><span class="line">            <span class="keyword">while</span> low &lt;= high:</span><br><span class="line">                <span class="keyword">mid</span> = low + (high - low<span class="comment">)//2</span></span><br><span class="line">                <span class="comment"># 如果数值相同，右边的数认为更大，可以保持排序稳定</span></span><br><span class="line">                <span class="comment"># 同样的，升序或降序只需要修改下面的比较符号即可</span></span><br><span class="line">                <span class="keyword">if</span> nums[<span class="keyword">mid</span>] &lt;= tmp:</span><br><span class="line">                    low = <span class="keyword">mid</span> + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    high = <span class="keyword">mid</span> - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> j &gt;=<span class="number">0</span> <span class="keyword">and</span> j &gt; high:</span><br><span class="line">                nums[j+<span class="number">1</span>] = nums[j]</span><br><span class="line">                j = j - <span class="number">1</span></span><br><span class="line">                </span><br><span class="line">            nums[high+<span class="number">1</span>] = tmp</span><br><span class="line">        <span class="literal">return</span> nums</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>核心在于partition动作, 实现方式有多种，这里的这种比较巧妙</p>
+<p>复杂度：时间复杂度O(nlogn), 空间复杂度O(1)</p>
+<p>稳定性：大间隔交换动作可能导致相对顺序改变，不稳定排序</p>
+<h3 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def partition(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        # 选择pivot是一个比较关键的点，影响最好最快的复杂度</span><br><span class="line">        <span class="keyword">if</span> nums[<span class="keyword">left</span>] &lt; nums[<span class="keyword">right</span>]:</span><br><span class="line">            self.swap(nums, <span class="keyword">left</span>, <span class="keyword">left</span>+(<span class="keyword">right</span>-<span class="keyword">left</span>)//<span class="number">2</span>)</span><br><span class="line">        pivot = <span class="keyword">left</span></span><br><span class="line">        <span class="built_in">index</span> = <span class="keyword">left</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">index</span>, <span class="keyword">right</span>+<span class="number">1</span>):</span><br><span class="line">            # 同样的，升序或降序只需要修改下面的比较符号即可</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt; nums[pivot]:</span><br><span class="line">                self.swap(nums, i, <span class="built_in">index</span>)</span><br><span class="line">                <span class="built_in">index</span> += <span class="number">1</span></span><br><span class="line">        self.swap(nums, <span class="built_in">index</span>-<span class="number">1</span>, pivot)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">index</span>-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    def swap(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        nums[<span class="keyword">left</span>], nums[<span class="keyword">right</span>] = nums[<span class="keyword">right</span>], nums[<span class="keyword">left</span>]</span><br><span class="line">    </span><br><span class="line">    def quickSort(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span> &lt; righ<span class="variable">t:</span></span><br><span class="line">            pivot_index = self.partition(nums, <span class="keyword">left</span>, <span class="keyword">right</span>)</span><br><span class="line">            self.quickSort(nums, <span class="keyword">left</span>, pivot_index-<span class="number">1</span>)</span><br><span class="line">            self.quickSort(nums, pivot_index+<span class="number">1</span>, <span class="keyword">right</span>)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line">    def sortArray(self, num<span class="variable">s:</span> List[<span class="keyword">int</span>]) -&gt; List[<span class="keyword">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.quickSort(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<p>Partition函数还有一种写法，pivot，内存2个while顺序和最后1次交换者，很值得琢磨</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def <span class="keyword">partition</span>(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        if nums[<span class="keyword">left</span>] <span class="operator">&lt;</span> nums[<span class="keyword">right</span>]:</span><br><span class="line">            self.swap(nums, <span class="keyword">right</span>, <span class="keyword">left</span><span class="operator">+</span>(<span class="keyword">right</span><span class="operator">-</span><span class="keyword">left</span>)<span class="operator">/</span><span class="operator">/</span><span class="number">2</span>)</span><br><span class="line">        <span class="keyword">begin</span><span class="operator">=</span><span class="keyword">left</span></span><br><span class="line">        <span class="keyword">end</span><span class="operator">=</span><span class="keyword">right</span></span><br><span class="line">        pivot<span class="operator">=</span><span class="keyword">right</span></span><br><span class="line">        # 最终<span class="keyword">begin</span>和<span class="keyword">end</span>都指向一处。</span><br><span class="line">        # 若pivot指向右边，则需要先走左边的while，否则先走右边</span><br><span class="line">        while <span class="keyword">begin</span> <span class="operator">&lt;</span> <span class="keyword">end</span>:</span><br><span class="line">            while <span class="keyword">begin</span> <span class="operator">&lt;</span> <span class="keyword">end</span> <span class="keyword">and</span> nums[<span class="keyword">begin</span>] <span class="operator">&lt;=</span> nums[pivot]:</span><br><span class="line">                <span class="keyword">begin</span> <span class="operator">+</span><span class="operator">=</span> <span class="number">1</span></span><br><span class="line">            while <span class="keyword">begin</span> <span class="operator">&lt;</span> <span class="keyword">end</span> <span class="keyword">and</span> nums[<span class="keyword">end</span>] <span class="operator">&gt;=</span> nums[pivot]:</span><br><span class="line">                <span class="keyword">end</span> <span class="operator">=</span> <span class="keyword">end</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">            self.swap(nums, <span class="keyword">begin</span>, <span class="keyword">end</span>)</span><br><span class="line">        self.swap(nums, <span class="keyword">begin</span>, pivot)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">begin</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h3><p>只修改了quickSort部分的代码</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def partition(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">if</span> nums[<span class="keyword">left</span>] &lt; nums[<span class="keyword">right</span>]:</span><br><span class="line">            self.swap(nums, <span class="keyword">left</span>, <span class="keyword">left</span>+(<span class="keyword">right</span>-<span class="keyword">left</span>)//<span class="number">2</span>)</span><br><span class="line">        pivot = <span class="keyword">left</span></span><br><span class="line">        <span class="built_in">index</span> = <span class="keyword">left</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">index</span>, <span class="keyword">right</span>+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt; nums[pivot]:</span><br><span class="line">                self.swap(nums, i, <span class="built_in">index</span>)</span><br><span class="line">                <span class="built_in">index</span> += <span class="number">1</span></span><br><span class="line">        self.swap(nums, <span class="built_in">index</span>-<span class="number">1</span>, pivot)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">index</span>-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    def swap(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        nums[<span class="keyword">left</span>], nums[<span class="keyword">right</span>] = nums[<span class="keyword">right</span>], nums[<span class="keyword">left</span>]</span><br><span class="line">    </span><br><span class="line">    def quickSort(self, nums, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span> &lt; righ<span class="variable">t:</span></span><br><span class="line">            stack = [<span class="keyword">right</span>, <span class="keyword">left</span>]</span><br><span class="line">            <span class="keyword">while</span> stack:</span><br><span class="line">                i = stack.<span class="keyword">pop</span>()</span><br><span class="line">                <span class="keyword">j</span> = stack.<span class="keyword">pop</span>()</span><br><span class="line">                pivot_index = self.partition(nums, i, <span class="keyword">j</span>)</span><br><span class="line">                <span class="keyword">if</span> i &lt; pivot_index:</span><br><span class="line">                    stack.<span class="keyword">append</span>(pivot_index-<span class="number">1</span>)</span><br><span class="line">                    stack.<span class="keyword">append</span>(i)</span><br><span class="line">                <span class="keyword">if</span> pivot_index &lt; <span class="keyword">j</span>:</span><br><span class="line">                    stack.<span class="keyword">append</span>(<span class="keyword">j</span>)</span><br><span class="line">                    stack.<span class="keyword">append</span>(pivot_index+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line">    def sortArray(self, num<span class="variable">s:</span> List[<span class="keyword">int</span>]) -&gt; List[<span class="keyword">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.quickSort(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h3 id="C-版本"><a href="#C-版本" class="headerlink" title="C++版本"></a>C++版本</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">quickSort2</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">        <span class="comment">// quickSort(nums, 0, nums.size()-1);</span></span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 递归版本</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> pivot = <span class="built_in">partition</span>(nums, left, right);</span><br><span class="line">            <span class="built_in">quickSort</span>(nums, left, pivot<span class="number">-1</span>);</span><br><span class="line">            <span class="built_in">quickSort</span>(nums, pivot+<span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 非递归版本</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">quickSort2</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">            stack&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">            s.<span class="built_in">push</span>(right);</span><br><span class="line">            s.<span class="built_in">push</span>(left);</span><br><span class="line">            <span class="keyword">while</span> (!s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                <span class="keyword">int</span> l = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">int</span> r = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">int</span> pivot = <span class="built_in">partition</span>(nums, l, r);</span><br><span class="line">                <span class="comment">// l, pivot-1</span></span><br><span class="line">                <span class="comment">// pivot+1, r</span></span><br><span class="line">                <span class="keyword">if</span> (l &lt; pivot<span class="number">-1</span>)&#123;</span><br><span class="line">                    s.<span class="built_in">push</span>(pivot<span class="number">-1</span>);</span><br><span class="line">                    s.<span class="built_in">push</span>(l);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (pivot+<span class="number">1</span> &lt; r)&#123;</span><br><span class="line">                    s.<span class="built_in">push</span>(r);</span><br><span class="line">                    s.<span class="built_in">push</span>(pivot+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//快排的核心函数</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[left] &lt; nums[right])&#123;</span><br><span class="line">            <span class="built_in">swap</span>(nums[left], nums[mid]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> pivot = left;</span><br><span class="line">        <span class="keyword">int</span> index = left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = left+<span class="number">1</span>; i &lt;= right; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt; nums[pivot])&#123;</span><br><span class="line">                <span class="built_in">swap</span>(nums[i], nums[index++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">swap</span>(nums[index<span class="number">-1</span>], nums[pivot]);</span><br><span class="line">        <span class="keyword">return</span> index<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>核心是merge函数，主体函数里面先将数组划分为两部分，分别mergesort后，执行两部分结果的merge</p>
+<p>时间复杂度：O(nlogn), 但是空间复杂度为O(n)<br>稳定性：属于稳定排序</p>
+<h3 id="递归版本-1"><a href="#递归版本-1" class="headerlink" title="递归版本"></a>递归版本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def sortArray(self, num<span class="variable">s:</span> List[<span class="keyword">int</span>]) -&gt; List[<span class="keyword">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.mergeSort(nums)</span><br><span class="line"></span><br><span class="line">    def mergeSort(self, nums):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums) &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> nums</span><br><span class="line">        mid = <span class="built_in">len</span>(nums)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">left</span> = self.mergeSort(nums[<span class="number">0</span>:mid])</span><br><span class="line">        <span class="keyword">right</span> = self.mergeSort(nums[mid:])</span><br><span class="line">        <span class="keyword">return</span> self.merge(<span class="keyword">left</span>, <span class="keyword">right</span>)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    def merge(self, <span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">left</span> <span class="built_in">and</span> righ<span class="variable">t:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">left</span>[<span class="number">0</span>] &lt;= <span class="keyword">right</span>[<span class="number">0</span>]:</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">left</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">right</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">        <span class="keyword">while</span> lef<span class="variable">t:</span></span><br><span class="line">            result.<span class="keyword">append</span>(<span class="keyword">left</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">        <span class="keyword">while</span> righ<span class="variable">t:</span></span><br><span class="line">            result.<span class="keyword">append</span>(<span class="keyword">right</span>.<span class="keyword">pop</span>(<span class="number">0</span>))</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="非递归版本-1"><a href="#非递归版本-1" class="headerlink" title="非递归版本"></a>非递归版本</h3><p>假设 nums = [5,4,0,3,1,6,2,7]<br>第一次：我们将数组分为 8个子数组 每个数组 1 个元素，对相邻的两个数组进行排序合并。<br>第二次：我们将数组分为 4个子数组 每个数组 2 个元素，对相邻的两个数组进行排序合并。<br>第三次：我们将数组分为 2个子数组 每个数组 4 个元素，对相邻的两个数组进行排序合并。<br>第一步：划分每个子数组元素的个数（也就是子数组的长度)</p>
+<ol>
+<li>第一次 每个子数组元素 个数 为 1.</li>
+<li>第二次 每个子数组元素 个数 为 2.</li>
+<li>第三次 每个子数组元素 个数 为 4.<br>可以看出来 每个子数组元素个数 以2的倍数递增. 设置step步长，初始1，2倍递增<br>首先：求得要合并的两个相邻数组的区间 [low:mid) [mid:high)</li>
+<li>当子数组长度为 1 的时候 要合并的相邻两个数组的区间为：<br>[0,1) [1,2) [2,3) [3,4) [4,5) [5,6) [6,7) [7,8) 子数组长度为 1</li>
+<li>子数组长度为 2 要合并的相邻两个数组的区间为：<br>[0,2) [2,4) [4,6) [6,8) 子数组长度为 2</li>
+<li>子数组长度为 4 要合并的相邻两个数组的区间为：<br>[0,4) [4,8) 子数组长度为 4<br>下面来求 区间中的 low mid height:<br>low = low + 2 x step<br>mid = low + step<br>high = low + 2 x step</li>
+</ol>
+<p>但是要注意nums长度不为2的整数倍时，high可能越界，需要优化。</p>
+<p>中间过程可能存在轮空的情况，mid和high的关系也需要确保mid&lt;high</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def sortArray(self, nums: List[int]) -&gt; List[int]:</span><br><span class="line">        <span class="literal">return</span> self.mergeSort(nums)</span><br><span class="line"></span><br><span class="line">    def mergeSort(self, nums):</span><br><span class="line">        step = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> step &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            low = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> low &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">                <span class="keyword">mid</span> = low + step</span><br><span class="line">                high = <span class="built_in">min</span>(<span class="built_in">len</span>(nums), low+<span class="number">2</span>*step)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">mid</span> &lt; high:</span><br><span class="line">                    self.<span class="built_in">merge</span>(nums, low, <span class="keyword">mid</span>, high)</span><br><span class="line">                low += <span class="number">2</span>*step</span><br><span class="line">            step = step * <span class="number">2</span></span><br><span class="line">        <span class="literal">return</span> nums</span><br><span class="line">                </span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    def <span class="built_in">merge</span>(self, nums, begin, <span class="keyword">mid</span>, <span class="keyword">end</span>):</span><br><span class="line">        <span class="built_in">result</span> = []</span><br><span class="line">        i, j = begin, <span class="keyword">mid</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="keyword">mid</span> <span class="keyword">and</span> j &lt; <span class="keyword">end</span>:</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt;= nums[j]:</span><br><span class="line">                <span class="built_in">result</span>.append(nums[i])</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">result</span>.append(nums[j])</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">        <span class="built_in">result</span> += nums[i:<span class="keyword">mid</span>]</span><br><span class="line">        <span class="built_in">result</span> += nums[j:<span class="keyword">end</span>]</span><br><span class="line">        nums[begin:<span class="keyword">end</span>] = <span class="built_in">result</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>核心是一个调整动作adjust函数，</p>
+<p>建堆过程，从倒数第一个非叶子节点开始调整，直到第一个节点。<br>排序过程，每次选择堆顶元素与最后一个交换后调整第一个节点。</p>
+<p>时间复杂度：O(nlogn), 有空可以详细推导一下<br>稳定性：中间交换过程不可控，不稳定</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        <span class="keyword">return</span> self.heapSort(nums)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heapSort</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">        self.buildHeap(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            self.swap(nums, i, <span class="number">0</span>)</span><br><span class="line">            self.adjust(nums, <span class="number">0</span>, i)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line">                </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">swap</span>(<span class="params">self, nums, i, j</span>):</span></span><br><span class="line">        nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildHeap</span>(<span class="params">self, nums</span>):</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)//<span class="number">2</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            self.adjust(nums, i, <span class="built_in">len</span>(nums))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adjust</span>(<span class="params">self, nums, i, length</span>):</span></span><br><span class="line">        temp = nums[i]</span><br><span class="line">        k = <span class="number">2</span>*i + <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> k &lt; length:</span><br><span class="line">            <span class="comment"># 升序和降序修改此处第二个比较符号</span></span><br><span class="line">            <span class="keyword">if</span> k+<span class="number">1</span> &lt; length <span class="keyword">and</span> nums[k+<span class="number">1</span>] &gt; nums[k]:</span><br><span class="line">                k += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 升序和降序修改此处比较符号</span></span><br><span class="line">            <span class="keyword">if</span> nums[k] &gt; temp:</span><br><span class="line">                nums[i] = nums[k]</span><br><span class="line">                i = k</span><br><span class="line">            k = <span class="number">2</span>*k + <span class="number">1</span></span><br><span class="line">        nums[i] = temp</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h2 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/08/leetcode/leetcode-reverse-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/08/leetcode/leetcode-reverse-list/" class="post-title-link" itemprop="url">反转链表(系列)</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-08 21:44:35" itemprop="dateCreated datePublished" datetime="2022-02-08T21:44:35+08:00">2022-02-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-04 19:39:51" itemprop="dateModified" datetime="2022-04-04T19:39:51+08:00">2022-04-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h2><h4 id="方法一：依次插入空头节点后完成反转"><a href="#方法一：依次插入空头节点后完成反转" class="headerlink" title="方法一：依次插入空头节点后完成反转"></a>方法一：依次插入空头节点后完成反转</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="comment"># 1.构造带头节点的空链表，注意next为None，后续会变为最后一个节点</span></span><br><span class="line"><span class="comment"># 2. 将链表节点p依次插入空链表的头节点之后</span></span><br><span class="line"><span class="comment"># 3. 注意终止条件，q=NULL</span></span><br><span class="line"><span class="comment"># 4. 注意处理最后一个p节点</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseList</span><span class="params">(<span class="keyword">self</span>, <span class="symbol">head:</span> ListNode)</span></span> -&gt; <span class="symbol">ListNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="symbol">head:</span></span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        dummy = ListNode(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        p = head</span><br><span class="line">        q = head.<span class="keyword">next</span></span><br><span class="line">        <span class="keyword">while</span> <span class="symbol">q:</span></span><br><span class="line">            p.<span class="keyword">next</span> = dummy.<span class="keyword">next</span></span><br><span class="line">            dummy.<span class="keyword">next</span> = p</span><br><span class="line">            p = q</span><br><span class="line">            q = q.<span class="keyword">next</span></span><br><span class="line">        p.<span class="keyword">next</span> = dummy.<span class="keyword">next</span></span><br><span class="line">        dummy.<span class="keyword">next</span> = p</span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二：直接链表一次遍历完成反转"><a href="#方法二：直接链表一次遍历完成反转" class="headerlink" title="方法二：直接链表一次遍历完成反转"></a>方法二：直接链表一次遍历完成反转</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="comment"># pre初始指向空，p指向当前待处理节点，初始为head，q记录p的下一个节点</span></span><br><span class="line"><span class="comment"># p连上上一个节点pre，pre变为当前节点p，p后移指向下一个待处理节点q</span></span><br><span class="line"><span class="comment"># 结束时，p为空，pre为最后被处理的节点，即新链表的头节点</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseList</span>(<span class="params">self, head: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        pre = <span class="literal">None</span></span><br><span class="line">        p = head</span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line">            q = p.<span class="built_in">next</span></span><br><span class="line">            p.<span class="built_in">next</span> = pre</span><br><span class="line">            pre = p </span><br><span class="line">            p = q</span><br><span class="line">        <span class="keyword">return</span> pre</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法三：迭代求解"><a href="#方法三：迭代求解" class="headerlink" title="方法三：迭代求解"></a>方法三：迭代求解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="comment"># 以第一个节点为未反转部分，剩下部分为已求解部分</span></span><br><span class="line"><span class="comment"># 第二个节点为已求解部分最后的一个节点，将最后一个未反转节点加入已求解部分</span></span><br><span class="line"><span class="comment"># 注意两点：1. head.next为空需要提前判断，否则有语法错误   2.最终一个节点的next为None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseList</span>(<span class="params">self, head: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        right = self.reverseList(head.<span class="built_in">next</span>)</span><br><span class="line">        head.<span class="built_in">next</span>.<span class="built_in">next</span> = head</span><br><span class="line">        head.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> right</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h2><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h2 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h2><h1 id="92-反转链表-II"><a href="#92-反转链表-II" class="headerlink" title="92. 反转链表 II"></a>92. 反转链表 II</h1><p>给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。</p>
+<h1 id="复用以前的反转算法"><a href="#复用以前的反转算法" class="headerlink" title="复用以前的反转算法"></a>复用以前的反转算法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseBetween</span>(<span class="params">self, head: ListNode, left: <span class="built_in">int</span>, right: <span class="built_in">int</span></span>) -&gt; ListNode:</span></span><br><span class="line">        <span class="comment"># head为第一个要处理的节点，tail为要处理节点的下一个节点，可能为None</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">reverseList</span>(<span class="params">head, tail</span>):</span></span><br><span class="line">            prev = tail</span><br><span class="line">            cur = head</span><br><span class="line">            p = head</span><br><span class="line">            <span class="keyword">while</span> p != tail:</span><br><span class="line">                p = p.<span class="built_in">next</span></span><br><span class="line">                cur.<span class="built_in">next</span> = prev</span><br><span class="line">                prev = cur</span><br><span class="line">                cur = p</span><br><span class="line">            <span class="keyword">return</span> prev</span><br><span class="line"></span><br><span class="line">        dummy = ListNode(<span class="built_in">next</span>=head)</span><br><span class="line">        p = dummy</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        prev_node = dummy</span><br><span class="line">        right_node = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line">            <span class="keyword">if</span> count == left-<span class="number">1</span>:</span><br><span class="line">                prev_node = p</span><br><span class="line">            <span class="keyword">if</span> count == right:</span><br><span class="line">                right_node = p</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            p = p.<span class="built_in">next</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="comment"># print(prev_node.val, right_node.val)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> right_node:</span><br><span class="line">            prev_node.<span class="built_in">next</span> = reverseList(prev_node.<span class="built_in">next</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            prev_node.<span class="built_in">next</span> = reverseList(prev_node.<span class="built_in">next</span>, right_node.<span class="built_in">next</span>)</span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2021/11/21/algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/21/algorithm/" class="post-title-link" itemprop="url">算法题学习大纲</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-21 22:42:57 / 修改时间：22:53:09" itemprop="dateCreated datePublished" datetime="2021-11-21T22:42:57+08:00">2021-11-21</time>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="算法全局概览"><a href="#算法全局概览" class="headerlink" title="算法全局概览"></a>算法全局概览</h2><p><img data-src="http://huifangshuyuan.com/img/algorithm.png" alt="算法概览图"></p>
+<h2 id="TOP20"><a href="#TOP20" class="headerlink" title="TOP20"></a>TOP20</h2><p>10个数据结构<br>数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树；</p>
+<p>10个算法<br>递归、排序、二分查找、搜索、哈希算法、贪心算法、分治算法、回溯算法、动态规划、字符串匹配算法</p>
+<h2 id="学习原则"><a href="#学习原则" class="headerlink" title="学习原则"></a>学习原则</h2><p>学习它的“来历”“自身的特点”“适合解决的问题”以及“实际的应用场景” </p>
+<h2 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h2><ul>
+<li>算法专栏</li>
+<li>剑指offer</li>
+<li>牛客高频300</li>
+<li>leetcode各分类3题</li>
+</ul>
+<p>3链表：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=linked-list">https://leetcode.com/problemset/all/?topicSlugs=linked-list</a></p>
+<p>3栈: <a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=stack">https://leetcode.com/problemset/all/?topicSlugs=stack</a></p>
+<p>3队列：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=queue">https://leetcode.com/problemset/all/?topicSlugs=queue</a></p>
+<p>散列表：</p>
+<p>6二叉树：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=tree">https://leetcode.com/problemset/all/?topicSlugs=tree</a></p>
+<p>3堆：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=heap">https://leetcode.com/problemset/all/?topicSlugs=heap</a></p>
+<p>跳表：</p>
+<p>6图：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=graph">https://leetcode.com/problemset/all/?topicSlugs=graph</a></p>
+<p>3Trie树：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=trie">https://leetcode.com/problemset/all/?topicSlugs=trie</a></p>
+<p>3递归：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=recursion">https://leetcode.com/problemset/all/?topicSlugs=recursion</a></p>
+<p>6排序：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=sort">https://leetcode.com/problemset/all/?topicSlugs=sort</a></p>
+<p>3二分查找：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=binary-search">https://leetcode.com/problemset/all/?topicSlugs=binary-search</a></p>
+<p>搜索：</p>
+<p>哈希算法：</p>
+<p>6贪心算法：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=greedy">https://leetcode.com/problemset/all/?topicSlugs=greedy</a></p>
+<p>6分治算法：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=divide-and-conquer">https://leetcode.com/problemset/all/?topicSlugs=divide-and-conquer</a></p>
+<p>6回溯算法：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=backtracking">https://leetcode.com/problemset/all/?topicSlugs=backtracking</a></p>
+<p>6+动态规划：<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=dynamic-programming">https://leetcode.com/problemset/all/?topicSlugs=dynamic-programming</a></p>
+<p>字符串匹配：</p>
+<p>其他：</p>
+<p>哈希表<a target="_blank" rel="noopener" href="https://leetcode.com/problemset/all/?topicSlugs=hash-table">https://leetcode.com/problemset/all/?topicSlugs=hash-table</a></p>
+<h2 id="经典算法题目梳理"><a href="#经典算法题目梳理" class="headerlink" title="经典算法题目梳理"></a>经典算法题目梳理</h2><ul>
+<li>1.单链表是否有环  环的入口</li>
+<li>2.最长公共子串和最长公共子序列</li>
+<li>3.二叉树的先序，中序，后序，层序遍历</li>
+<li>4.快速排序，归并排序，堆排序</li>
+<li>5.atoi</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2021/11/21/daily-plan-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/21/daily-plan-note/" class="post-title-link" itemprop="url">每日微习惯</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-21 19:28:35" itemprop="dateCreated datePublished" datetime="2021-11-21T19:28:35+08:00">2021-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-05 22:34:14" itemprop="dateModified" datetime="2021-12-05T22:34:14+08:00">2021-12-05</time>
+              </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>823</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>12月5日  后续通过flomo记录，并改为每周计划与复盘</p>
+<p>11月24日 后续改为评论区记录，可以更加清楚的看出时间线</p>
+<h3 id="2021年11月23日"><a href="#2021年11月23日" class="headerlink" title="2021年11月23日"></a>2021年11月23日</h3><table>
+<thead>
+<tr>
+<th>TODO</th>
+<th>是否完成</th>
+<th>完成时间与说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>锻炼</td>
+<td>是</td>
+<td>下午4点跑步3km</td>
+</tr>
+<tr>
+<td>早上阅读</td>
+<td>是</td>
+<td>9.30-10:30点阅读。合计1h</td>
+</tr>
+<tr>
+<td>中午阅读</td>
+<td>是</td>
+<td>13-14阅读 合计1h</td>
+</tr>
+<tr>
+<td>晚上阅读</td>
+<td>是</td>
+<td>晚上阅读0.5h, 感觉长时间阅读同一个东西，有点厌烦的感觉，应该交替着进行</td>
+</tr>
+</tbody></table>
+<h3 id="2021年11月22日"><a href="#2021年11月22日" class="headerlink" title="2021年11月22日"></a>2021年11月22日</h3><table>
+<thead>
+<tr>
+<th>TODO</th>
+<th>是否完成</th>
+<th>完成时间与说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>锻炼</td>
+<td>是</td>
+<td>下午5点跑步5km</td>
+</tr>
+<tr>
+<td>早上阅读</td>
+<td>是</td>
+<td>早上8-8.15, 9.30-11点阅读。合计1.5h</td>
+</tr>
+<tr>
+<td>中午阅读</td>
+<td>否</td>
+<td>有点困，未完成。今天早点睡，明天要不顾一切的完成</td>
+</tr>
+<tr>
+<td>晚上阅读</td>
+<td>否</td>
+<td>做规划，未完成。明天要不顾一切的完成</td>
+</tr>
+</tbody></table>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
+<li>每周锻炼3次，2021年11月20日启动</li>
+<li>每周阅读20小时，2021年11月22日启动</li>
+<li>每周刷一道算法题，2021年11月22日启动</li>
+</ol>
+<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><ul>
+<li>锻炼可以有良好的身体，身体是一切的基础。不阅读有如文盲，文盲无法在这个社会生存。</li>
+<li>二者都属于第二象限的人生要事，需要保证</li>
+<li>每日记载总结，周级复盘，理论-实践-反馈分析的循环必超凡入圣</li>
+</ul>
+<h2 id="时间从哪来"><a href="#时间从哪来" class="headerlink" title="时间从哪来"></a>时间从哪来</h2><p>锻炼：</p>
+<ul>
+<li>工作日：每天下午5点，如果5点有会，就4点；如果没有跑步机，就早起跑步</li>
+<li>周末：公司跑步或早起跑步</li>
+<li>没有特殊情况，比如下雨就在家keep，总之不找理由尽可能想办法实现。</li>
+</ul>
+<p>阅读：</p>
+<ul>
+<li>工作日：早上10点半以前，中午1点至2点，晚上6点至7点</li>
+<li>周末：尽可能安排在上午，原则是补足20小时，若已满20小时，则至少阅读1小时</li>
+<li>第二象限的工作，不找借口，保证完成。最终必会反哺工作和生活</li>
+</ul>
+<h2 id="衡量指标"><a href="#衡量指标" class="headerlink" title="衡量指标"></a>衡量指标</h2><p>锻炼：</p>
+<ul>
+<li>体重</li>
+<li>BMI</li>
+<li>最大摄氧量</li>
+<li>仰卧起坐个数</li>
+<li>俯卧撑个数</li>
+<li>头发色泽和密度</li>
+<li>三围</li>
+<li>身材图(正面和侧面)</li>
+</ul>
+<p>阅读：</p>
+<ul>
+<li>每日阅读时长</li>
+<li>每月阅读书本数</li>
+<li>产出读书笔记数</li>
+</ul>
+<h2 id="如何做"><a href="#如何做" class="headerlink" title="如何做"></a>如何做</h2><p>锻炼：</p>
+<ul>
+<li>第一阶段：跑步</li>
+<li>第二阶段：跑步与力量训练交替</li>
+</ul>
+<p>阅读：</p>
+<ul>
+<li>方式：主题阅读(技术、成长、业务、效能、管理、财务)</li>
+<li>阅读什么书？要阅读当下感兴趣的书，快速阅读，吸取有用的部分即可<br><img data-src="http://huifangshuyuan.com/img/book_familiarVSinterest.jpeg" alt="书的分类"></li>
+<li>如何选书：豆瓣评分7.0以上的书，豆瓣评论，大咖推荐</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2021/11/14/Misunderstandings-in-life/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/14/Misunderstandings-in-life/" class="post-title-link" itemprop="url">Misunderstandings-in-Life</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-14 17:00:26" itemprop="dateCreated datePublished" datetime="2021-11-14T17:00:26+08:00">2021-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-21 18:45:48" itemprop="dateModified" datetime="2021-11-21T18:45:48+08:00">2021-11-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,14 +831,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
+              <span>22</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -293,432 +850,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文简单介绍一下北京摩托车驾照获得的流程和考试的一些心得，希望能帮到大家。</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>长安居大不易，相信每一个帝都生活的朋友都对生活的艰难有自己的感受，在汽车摇号无望，电动车续航不给力，地铁太挤，打车太堵且贵，长期骑单车太累的情况下，<br>摩托通勤成为了一个勉强可以接受的方案，虽然明知”肉包铁”，也不得已而为之。</p>
-<p>话不多说，直入主题，我是2021年5月份在海淀驾校报名的，主要是因为海驾班车比较方便。</p>
-<p>我报的是二轮摩托车，也就是俗称的E本，活动优惠后价格是900元，大概7月中旬考完科目一后，连续预约了3次练习，8月1日晚上集训一次，8月2日科目二科目三科目四都是一把过，成功拿本。</p>
-<p>其实如果不差钱且想快速拿本的话，建议报三轮摩托车，由于三轮摩托车车速较慢且不需要考虑平衡性问题，考试较简单。三轮是D本，涵盖了E本的全部功能。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/07/how-to-get-a-motorcycle-driver-licence/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2021/07/10/hexo-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/10/hexo-tutorial/" class="post-title-link" itemprop="url">Hexo博客教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-10 19:19:30" itemprop="dateCreated datePublished" datetime="2021-07-10T19:19:30+08:00">2021-07-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-04 12:46:18" itemprop="dateModified" datetime="2022-04-04T12:46:18+08:00">2022-04-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">tool</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="hexo-next-为文章添加分类"><a href="#hexo-next-为文章添加分类" class="headerlink" title="hexo next 为文章添加分类"></a>hexo next 为文章添加分类</h1><h2 id="新建一个页面，命名为-categories-。命令如下："><a href="#新建一个页面，命名为-categories-。命令如下：" class="headerlink" title="新建一个页面，命名为 categories 。命令如下："></a>新建一个页面，命名为 categories 。命令如下：</h2><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type">page</span> categories</span><br></pre></td></tr></table></figure>
-
-<h2 id="编辑刚新建的页面，将页面的类型设置为-categories-，主题将自动为这个页面显示所有分类"><a href="#编辑刚新建的页面，将页面的类型设置为-categories-，主题将自动为这个页面显示所有分类" class="headerlink" title="编辑刚新建的页面，将页面的类型设置为 categories ，主题将自动为这个页面显示所有分类"></a>编辑刚新建的页面，将页面的类型设置为 categories ，主题将自动为这个页面显示所有分类</h2><p>可选是否关闭评论</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: 分类</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2014</span>-<span class="number">12</span>-<span class="number">22</span> <span class="number">12</span>:<span class="number">39</span>:<span class="number">04</span></span><br><span class="line"><span class="attribute">type</span>: <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="attribute">comments</span>: false</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/10/hexo-tutorial/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2017/11/24/python2-encode-and-decode-problem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/24/python2-encode-and-decode-problem/" class="post-title-link" itemprop="url">Python2编码问题分析</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-24 19:55:22" itemprop="dateCreated datePublished" datetime="2017-11-24T19:55:22+08:00">2017-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-08 09:32:41" itemprop="dateModified" datetime="2021-09-08T09:32:41+08:00">2021-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Python2编码问题</p>
-<p>python2的字符串有两种：str和unicode</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/11/24/python2-encode-and-decode-problem/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2016/08/24/Cracking-the-coding-interview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/08/24/Cracking-the-coding-interview/" class="post-title-link" itemprop="url">Cracking-the-Coding-Interview</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-08-24 11:21:00" itemprop="dateCreated datePublished" datetime="2016-08-24T11:21:00+08:00">2016-08-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-08 09:32:41" itemprop="dateModified" datetime="2021-09-08T09:32:41+08:00">2021-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/job/" itemprop="url" rel="index"><span itemprop="name">job</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>42k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>38 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Cracking-The-Coding-Interview"><a href="#Cracking-The-Coding-Interview" class="headerlink" title="Cracking The Coding Interview"></a>Cracking The Coding Interview</h1><h2 id="1-Foreword"><a href="#1-Foreword" class="headerlink" title="1.Foreword"></a>1.Foreword</h2><p>As you get ready for your interviews, consider these suggestions:</p>
-<ul>
-<li>  Write Code on Paper</li>
-<li>  Know Your Resume</li>
-<li>  Don’t Memorize Solutions</li>
-<li>  Talk Out Loud</li>
-</ul>
-<p>Receiving an offer is not about solving questions flawlessly (very few candidates do!), but rather, <strong>it is about answering questions better than other candidates.</strong> So don’t stress out when you get a tricky question - everyone else probably thought it was hard too!</p>
-<h2 id="2-Introduction"><a href="#2-Introduction" class="headerlink" title="2.Introduction"></a>2.Introduction</h2><h2 id="3-Behind-the-Scenes"><a href="#3-Behind-the-Scenes" class="headerlink" title="3.Behind the Scenes"></a>3.Behind the Scenes</h2><h3 id="3-1-The-Microsoft-Interview"><a href="#3-1-The-Microsoft-Interview" class="headerlink" title="3.1 The Microsoft Interview"></a>3.1 The Microsoft Interview</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/08/24/Cracking-the-coding-interview/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2016/07/30/CPP-knowledge/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/30/CPP-knowledge/" class="post-title-link" itemprop="url">C++知识归纳整理（不断更新中）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-30 22:03:15" itemprop="dateCreated datePublished" datetime="2016-07-30T22:03:15+08:00">2016-07-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-08 09:32:41" itemprop="dateModified" datetime="2021-09-08T09:32:41+08:00">2021-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/job/" itemprop="url" rel="index"><span itemprop="name">job</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇文章写了好久，感觉还是没写完。接下来准备慢慢看书，实习，不断更新吧。</p>
-<p><strong><strong><strong><strong><strong><strong><strong><strong>分割线</strong></strong></strong></strong></strong></strong></strong></strong>********************</p>
-<p>按照侯捷先生在《Effective C++》的观点，以及自己的一些理解，可以将互联网技术岗位关于C＋＋的知识点归纳为以下五个部分：</p>
-<ul>
-<li>C＋＋基础知识</li>
-<li>面向过程的特性</li>
-<li>面向对象的特性</li>
-<li>泛型编程的特性</li>
-<li>标准模板库和算法</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/30/CPP-knowledge/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <p>记录一些生活中的误解</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><h3 id="错误归因"><a href="#错误归因" class="headerlink" title="错误归因"></a>错误归因</h3><h3 id="真实原因原因"><a href="#真实原因原因" class="headerlink" title="真实原因原因"></a>真实原因原因</h3>
       
     </div>
 
@@ -736,7 +869,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -813,7 +946,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -892,13 +1025,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
