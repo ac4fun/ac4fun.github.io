@@ -143,12 +143,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">130</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">138</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">37</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">38</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -222,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/03/leetcode-maximum-product-subarray/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/07/leetcode-Square-matrix-multiplication/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -236,7 +236,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/06/03/leetcode-maximum-product-subarray/" class="post-title-link" itemprop="url">152. 乘积最大子数组</a>
+            <a href="/2022/06/07/leetcode-Square-matrix-multiplication/" class="post-title-link" itemprop="url">方阵乘法</a>
         </h2>
 
         <div class="post-meta">
@@ -246,16 +246,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-03 23:50:27" itemprop="dateCreated datePublished" datetime="2022-06-03T23:50:27+08:00">2022-06-03</time>
+              <time title="创建时间：2022-06-07 21:49:05 / 修改时间：21:50:29" itemprop="dateCreated datePublished" datetime="2022-06-07T21:49:05+08:00">2022-06-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-04 08:30:48" itemprop="dateModified" datetime="2022-06-04T08:30:48+08:00">2022-06-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -274,7 +268,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>271</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,28 +287,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>给你一个整数数组 nums ，请你找出数组中乘积最大的非空连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
-<p>测试用例的答案是一个 32-位 整数。</p>
-<p>子数组 是数组的连续子序列。</p>
-<p> </p>
-<p>示例 1:</p>
-<p>输入: nums = [2,3,-2,4]<br>输出: 6<br>解释: 子数组 [2,3] 有最大乘积 6。<br>示例 2:</p>
-<p>输入: nums = [-2,0,-1]<br>输出: 0<br>解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
- </p>
-<p>提示:</p>
-<p>1 &lt;= nums.length &lt;= 2 * 104<br>-10 &lt;= nums[i] &lt;= 10<br>nums 的任何前缀或后缀的乘积都 保证 是一个 32-位 整数</p>
+          <p>描述<br>给定两个 n<em>n 的矩阵 A 和 B ，求 A</em>B 。</p>
+<p>数据范围：1 \le n \le 1001≤n≤100，-100 \le Matrix_{i,j}\le 100−100≤Matrix<br>i,j<br>​<br> ≤100</p>
+<p>要求：空间复杂度 O(n^2)O(n<br>2<br> ) ， 时间复杂度 O(n^3 )O(n<br>3<br> )<br>进阶：本题也有空间复杂度 O(n^2)O(n<br>2<br> )，时间复杂度 O(n^{log7})O(n<br>log7<br> )的解法<br>PS：更优时间复杂度的算法这里并不考察<br>示例1<br>输入：<br>[[1,2],[3,2]],[[3,4],[2,1]]<br>返回值：<br>[[7,6],[13,14]]</p>
+<p>示例2<br>输入：<br>[[1]],[[1]]<br>返回值：<br>[[1]]</p>
 <hr>
-<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>记录dp_max[i]是以第i个数结尾的乘积最大子数组的积，则<br>dp_max[i] = max(dp_max[i-1]*nums[i], nums[i])</p>
-<p>但是这样只能解决数组中所有数全部非负或全部非正的情形。</p>
-<p>考虑负负得正的情形，我们新加一个dp_min, 表示最小的积，</p>
-<p>则：</p>
-<p>dp_max[i] = max(dp_max[i-1]*nums[i], dp_min[i-1]*nums[i], nums[i])</p>
-<p>dp_min[i] = min(dp_max[i-1]*nums[i], dp_min[i-1]*nums[i], nums[i])</p>
-<p>由于第i个状态只和i-1状态有关，所以可以考虑使用滚动数组的思想节省空间。</p>
-<p>最终时间复杂度：O(n)<br>空间复杂度：O(1)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre_max = nums[<span class="number">0</span>], pre_min = nums[<span class="number">0</span>], ans = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = nums[i];</span><br><span class="line">            <span class="comment">// 注意：pre_max和pre_min要并行计算，所以需要用临时变量先存一下</span></span><br><span class="line">            <span class="keyword">int</span> last_max = pre_max, last_min = pre_min;</span><br><span class="line">            pre_max = <span class="built_in">max</span>(num, <span class="built_in">max</span>(num*last_max, num*last_min));</span><br><span class="line">            pre_min = <span class="built_in">min</span>(num, <span class="built_in">min</span>(num*last_max, num*last_min));</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, pre_max);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
 
       
     </div>
@@ -334,7 +311,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/31/leetcode-implement-trie-prefix-tree/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/05/leetcode-longest-increasing-path-in-a-matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -348,7 +325,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/31/leetcode-implement-trie-prefix-tree/" class="post-title-link" itemprop="url">208. 实现 Trie (前缀树)</a>
+            <a href="/2022/06/05/leetcode-longest-increasing-path-in-a-matrix/" class="post-title-link" itemprop="url">329. 矩阵中的最长递增路径</a>
         </h2>
 
         <div class="post-meta">
@@ -359,14 +336,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-05-31 22:49:53" itemprop="dateCreated datePublished" datetime="2022-05-31T22:49:53+08:00">2022-05-31</time>
+              <time title="创建时间：2022-06-05 21:45:30" itemprop="dateCreated datePublished" datetime="2022-06-05T21:45:30+08:00">2022-06-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-02 09:07:36" itemprop="dateModified" datetime="2022-06-02T09:07:36+08:00">2022-06-02</time>
+                <time title="修改时间：2022-06-07 21:39:03" itemprop="dateModified" datetime="2022-06-07T21:39:03+08:00">2022-06-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -386,14 +363,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -405,162 +382,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Trie（发音类似 “try”）或者说 前缀树 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。</p>
-<p>请你实现 Trie 类：</p>
-<p>Trie() 初始化前缀树对象。<br>void insert(String word) 向前缀树中插入字符串 word 。<br>boolean search(String word) 如果字符串 word 在前缀树中，返回 true（即，在检索之前已经插入）；否则，返回 false 。<br>boolean startsWith(String prefix) 如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。
- </p>
-<p>示例：</p>
-<p>输入<br>[“Trie”, “insert”, “search”, “search”, “startsWith”, “insert”, “search”]<br>[[], [“apple”], [“apple”], [“app”], [“app”], [“app”], [“app”]]<br>输出<br>[null, null, true, false, true, null, true]</p>
-<p>解释<br>Trie trie = new Trie();<br>trie.insert(“apple”);<br>trie.search(“apple”);   // 返回 True<br>trie.search(“app”);     // 返回 False<br>trie.startsWith(“app”); // 返回 True<br>trie.insert(“app”);<br>trie.search(“app”);     // 返回 True
- </p>
-<p>提示：</p>
-<p>1 &lt;= word.length, prefix.length &lt;= 2000<br>word 和 prefix 仅由小写英文字母组成<br>insert、search 和 startsWith 调用次数 总计 不超过 3 * 104 次</p>
-<hr>
-<h1 id="26叉树"><a href="#26叉树" class="headerlink" title="26叉树"></a>26叉树</h1><p>Trie 前缀树，实际就是多叉树，如果只考虑小写字母那就是26叉树。</p>
-<p>定义每个节点有一个子节点数组和一个是否结束标记。</p>
-<p>初始化：子节点数组长度定义为26，是否结束标记定义为false<br>插入：将字符串中的每个字符挨个插入到树中，如果字符已存在，则看下一层，字符不存在则创建一个节点，注意：最后一个字符的节点标记为结束<br>查找前缀：按字符依次查找，如果返回空则未找到，全部找到为找到<br>查找字符串：类似查找前缀，但是结束时需要判定结束标记。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line">    vector&lt;Trie*&gt; chidren;</span><br><span class="line">    <span class="keyword">bool</span> isEnd;</span><br><span class="line"></span><br><span class="line">    <span class="function">Trie* <span class="title">searchPrefix</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        Trie* node = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ch : word) &#123;</span><br><span class="line">            <span class="keyword">int</span> index = ch - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;chidren[index] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            node = node-&gt;chidren[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Trie</span>() : <span class="built_in">chidren</span>(<span class="number">26</span>), <span class="built_in">isEnd</span>(<span class="literal">false</span>) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        Trie* node = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ch : word) &#123;</span><br><span class="line">            <span class="keyword">int</span> index = ch - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;chidren[index] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                node-&gt;chidren[index] = <span class="keyword">new</span> <span class="built_in">Trie</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            node = node-&gt;chidren[index];</span><br><span class="line">        &#125;</span><br><span class="line">        node-&gt;isEnd = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        Trie* node = <span class="built_in">searchPrefix</span>(word);</span><br><span class="line">        <span class="keyword">return</span> node != <span class="literal">nullptr</span> &amp;&amp; node-&gt;isEnd;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(string prefix)</span> </span>&#123;</span><br><span class="line">        Trie* node = <span class="built_in">searchPrefix</span>(prefix);</span><br><span class="line">        <span class="keyword">return</span> node != <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/27/leetcode-n-queens/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/27/leetcode-n-queens/" class="post-title-link" itemprop="url">N皇后(系列)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-27 09:37:09" itemprop="dateCreated datePublished" datetime="2022-05-27T09:37:09+08:00">2022-05-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-31 22:47:51" itemprop="dateModified" datetime="2022-05-31T22:47:51+08:00">2022-05-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="51-N-皇后"><a href="#51-N-皇后" class="headerlink" title="51. N 皇后"></a>51. N 皇后</h1><p>n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。</p>
-<p>每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。</p>
-<p> </p>
-<p>示例 1：<br>输入：n = 4<br>输出：[[“.Q..”,”…Q”,”Q…”,”..Q.”],[“..Q.”,”Q…”,”…Q”,”.Q..”]]<br>解释：如上图所示，4 皇后问题存在两个不同的解法。</p>
-<p>示例 2：<br>输入：n = 1<br>输出：[[“Q”]]
- </p>
-<p>提示：</p>
-<p>1 &lt;= n &lt;= 9</p>
-<h2 id="回溯穷举"><a href="#回溯穷举" class="headerlink" title="回溯穷举"></a>回溯穷举</h2><p>逐行尝试选择皇后放置的列，放置之前先检查可以放置在哪一列。当所有行都判断完后，可以将答案放置在答案数组中</p>
-<p>一个皇后可以放置的位置，需要满足：<br>1.同列上方无皇后<br>2.左右斜对角延伸的上方每一行无皇后</p>
-<h3 id="python3代码"><a href="#python3代码" class="headerlink" title="python3代码"></a>python3代码</h3><p>2020.07.25 15:37:13年的代码</p>
-<p>printN负责打印结果数组</p>
-<p>cal8queens通过递归穷举每一行</p>
-<p>is_valid判断指定行和列是否OK</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solveNQueens</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">printN</span>():</span></span><br><span class="line">            solution = []</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                tmp = [<span class="string">&#x27;.&#x27;</span>]*n</span><br><span class="line">                tmp[result[row]] = <span class="string">&#x27;Q&#x27;</span></span><br><span class="line">                tmp = <span class="string">&#x27;&#x27;</span>.join(tmp)</span><br><span class="line">                solution.append(tmp)</span><br><span class="line">            ans.append(solution)</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">cal8queens</span>(<span class="params">row</span>):</span></span><br><span class="line">            <span class="keyword">if</span> row == n:</span><br><span class="line">                printN()</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> is_valid(row, column, n, result):</span><br><span class="line">                    result[row] = column</span><br><span class="line">                    cal8queens(row+<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">is_valid</span>(<span class="params">row, column, n, result</span>):</span></span><br><span class="line">            leftup = column - <span class="number">1</span></span><br><span class="line">            righttop = column + <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(row-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> result[i] == column:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">if</span> leftup &gt;= <span class="number">0</span> <span class="keyword">and</span> result[i] == leftup:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">if</span> righttop &lt; n <span class="keyword">and</span> result[i] == righttop:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                leftup -= <span class="number">1</span></span><br><span class="line">                righttop += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># result记录  第i行的皇后放在第几列</span></span><br><span class="line">        result = [-<span class="number">1</span>]*n</span><br><span class="line">        ans = []</span><br><span class="line">        cal8queens(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-的代码"><a href="#C-的代码" class="headerlink" title="C++的代码"></a>C++的代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;string&gt; chess;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(chess);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; n; column++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">check</span>(row, column, n)) &#123;</span><br><span class="line">                chess[row][column] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">                <span class="comment">// print();</span></span><br><span class="line">                <span class="built_in">backtrack</span>(row+<span class="number">1</span>, n);</span><br><span class="line">                chess[row][column] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = column - <span class="number">1</span>, right = column + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = row<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chess[i][column] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (left &gt;= <span class="number">0</span> &amp;&amp; chess[i][left] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (right &lt; n &amp;&amp; chess[i][right] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chess.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            cout &lt;&lt; chess[i] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        chess.<span class="built_in">resize</span>(n, <span class="built_in">string</span>(n, <span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基于集合的回溯"><a href="#基于集合的回溯" class="headerlink" title="基于集合的回溯"></a>基于集合的回溯</h2><p>前一种方法中，check函数的时间复杂度为O(n)，导致整体的时间复杂度较高为O(n*n!)<br>可以使用集合将check的时间复杂度降低到O(1)</p>
-<p>通过分析，我们可以发现：</p>
-<ul>
-<li><ol>
-<li>左上方斜线上的元素，横纵坐标之差相等</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>右上方斜线上的元素，横纵坐标之和相等</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>纵向方向的元素，纵坐标相等。</li>
-</ol>
-</li>
-</ul>
-<p>所以可以用三个集合存储上述的数，用空间换时间</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;string&gt; chess;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">    <span class="comment">// 分别记录左上方、右上方、垂直方向三条线的值</span></span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; leftup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; rightup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; columns;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(chess);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; n; column++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (leftup.<span class="built_in">find</span>(row-column) != leftup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (rightup.<span class="built_in">find</span>(row+column) != rightup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (columns.<span class="built_in">find</span>(column) != columns.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            chess[row][column] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">            leftup.<span class="built_in">insert</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">insert</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">insert</span>(column);</span><br><span class="line">            <span class="built_in">backtrack</span>(row+<span class="number">1</span>, n);</span><br><span class="line">            <span class="comment">//还原现场</span></span><br><span class="line">            chess[row][column] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">            leftup.<span class="built_in">erase</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">erase</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">erase</span>(column);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        chess.<span class="built_in">resize</span>(n, <span class="built_in">string</span>(n, <span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基于位运算的回溯"><a href="#基于位运算的回溯" class="headerlink" title="基于位运算的回溯"></a>基于位运算的回溯</h2><p>前一种使用集合来记录三个方向是否可以放置皇后，这里用三个数通过位运算来表示，<br>可以将判断是否能放皇后的空间复杂度从O(N)降低为O(1)</p>
-<p>TODO </p>
-<h1 id="52-N皇后-II"><a href="#52-N皇后-II" class="headerlink" title="52. N皇后 II"></a>52. N皇后 II</h1><p>n 皇后问题 研究的是如何将 n 个皇后放置在 n × n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>给你一个整数 n ，返回 n 皇后问题 不同的解决方案的数量。</p>
+          <p>给定一个 m x n 整数矩阵 matrix ，找出其中 最长递增路径 的长度。</p>
+<p>对于每个单元格，你可以往上，下，左，右四个方向移动。 你 不能 在 对角线 方向上移动或移动到 边界外（即不允许环绕）。</p>
 <p> </p>
 <p>示例 1：</p>
-<p>输入：n = 4<br>输出：2<br>解释：如上图所示，4 皇后问题存在两个不同的解法。<br>示例 2：</p>
-<p>输入：n = 1<br>输出：1
+<p>输入：matrix = [[9,9,4],[6,6,8],[2,1,1]]<br>输出：4<br>解释：最长递增路径为 [1, 2, 6, 9]。<br>示例 2：</p>
+<p>输入：matrix = [[3,4,5],[3,2,6],[2,2,1]]<br>输出：4<br>解释：最长递增路径是 [3, 4, 5, 6]。注意不允许在对角线方向上移动。<br>示例 3：</p>
+<p>输入：matrix = [[1]]<br>输出：1
  </p>
-<p>提示：</p>
-<p>1 &lt;= n &lt;= 9</p>
-<h2 id="基于集合的回溯-1"><a href="#基于集合的回溯-1" class="headerlink" title="基于集合的回溯"></a>基于集合的回溯</h2><p>思路同上</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line">    <span class="comment">// 分别记录左上方、右上方、垂直方向三条线的值</span></span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; leftup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; rightup;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; columns;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            ans++;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; n; column++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (leftup.<span class="built_in">find</span>(row-column) != leftup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (rightup.<span class="built_in">find</span>(row+column) != rightup.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (columns.<span class="built_in">find</span>(column) != columns.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            leftup.<span class="built_in">insert</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">insert</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">insert</span>(column);</span><br><span class="line">            <span class="built_in">backtrack</span>(row+<span class="number">1</span>, n);</span><br><span class="line">            <span class="comment">//还原现场</span></span><br><span class="line">            leftup.<span class="built_in">erase</span>(row-column);</span><br><span class="line">            rightup.<span class="built_in">erase</span>(row+column);</span><br><span class="line">            columns.<span class="built_in">erase</span>(column);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalNQueens</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="深度优先搜索-递归"><a href="#深度优先搜索-递归" class="headerlink" title="深度优先搜索-递归"></a>深度优先搜索-递归</h1><p>对于每一个位置，其上下左右四个方向中，比当前位置值大的值与当前值必然组成长度不小于2的段。<br>求得每个位置的最长递增路径长度后，遍历每个位置的值，即可求得答案。</p>
+<p>当然，为了避免重复计算，使用数组记录已经求得的值。所以也叫 记忆化深度优先搜索。</p>
+<p>时间复杂度: O(m<em>n),其中m和n为矩阵的长和宽。考虑矩阵为无向图，深度优先遍历的时间复杂度为O(V+E), 其中V、E分别为无向图的顶点和边。在矩阵中，O(V) = O(m</em>n), O(E) = O(4mn) = O(mn)<br>空间复杂度：O(m<em>n), 空间主要是缓存memo和递归调用的深度，memo为m</em>n, 递归调用深度最坏是把所有矩阵元素连起来，长度不会超过m*n</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="comment">// 上下左右四个方向</span></span><br><span class="line">    <span class="keyword">int</span> dirs[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; memo, <span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> rows, <span class="keyword">int</span> columns)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (memo[row][column] != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> memo[row][column];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 当前数字长度为1</span></span><br><span class="line">        ++memo[row][column];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> newRow = row + dirs[i][<span class="number">0</span>], newColumn = column + dirs[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (newRow&gt;=<span class="number">0</span> &amp;&amp; newRow &lt; rows &amp;&amp; newColumn&gt;=<span class="number">0</span> &amp;&amp; newColumn&lt;columns &amp;&amp; matrix[newRow][newColumn] &gt; matrix[row][column]) &#123;</span><br><span class="line">                memo[row][column] = <span class="built_in">max</span>(memo[row][column], <span class="built_in">dfs</span>(matrix, memo, newRow, newColumn, rows, columns) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo[row][column];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingPath</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.<span class="built_in">size</span>(), columns = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">memo</span>(rows, vector&lt;<span class="keyword">int</span>&gt;(columns, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; rows; row++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; columns; column++) &#123;</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, <span class="built_in">dfs</span>(matrix, memo, row, column, rows, columns));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>如果是动态规划，则是先计算值较大节点的路径长度，然后递推</p>
+<p>可以考虑使用优先级队列对矩阵中元素进行排序，然后从大到小计算以元素i,j结尾的最大序列的长度：dp[i][j]<br>记录整个过程中最大的dp[i][j]值即为答案</p>
+<p>dp[i][j]表示以元素(i, j)为开始节点的最大路径长度</p>
+<p>时间和空间复杂度依然是O(m*n)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="comment">// 上下左右四个方向</span></span><br><span class="line">    <span class="keyword">int</span> dirs[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingPath</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix.<span class="built_in">size</span>() == <span class="number">0</span> || matrix[<span class="number">0</span>].<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.<span class="built_in">size</span>(), columns = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(rows, vector&lt;<span class="keyword">int</span>&gt;(columns, <span class="number">0</span>));</span><br><span class="line">        <span class="comment">// 使用优先级队列排序, 默认是大顶堆，优先队列里面每个元素是元组</span></span><br><span class="line">        priority_queue&lt;tuple&lt;<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="comment">// priority_queue&lt;tuple&lt;int, int, int&gt;, vector&lt;tuple&lt;int, int, int&gt;&gt;, greater&lt;tuple&lt;int, int, int&gt;&gt;&gt; q;</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; rows; row++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; columns; column++) &#123;</span><br><span class="line">                q.<span class="built_in">push</span>(&#123;matrix[row][column], row, column&#125;);</span><br><span class="line">                <span class="comment">// q.push(make_tuple(matrix[row][column], row, column));</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 依次弹出栈顶元素, 也就是最大的数，计算该节点的dp值后再计算更小的，这里面最大的dp值即为答案</span></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> cell = q.<span class="built_in">top</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">int</span> row = get&lt;<span class="number">1</span>&gt;(cell), column = get&lt;<span class="number">2</span>&gt;(cell);</span><br><span class="line">            <span class="comment">// 单独一个数也能成为长度为1的路径</span></span><br><span class="line">            ++dp[row][column];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> direction = <span class="number">0</span>; direction &lt; <span class="number">4</span>; direction++) &#123;</span><br><span class="line">                <span class="keyword">int</span> newRow = row + dirs[direction][<span class="number">0</span>], newColumn = column + dirs[direction][<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (newRow&gt;=<span class="number">0</span> &amp;&amp; newRow &lt; rows &amp;&amp; newColumn&gt;=<span class="number">0</span> &amp;&amp; newColumn&lt;columns &amp;&amp; matrix[newRow][newColumn] &gt; matrix[row][column]) &#123;</span><br><span class="line">                    dp[row][column] = <span class="built_in">max</span>(dp[row][column], dp[newRow][newColumn]+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, dp[row][column]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="广度优先搜索-队列-拓扑排序"><a href="#广度优先搜索-队列-拓扑排序" class="headerlink" title="广度优先搜索-队列-拓扑排序"></a>广度优先搜索-队列-拓扑排序</h1><p>将矩阵看作是一个有向图，计算每个单元格对应的出度，即有多少条边从该节点出发，也就是相邻的四个顶点有几个点比该点大。</p>
+<p>边界条件是出度为0的点，若为路径，必为路径结尾。</p>
+<p>基于出度的概念，可以使用拓扑排序求解，从所有出度为0的单元格开始广度优先搜索，每一轮都会遍历当前队列中的所有节点，然后更新周围的节点，<br>并将出度为0的节点加入下一层。这样，分别遍历出度为0，相邻且出度为1，相邻且出度为2…的节点，当遍历结束时，搜索的总层数即为答案。</p>
+<p>时间复杂度：O(mn)<br>空间复杂度：O(mn)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="comment">// 上下左右四个方向</span></span><br><span class="line">    <span class="keyword">int</span> dirs[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingPath</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix.<span class="built_in">size</span>() == <span class="number">0</span> || matrix[<span class="number">0</span>].<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.<span class="built_in">size</span>(), columns = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 存储出度</span></span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">outdegrees</span>(rows, vector&lt;<span class="keyword">int</span>&gt;(columns, <span class="number">0</span>));</span><br><span class="line">        queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="comment">// 先更新每个点的出度, 并将更新后出度仍为0的点加入队列</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; rows; row++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; columns; column++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> direction = <span class="number">0</span>; direction &lt; <span class="number">4</span>; direction++) &#123;</span><br><span class="line">                    <span class="keyword">int</span> newRow = row + dirs[direction][<span class="number">0</span>], newColumn = column + dirs[direction][<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (newRow&gt;=<span class="number">0</span> &amp;&amp; newRow &lt; rows &amp;&amp; newColumn&gt;=<span class="number">0</span> &amp;&amp; newColumn&lt;columns &amp;&amp; matrix[newRow][newColumn] &gt; matrix[row][column]) &#123;</span><br><span class="line">                        ++outdegrees[row][column];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; outdegrees[row][column] &lt;&lt; &quot; &quot;;</span></span><br><span class="line">                <span class="keyword">if</span> (outdegrees[row][column] == <span class="number">0</span>) q.<span class="built_in">push</span>(&#123;row, column&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开始分层遍历，并记录层数。</span></span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            ++ans;</span><br><span class="line">            <span class="keyword">int</span> size = q.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                <span class="keyword">auto</span> cell = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">int</span> row = cell.first, column = cell.second;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> direction = <span class="number">0</span>; direction &lt; <span class="number">4</span>; direction++) &#123;</span><br><span class="line">                    <span class="keyword">int</span> newRow = row + dirs[direction][<span class="number">0</span>], newColumn = column + dirs[direction][<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (newRow&gt;=<span class="number">0</span> &amp;&amp; newRow &lt; rows &amp;&amp; newColumn&gt;=<span class="number">0</span> &amp;&amp; newColumn&lt;columns &amp;&amp; matrix[newRow][newColumn] &lt; matrix[row][column]) &#123;</span><br><span class="line">                        --outdegrees[newRow][newColumn];</span><br><span class="line">                        <span class="keyword">if</span> (outdegrees[newRow][newColumn] == <span class="number">0</span>) q.<span class="built_in">push</span>(&#123;newRow, newColumn&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -580,7 +430,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/24/leetcode-find-median-from-data-stream/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/05/leetcode-merge-two-binary-trees/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -594,7 +444,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/24/leetcode-find-median-from-data-stream/" class="post-title-link" itemprop="url">295. 数据流的中位数</a>
+            <a href="/2022/06/05/leetcode-merge-two-binary-trees/" class="post-title-link" itemprop="url">617. 合并二叉树</a>
         </h2>
 
         <div class="post-meta">
@@ -604,16 +454,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-05-24 12:23:52" itemprop="dateCreated datePublished" datetime="2022-05-24T12:23:52+08:00">2022-05-24</time>
+              <time title="创建时间：2022-06-05 20:32:24 / 修改时间：21:38:27" itemprop="dateCreated datePublished" datetime="2022-06-05T20:32:24+08:00">2022-06-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-27 09:36:14" itemprop="dateModified" datetime="2022-05-27T09:36:14+08:00">2022-05-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -632,14 +476,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -651,25 +495,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。</p>
-<p>例如，</p>
-<p>[2,3,4] 的中位数是 3</p>
-<p>[2,3] 的中位数是 (2 + 3) / 2 = 2.5</p>
-<p>设计一个支持以下两种操作的数据结构：</p>
-<p>void addNum(int num) - 从数据流中添加一个整数到数据结构中。<br>double findMedian() - 返回目前所有元素的中位数。<br>示例：</p>
-<p>addNum(1)<br>addNum(2)<br>findMedian() -&gt; 1.5<br>addNum(3)<br>findMedian() -&gt; 2<br>进阶:</p>
-<p>如果数据流中所有整数都在 0 到 100 范围内，你将如何优化你的算法？<br>如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？</p>
+          <p>给你两棵二叉树： root1 和 root2 。</p>
+<p>想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是：如果两个节点重叠，那么将这两个节点的值相加作为合并后节点的新值；否则，不为 null 的节点将直接作为新二叉树的节点。</p>
+<p>返回合并后的二叉树。</p>
+<p>注意: 合并过程必须从两个树的根节点开始。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]<br>输出：[3,4,5,5,4,null,7]<br>示例 2：</p>
+<p>输入：root1 = [1], root2 = [1,2]<br>输出：[2,2]</p>
 <hr>
-<h1 id="两个堆"><a href="#两个堆" class="headerlink" title="两个堆"></a>两个堆</h1><p>时间复杂度主要是优先队列调整的时间O(logn)<br>空间复杂度O(n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> &#123;</span></span><br><span class="line">    <span class="comment">// 建立一个大顶堆 一个小顶堆，大顶堆存储小于中位数的数，小顶堆存储大于中位数的数</span></span><br><span class="line">    <span class="comment">// 如 bigHeap存储1-100，smallHeap存储101-200</span></span><br><span class="line">    <span class="comment">// 保证大顶堆的数比小顶堆的数多的不超过1</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>&gt; bigHeap;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; smallHeap;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MedianFinder</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (bigHeap.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            bigHeap.<span class="built_in">emplace</span>(num);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num &gt;= bigHeap.<span class="built_in">top</span>()) &#123;</span><br><span class="line">            smallHeap.<span class="built_in">emplace</span>(num);</span><br><span class="line">            <span class="keyword">if</span> (smallHeap.<span class="built_in">size</span>() &gt; bigHeap.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                bigHeap.<span class="built_in">emplace</span>(smallHeap.<span class="built_in">top</span>());</span><br><span class="line">                smallHeap.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            bigHeap.<span class="built_in">emplace</span>(num);</span><br><span class="line">            <span class="keyword">if</span> (bigHeap.<span class="built_in">size</span>() &gt; smallHeap.<span class="built_in">size</span>()+<span class="number">1</span>)&#123;</span><br><span class="line">                smallHeap.<span class="built_in">emplace</span>(bigHeap.<span class="built_in">top</span>());</span><br><span class="line">                bigHeap.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 左右堆的大小一样，即数的个数为偶数</span></span><br><span class="line">        <span class="keyword">if</span> (bigHeap.<span class="built_in">size</span>() == smallHeap.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">return</span> bigHeap.<span class="built_in">top</span>() + (smallHeap.<span class="built_in">top</span>()-bigHeap.<span class="built_in">top</span>())/<span class="number">2.0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> bigHeap.<span class="built_in">top</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder* obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj-&gt;findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h1 id="深度优先搜索-递归"><a href="#深度优先搜索-递归" class="headerlink" title="深度优先搜索-递归"></a>深度优先搜索-递归</h1><p>面试时候，需要和面试官确认，是否可以修改原有的两棵树。还有合并后的二叉树是否可以和原树共用空间。</p>
+<p>递归真是解决二叉树的问题的一个利器。</p>
+<p>时间复杂度：O(min(m, n)), 其中m和n分别是两个二叉树的节点个数, 只有二叉树中均不为空的节点才需要合并，需要合并的节点数不超过二者中节点数较小者的2倍<br>空间复杂度:O(min(m, n)), 空间复杂度取决于递归调用的层数，二叉树递归的层数不超过二叉树的深度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">mergeTrees</span><span class="params">(TreeNode* root1, TreeNode* root2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root2 == <span class="literal">nullptr</span>) <span class="keyword">return</span> root1;</span><br><span class="line">        <span class="keyword">if</span> (root1 == <span class="literal">nullptr</span>) <span class="keyword">return</span> root2;</span><br><span class="line">        TreeNode* ans = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(root1-&gt;val + root2-&gt;val);</span><br><span class="line">        ans-&gt;left = <span class="built_in">mergeTrees</span>(root1-&gt;left, root2-&gt;left);</span><br><span class="line">        ans-&gt;right = <span class="built_in">mergeTrees</span>(root1-&gt;right, root2-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="有序集合-双指针"><a href="#有序集合-双指针" class="headerlink" title="有序集合+双指针"></a>有序集合+双指针</h1><p>时间复杂度同样是O(logn)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> &#123;</span></span><br><span class="line">    multiset&lt;<span class="keyword">int</span>&gt; nums;</span><br><span class="line">    multiset&lt;<span class="keyword">int</span>&gt;::iterator left, right;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MedianFinder</span>() : <span class="built_in">left</span>(nums.<span class="built_in">end</span>()), <span class="built_in">right</span>(nums.<span class="built_in">end</span>()) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        nums.<span class="built_in">insert</span>(num);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">            left = right = nums.<span class="built_in">begin</span>();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (n&amp;<span class="number">1</span>) &#123;     <span class="comment">//集合元素个数原本为奇数</span></span><br><span class="line">            <span class="keyword">if</span> (num &gt;= *right)&#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;      <span class="comment">//原本为偶数，这时再加一个数，则left和right会指向中间同一个数</span></span><br><span class="line">            <span class="comment">// 有序集合的特点是，如果数相等，新数会在旧数的右边</span></span><br><span class="line">            <span class="keyword">if</span> (num &gt;= *right)&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right--;</span><br><span class="line">                left = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (*left+*right)/<span class="number">2.0</span>;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder* obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj-&gt;findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h1 id="广度优先搜索-队列"><a href="#广度优先搜索-队列" class="headerlink" title="广度优先搜索-队列"></a>广度优先搜索-队列</h1><p>层序遍历的思路，使用三个队列分别存储原始两个树和新树中需要合并的节点。</p>
+<p>不需要合并的节点，直接复用既有的节点。(这一点需要和面试官达成一致)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">mergeTrees</span><span class="params">(TreeNode* root1, TreeNode* root2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root2 == <span class="literal">nullptr</span>) <span class="keyword">return</span> root1;</span><br><span class="line">        <span class="keyword">if</span> (root1 == <span class="literal">nullptr</span>) <span class="keyword">return</span> root2;</span><br><span class="line">        TreeNode* ans = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(root1-&gt;val + root2-&gt;val);</span><br><span class="line"></span><br><span class="line">        queue&lt;TreeNode*&gt; q, q1, q2;</span><br><span class="line">        q.<span class="built_in">emplace</span>(ans);</span><br><span class="line">        q1.<span class="built_in">emplace</span>(root1);</span><br><span class="line">        q2.<span class="built_in">emplace</span>(root2);</span><br><span class="line">        <span class="keyword">while</span> (!q1.<span class="built_in">empty</span>() &amp;&amp; !q2.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            TreeNode* node = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">            TreeNode* node1 = q1.<span class="built_in">front</span>(); q1.<span class="built_in">pop</span>();</span><br><span class="line">            TreeNode* node2 = q2.<span class="built_in">front</span>(); q2.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="comment">// 若左子树不全为空</span></span><br><span class="line">            <span class="keyword">if</span> (node1-&gt;left || node2-&gt;left) &#123;</span><br><span class="line">                <span class="comment">// 若左右子树均存在，则需要新建节点并用合并后的值更新</span></span><br><span class="line">                <span class="keyword">if</span> (node1-&gt;left &amp;&amp; node2-&gt;left) &#123;</span><br><span class="line">                    q1.<span class="built_in">emplace</span>(node1-&gt;left);</span><br><span class="line">                    q2.<span class="built_in">emplace</span>(node2-&gt;left);</span><br><span class="line">                    TreeNode* tmp = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(node1-&gt;left-&gt;val + node2-&gt;left-&gt;val);</span><br><span class="line">                    q.<span class="built_in">emplace</span>(tmp);</span><br><span class="line">                    node-&gt;left = tmp;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (node1-&gt;left) &#123;</span><br><span class="line">                    <span class="comment">// 若要求不允许复用原树中的节点，则此处也需要新建节点</span></span><br><span class="line">                    node-&gt;left = node1-&gt;left;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    node-&gt;left = node2-&gt;left;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 右节点同理</span></span><br><span class="line">            <span class="keyword">if</span> (node1-&gt;right || node2-&gt;right) &#123;</span><br><span class="line">                <span class="comment">// 若左右子树均存在，则需要新建节点并用合并后的值更新</span></span><br><span class="line">                <span class="keyword">if</span> (node1-&gt;right &amp;&amp; node2-&gt;right) &#123;</span><br><span class="line">                    q1.<span class="built_in">emplace</span>(node1-&gt;right);</span><br><span class="line">                    q2.<span class="built_in">emplace</span>(node2-&gt;right);</span><br><span class="line">                    TreeNode* tmp = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(node1-&gt;right-&gt;val + node2-&gt;right-&gt;val);</span><br><span class="line">                    q.<span class="built_in">emplace</span>(tmp);</span><br><span class="line">                    node-&gt;right = tmp;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (node1-&gt;right) &#123;</span><br><span class="line">                    <span class="comment">// 若要求不允许复用原树中的节点，则此处也需要新建节点</span></span><br><span class="line">                    node-&gt;right = node1-&gt;right;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    node-&gt;right = node2-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-<p>进阶 11<br>如果数据流中所有整数都在 00 到 100100 范围内，那么我们可以利用计数排序统计每一类数的数量，并使用双指针维护中位数。</p>
-<p>进阶 22<br>如果数据流中 99%99% 的整数都在 00 到 100100 范围内，那么我们依然利用计数排序统计每一类数的数量，并使用双指针维护中位数。对于超出范围的数，我们可以单独进行处理，建立两个数组，分别记录小于 00 的部分的数的数量和大于 100100 的部分的数的数量即可。当小部分时间，中位数不落在区间 [0,100][0,100] 中时，我们在对应的数组中暴力检查即可。</p>
+
 
       
     </div>
@@ -689,7 +535,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/23/leetcode-regular-expression-matching/">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/04/leetcode-check-subtree-lcci/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/mpp.jpg">
@@ -703,7 +549,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/23/leetcode-regular-expression-matching/" class="post-title-link" itemprop="url">10. 正则表达式匹配&44. 通配符匹配</a>
+            <a href="/2022/06/04/leetcode-check-subtree-lcci/" class="post-title-link" itemprop="url">面试题 04.10. 检查子树</a>
         </h2>
 
         <div class="post-meta">
@@ -714,14 +560,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-05-23 19:40:45" itemprop="dateCreated datePublished" datetime="2022-05-23T19:40:45+08:00">2022-05-23</time>
+              <time title="创建时间：2022-06-04 22:46:06" itemprop="dateCreated datePublished" datetime="2022-06-04T22:46:06+08:00">2022-06-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-24 12:22:52" itemprop="dateModified" datetime="2022-05-24T12:22:52+08:00">2022-05-24</time>
+                <time title="修改时间：2022-06-05 20:48:50" itemprop="dateModified" datetime="2022-06-05T20:48:50+08:00">2022-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -741,7 +587,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -760,33 +606,116 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10. 正则表达式匹配"></a>10. 正则表达式匹配</h1><p>给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。</p>
-<p>‘.’ 匹配任意单个字符<br>‘*’ 匹配零个或多个前面的那一个元素<br>所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。</p>
-<p> <br>示例 1：</p>
-<p>输入：s = “aa”, p = “a”<br>输出：false<br>解释：”a” 无法匹配 “aa” 整个字符串。<br>示例 2:</p>
-<p>输入：s = “aa”, p = “a*”<br>输出：true<br>解释：因为 ‘*’ 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 ‘a’。因此，字符串 “aa” 可被视为 ‘a’ 重复了一次。<br>示例 3：</p>
-<p>输入：s = “ab”, p = “.<em>“<br>输出：true<br>解释：”.</em>“ 表示可匹配零个或多个（’*’）任意字符（’.’）</p>
+          <p>检查子树。你有两棵非常大的二叉树：T1，有几万个节点；T2，有几万个节点。设计一个算法，判断 T2 是否为 T1 的子树。</p>
+<p>如果 T1 有这么一个节点 n，其子树与 T2 一模一样，则 T2 为 T1 的子树，也就是说，从节点 n 处把树砍断，得到的树与 T2 完全相同。</p>
+<p>注意：此题相对书上原题略有改动。</p>
+<p>示例1:</p>
+<p> 输入：t1 = [1, 2, 3], t2 = [2]<br> 输出：true<br>示例2:</p>
+<p> 输入：t1 = [1, null, 2, 4], t2 = [3, 2]<br> 输出：false</p>
 <hr>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>dp[i][j]表示s的前i个字符和p的前j个字符是否匹配。<br>若p[j-1] != ‘<em>‘, 则看对应字符是否相等；<br>若p[j-1] == ‘</em>‘, 则需要考虑2种情况：</p>
-<ul>
-<li>p[j-2] == s[i-1], 也就是*前一个字符是否和s对应字符匹配，若匹配则可以匹配1次或多次。其中匹配1次，可以被多次+0次合并。</li>
-<li>p[j-2] != s[i-2], 不匹配，则<em>只能表示匹配0次，消去</em>前一个字符，再比较。</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断s中第i个字符和p中第j个字符是否匹配</span></span><br><span class="line">        <span class="keyword">auto</span> matches = [&amp;](<span class="keyword">int</span> i, <span class="keyword">int</span> j) &#123;</span><br><span class="line">            <span class="comment">// s的第0个字符不存在，s为空字符串，j不为空，肯定无法匹配</span></span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (p[j<span class="number">-1</span>] == <span class="string">&#x27;.&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> s[i<span class="number">-1</span>] == p[j<span class="number">-1</span>];</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> m = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> n = p.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(m+<span class="number">1</span>, vector&lt;<span class="keyword">int</span>&gt;(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (p[j<span class="number">-1</span>] == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// 若p[j-2]与s[i-1]不等，可考虑将p[j-2]去掉</span></span><br><span class="line">                    dp[i][j] |= dp[i][j<span class="number">-2</span>];</span><br><span class="line">                    <span class="comment">// 若相等，则可以用*替换多次</span></span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">matches</span>(i, j<span class="number">-1</span>)) &#123;</span><br><span class="line">                        dp[i][j] |= dp[i<span class="number">-1</span>][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">matches</span>(i, j)) &#123;</span><br><span class="line">                        dp[i][j] |= dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>如果一个树是另一个树的子树，则其根节点必然是相等,左右子树也是分别是子树。</p>
+<p>如果t2为空，则必然是子树<br>如果t1为空，但是t2不为空，那必不是子树。<br>如果t1和t2的值相等，再看其左右子树是不是都相等或存在子树。<br>如果左子树不为空，看t2是否在左子树中<br>如果右子树不为空，看t2是否在右子树中</p>
+<p>时间复杂度: O(m*n)<br>空间复杂度：O(m+n), 递归调用深度为二叉树深度, 二叉树深度最坏为节点数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkSubTree</span><span class="params">(TreeNode* t1, TreeNode* t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="literal">nullptr</span> &amp;&amp; t2 != <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (t1-&gt;val == t2-&gt;val) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">checkSubTree</span>(t1-&gt;left, t2-&gt;left) &amp;&amp; <span class="built_in">checkSubTree</span>(t1-&gt;right, t2-&gt;right)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (t1-&gt;left) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">checkSubTree</span>(t1-&gt;left, t2)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (t1-&gt;right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">checkSubTree</span>(t1-&gt;right, t2)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h1 id="44-通配符匹配"><a href="#44-通配符匹配" class="headerlink" title="44. 通配符匹配"></a>44. 通配符匹配</h1><p>给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 ‘?’ 和 ‘*’ 的通配符匹配。</p>
-<p>‘?’ 可以匹配任何单个字符。<br>‘*’ 可以匹配任意字符串（包括空字符串）。<br>两个字符串完全匹配才算匹配成功。</p>
-<p>说明:</p>
-<p>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 ? 和 *。<br>示例 1:</p>
-<p>输入:<br>s = “aa”<br>p = “a”<br>输出: false<br>解释: “a” 无法匹配 “aa” 整个字符串。<br>示例 2:</p>
-<p>输入:<br>s = “aa”<br>p = “<em>“<br>输出: true<br>解释: ‘</em>‘ 可以匹配任意字符串。<br>示例 3:</p>
-<p>输入:<br>s = “cb”<br>p = “?a”<br>输出: false<br>解释: ‘?’ 可以匹配 ‘c’, 但第二个 ‘a’ 无法匹配 ‘b’。<br>示例 4:</p>
-<p>输入:<br>s = “adceb”<br>p = “<em>a</em>b”<br>输出: true<br>解释: 第一个 ‘<em>‘ 可以匹配空字符串, 第二个 ‘</em>‘ 可以匹配字符串 “dce”.<br>示例 5:</p>
-<p>输入:<br>s = “acdcb”<br>p = “a*c?b”<br>输出: false</p>
+<h1 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h1><p>中序遍历等得到二叉树唯一的串，并且子树的树会紧挨着。</p>
+<p>时间复杂度: O(m<em>n), 因为中序二叉树中每个元素均遍历一次为O(m+n)，但是find函数却是O(m</em>n)<br>空间复杂度：O(logm+logn), 递归调用深度为二叉树深度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function">string <span class="title">inOrder</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        string ans;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) ans += <span class="built_in">inOrder</span>(root-&gt;left);</span><br><span class="line">        ans += <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) ans += <span class="built_in">inOrder</span>(root-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkSubTree</span><span class="params">(TreeNode* t1, TreeNode* t2)</span> </span>&#123;</span><br><span class="line">        string a1 = <span class="built_in">inOrder</span>(t1);</span><br><span class="line">        string a2 = <span class="built_in">inOrder</span>(t2);</span><br><span class="line">        <span class="keyword">if</span> (a1.<span class="built_in">size</span>() &lt; a2.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> a1.<span class="built_in">find</span>(a2) != a1.npos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/04/leetcode-partition-array-by-odd-or-even/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/04/leetcode-partition-array-by-odd-or-even/" class="post-title-link" itemprop="url">剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-04 22:42:43 / 修改时间：22:44:41" itemprop="dateCreated datePublished" datetime="2022-06-04T22:42:43+08:00">2022-06-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>401</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数在数组的前半部分，所有偶数在数组的后半部分。</p>
+<p> </p>
+<p>示例：</p>
+<p>输入：nums = [1,2,3,4]<br>输出：[1,3,2,4]<br>注：[3,1,2,4] 也是正确的答案之一。
+ </p>
 <hr>
-<h2 id="动态规划-1"><a href="#动态规划-1" class="headerlink" title="动态规划"></a>动态规划</h2><p>dp[i][j]表示s的前i个字符和p的前j个字符是否匹配。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> n = p.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(m+<span class="number">1</span>, vector&lt;<span class="keyword">int</span>&gt;(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="comment">// 均为空串时为true</span></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// s为空串时，*只能匹配空串，所以只有p为任意个*时才为true</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p[j<span class="number">-1</span>] == <span class="string">&#x27;*&#x27;</span>)&#123;</span><br><span class="line">                dp[<span class="number">0</span>][j] = <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (p[j<span class="number">-1</span>] == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// *可以匹配s中的一个字符，也可以不匹配(空串)</span></span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j] | dp[i][j<span class="number">-1</span>];</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// p为万能符号？或二者对应字符相等</span></span><br><span class="line">                    <span class="keyword">if</span> (p[j<span class="number">-1</span>] == <span class="string">&#x27;?&#x27;</span> || p[j<span class="number">-1</span>] == s[i<span class="number">-1</span>]) &#123;</span><br><span class="line">                        dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<h1 id="一趟遍历划分"><a href="#一趟遍历划分" class="headerlink" title="一趟遍历划分"></a>一趟遍历划分</h1><p>借用快速排序划分的思想，将数组分为两个部分</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">exchange</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// index记录新奇数可以存放的第一个位置</span></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &amp; <span class="number">1</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(nums[index++], nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -804,7 +733,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -881,7 +810,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">138</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -894,7 +823,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -960,13 +889,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">318k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:31</span>
+    <span title="站点阅读时长">4:49</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

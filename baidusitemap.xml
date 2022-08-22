@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/07/11/leetcode-implement-strstr/</loc>
+    <lastmod>2022-07-17</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/07/06/leetcode-compare-version-numbers/</loc>
+    <lastmod>2022-07-11</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/07/03/leetcode-distribute-candies/</loc>
+    <lastmod>2022-07-09</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/07/03/leetcode-largest-subarray-length-k/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/07/03/leetcode-subarray-sum-equals-k/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/07/02/leetcode-count-complete-tree-nodes/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/06/27/leetcode-ugly-number/</loc>
+    <lastmod>2022-07-02</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/03/12/leetcode/leetcode-search-in-rotated-sorted-array/</loc>
+    <lastmod>2022-06-27</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode/leetcode-yosef-problem/</loc>
+    <lastmod>2022-06-22</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/06/22/leetcode-firstUniqChar/</loc>
+    <lastmod>2022-06-22</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/06/21/leetcode-Straight-in-poker/</loc>
-    <lastmod>2022-06-21</lastmod>
+    <lastmod>2022-06-22</lastmod>
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/06/19/leetcode-sudoku-solver/</loc>
@@ -162,10 +202,6 @@
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode/leetcode-diameter-of-binary-tree/</loc>
-    <lastmod>2022-05-08</lastmod>
-  </url>
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/05/08/leetcode/leetcode-yosef-problem/</loc>
     <lastmod>2022-05-08</lastmod>
   </url>
   <url>
@@ -374,10 +410,6 @@
   </url>
   <url>
     <loc>http://kingsleynuaa.github.io/2022/03/12/leetcode/leetcode-min-stack/</loc>
-    <lastmod>2022-03-18</lastmod>
-  </url>
-  <url>
-    <loc>http://kingsleynuaa.github.io/2022/03/12/leetcode/leetcode-search-in-rotated-sorted-array/</loc>
     <lastmod>2022-03-18</lastmod>
   </url>
   <url>
