@@ -143,12 +143,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">138</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">139</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">38</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">39</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -218,6 +218,99 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/20/leetcode-count-square-submatrices-with-all-ones/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/20/leetcode-count-square-submatrices-with-all-ones/" class="post-title-link" itemprop="url">1277. 统计全为 1 的正方形子矩阵</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-20 22:01:23 / 修改时间：22:03:31" itemprop="dateCreated datePublished" datetime="2022-05-20T22:01:23+08:00">2022-05-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>895</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给你一个 m * n 的矩阵，矩阵中的元素不是 0 就是 1，请你统计并返回其中完全由 1 组成的 正方形 子矩阵的个数。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：matrix =<br>[<br>  [0,1,1,1],<br>  [1,1,1,1],<br>  [0,1,1,1]<br>]<br>输出：15<br>解释：<br>边长为 1 的正方形有 10 个。<br>边长为 2 的正方形有 4 个。<br>边长为 3 的正方形有 1 个。<br>正方形的总数 = 10 + 4 + 1 = 15.<br>示例 2：</p>
+<p>输入：matrix =<br>[<br>  [1,0,1],<br>  [1,1,0],<br>  [1,1,0]<br>]<br>输出：7<br>解释：<br>边长为 1 的正方形有 6 个。<br>边长为 2 的正方形有 1 个。<br>正方形的总数 = 6 + 1 = 7.</p>
+<hr>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>记录dp[i][j]为以右下角为(i,j)的矩形的最大边长，则dp[i][j]也表示以右下角为(i,j)的矩形的个数</p>
+<p>遍历每个dp值，并求和即为所有正方形的个数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countSquares</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (rows == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> columns = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(rows, vector&lt;<span class="keyword">int</span>&gt;(columns, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; columns; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = matrix[i][j];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (matrix[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">min</span>(dp[i<span class="number">-1</span>][j], <span class="built_in">min</span>(dp[i][j<span class="number">-1</span>], dp[i<span class="number">-1</span>][j<span class="number">-1</span>])) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                ans += dp[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -662,112 +755,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/13/leetcode-minimum-cost-for-tickets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/13/leetcode-minimum-cost-for-tickets/" class="post-title-link" itemprop="url">983. 最低票价</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-13 08:50:56" itemprop="dateCreated datePublished" datetime="2022-05-13T08:50:56+08:00">2022-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-14 11:12:04" itemprop="dateModified" datetime="2022-05-14T11:12:04+08:00">2022-05-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为 days 的数组给出。每一项是一个从 1 到 365 的整数。</p>
-<p>火车票有 三种不同的销售方式 ：</p>
-<p>一张 为期一天 的通行证售价为 costs[0] 美元；<br>一张 为期七天 的通行证售价为 costs[1] 美元；<br>一张 为期三十天 的通行证售价为 costs[2] 美元。<br>通行证允许数天无限制的旅行。 例如，如果我们在第 2 天获得一张 为期 7 天 的通行证，那么我们可以连着旅行 7 天：第 2 天、第 3 天、第 4 天、第 5 天、第 6 天、第 7 天和第 8 天。</p>
-<p>返回 你想要完成在给定的列表 days 中列出的每一天的旅行所需要的最低消费 。</p>
-<p> </p>
-<p>示例 1：</p>
-<p>输入：days = [1,4,6,7,8,20], costs = [2,7,15]<br>输出：11<br>解释：<br>例如，这里有一种购买通行证的方法，可以让你完成你的旅行计划：<br>在第 1 天，你花了 costs[0] = $2 买了一张为期 1 天的通行证，它将在第 1 天生效。<br>在第 3 天，你花了 costs[1] = $7 买了一张为期 7 天的通行证，它将在第 3, 4, …, 9 天生效。<br>在第 20 天，你花了 costs[0] = $2 买了一张为期 1 天的通行证，它将在第 20 天生效。<br>你总共花了 $11，并完成了你计划的每一天旅行。<br>示例 2：</p>
-<p>输入：days = [1,2,3,4,5,6,7,8,9,10,30,31], costs = [2,7,15]<br>输出：17<br>解释：<br>例如，这里有一种购买通行证的方法，可以让你完成你的旅行计划：<br>在第 1 天，你花了 costs[2] = $15 买了一张为期 30 天的通行证，它将在第 1, 2, …, 30 天生效。<br>在第 31 天，你花了 costs[0] = $2 买了一张为期 1 天的通行证，它将在第 31 天生效。<br>你总共花了 $17，并完成了你计划的每一天旅行。
- </p>
-<p>提示：</p>
-<p>1 &lt;= days.length &lt;= 365<br>1 &lt;= days[i] &lt;= 365<br>days 按顺序严格递增<br>costs.length == 3<br>1 &lt;= costs[i] &lt;= 1000</p>
-<hr>
-<h1 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h1><p>需要从第1天开始遍历到第365天，时间复杂度为O(M)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; memo;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; daySet;</span><br><span class="line">    <span class="comment">// dp[i]表示从第i天的这一年开始旅行需要的总开销</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> i, vector&lt;<span class="keyword">int</span>&gt;&amp; costs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">365</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (memo[i] != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> memo[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (daySet.<span class="built_in">count</span>(i) == <span class="number">1</span>) &#123;</span><br><span class="line">            ans = <span class="built_in">min</span>(<span class="built_in">dp</span>(i+<span class="number">1</span>, costs)+costs[<span class="number">0</span>], <span class="built_in">dp</span>(i+<span class="number">7</span>, costs)+costs[<span class="number">1</span>]);</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">dp</span>(i+<span class="number">30</span>, costs)+costs[<span class="number">2</span>]);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            ans = <span class="built_in">dp</span>(i+<span class="number">1</span>, costs);</span><br><span class="line">        &#125;</span><br><span class="line">        memo[i] = ans;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">mincostTickets</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; days, vector&lt;<span class="keyword">int</span>&gt;&amp; costs)</span> </span>&#123;</span><br><span class="line">        memo = vector&lt;<span class="keyword">int</span>&gt;(<span class="number">366</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> day : days) &#123;</span><br><span class="line">            daySet.<span class="built_in">insert</span>(day);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dp</span>(<span class="number">1</span>, costs);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="优化的记忆化搜索"><a href="#优化的记忆化搜索" class="headerlink" title="优化的记忆化搜索"></a>优化的记忆化搜索</h1><p>其实没必要从1遍历到365，只需要遍历必须出行的那些天，即days数组的长度<br>时间复杂度为O(N)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; memo;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; costs;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; days;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; durations = &#123;<span class="number">1</span>, <span class="number">7</span>, <span class="number">30</span>&#125;;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; daySet;</span><br><span class="line">    <span class="comment">// dp[i]表示从第days[i]天开始的这一年开始旅行需要的总开销</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt;= days.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (memo[i] != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> memo[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; durations.<span class="built_in">size</span>(); k++) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span> (j &lt; days.<span class="built_in">size</span>() &amp;&amp; days[j] &lt; days[i] + durations[k]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">dp</span>(j)+costs[k]);</span><br><span class="line">        &#125;</span><br><span class="line">        memo[i] = ans;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">mincostTickets</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; days, vector&lt;<span class="keyword">int</span>&gt;&amp; costs)</span> </span>&#123;</span><br><span class="line">        memo = vector&lt;<span class="keyword">int</span>&gt;(days.<span class="built_in">size</span>(), <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">this</span>-&gt;costs = costs;</span><br><span class="line">        <span class="keyword">this</span>-&gt;days = days;</span><br><span class="line">        <span class="comment">// 此时要从days中的第0个数据开始处理。</span></span><br><span class="line">        <span class="keyword">int</span> ans = <span class="built_in">dp</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -848,7 +835,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">138</span>
+          <span class="site-state-item-count">139</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -861,7 +848,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
