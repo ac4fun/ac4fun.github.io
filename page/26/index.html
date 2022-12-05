@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">141</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">142</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -218,6 +218,107 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/19/leetcode/leetcode-binary-tree-traversal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/19/leetcode/leetcode-binary-tree-traversal/" class="post-title-link" itemprop="url">二叉树的前中后三种遍历(递归、非递归和Morris)</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-19 20:39:21" itemprop="dateCreated datePublished" datetime="2022-02-19T20:39:21+08:00">2022-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-10 12:25:05" itemprop="dateModified" datetime="2022-04-10T12:25:05+08:00">2022-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><h3 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h3><p>递归的一个思想就是：假设子问题已经解决。<br>对于遍历来说，就是左子树的结果已经知道了，右子树的结果也已经知道了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">preorderTraversal</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span></span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">        result.append(root.val)</span><br><span class="line">        result += self.preorderTraversal(root.left)</span><br><span class="line">        result += self.preorderTraversal(root.right)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h3><p>根-左-右，使用栈的思路。<br>核心要点，访问完根节点后，考虑栈先进后出的特点，需要先将右子树压栈，再将左子树压栈。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/19/leetcode/leetcode-binary-tree-traversal/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -686,197 +787,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2021/11/21/daily-plan-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/21/daily-plan-note/" class="post-title-link" itemprop="url">每日微习惯</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-21 19:28:35" itemprop="dateCreated datePublished" datetime="2021-11-21T19:28:35+08:00">2021-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-05 22:34:14" itemprop="dateModified" datetime="2021-12-05T22:34:14+08:00">2021-12-05</time>
-              </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>823</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>12月5日  后续通过flomo记录，并改为每周计划与复盘</p>
-<p>11月24日 后续改为评论区记录，可以更加清楚的看出时间线</p>
-<h3 id="2021年11月23日"><a href="#2021年11月23日" class="headerlink" title="2021年11月23日"></a>2021年11月23日</h3><table>
-<thead>
-<tr>
-<th>TODO</th>
-<th>是否完成</th>
-<th>完成时间与说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>锻炼</td>
-<td>是</td>
-<td>下午4点跑步3km</td>
-</tr>
-<tr>
-<td>早上阅读</td>
-<td>是</td>
-<td>9.30-10:30点阅读。合计1h</td>
-</tr>
-<tr>
-<td>中午阅读</td>
-<td>是</td>
-<td>13-14阅读 合计1h</td>
-</tr>
-<tr>
-<td>晚上阅读</td>
-<td>是</td>
-<td>晚上阅读0.5h, 感觉长时间阅读同一个东西，有点厌烦的感觉，应该交替着进行</td>
-</tr>
-</tbody></table>
-<h3 id="2021年11月22日"><a href="#2021年11月22日" class="headerlink" title="2021年11月22日"></a>2021年11月22日</h3><table>
-<thead>
-<tr>
-<th>TODO</th>
-<th>是否完成</th>
-<th>完成时间与说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>锻炼</td>
-<td>是</td>
-<td>下午5点跑步5km</td>
-</tr>
-<tr>
-<td>早上阅读</td>
-<td>是</td>
-<td>早上8-8.15, 9.30-11点阅读。合计1.5h</td>
-</tr>
-<tr>
-<td>中午阅读</td>
-<td>否</td>
-<td>有点困，未完成。今天早点睡，明天要不顾一切的完成</td>
-</tr>
-<tr>
-<td>晚上阅读</td>
-<td>否</td>
-<td>做规划，未完成。明天要不顾一切的完成</td>
-</tr>
-</tbody></table>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
-<li>每周锻炼3次，2021年11月20日启动</li>
-<li>每周阅读20小时，2021年11月22日启动</li>
-<li>每周刷一道算法题，2021年11月22日启动</li>
-</ol>
-<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><ul>
-<li>锻炼可以有良好的身体，身体是一切的基础。不阅读有如文盲，文盲无法在这个社会生存。</li>
-<li>二者都属于第二象限的人生要事，需要保证</li>
-<li>每日记载总结，周级复盘，理论-实践-反馈分析的循环必超凡入圣</li>
-</ul>
-<h2 id="时间从哪来"><a href="#时间从哪来" class="headerlink" title="时间从哪来"></a>时间从哪来</h2><p>锻炼：</p>
-<ul>
-<li>工作日：每天下午5点，如果5点有会，就4点；如果没有跑步机，就早起跑步</li>
-<li>周末：公司跑步或早起跑步</li>
-<li>没有特殊情况，比如下雨就在家keep，总之不找理由尽可能想办法实现。</li>
-</ul>
-<p>阅读：</p>
-<ul>
-<li>工作日：早上10点半以前，中午1点至2点，晚上6点至7点</li>
-<li>周末：尽可能安排在上午，原则是补足20小时，若已满20小时，则至少阅读1小时</li>
-<li>第二象限的工作，不找借口，保证完成。最终必会反哺工作和生活</li>
-</ul>
-<h2 id="衡量指标"><a href="#衡量指标" class="headerlink" title="衡量指标"></a>衡量指标</h2><p>锻炼：</p>
-<ul>
-<li>体重</li>
-<li>BMI</li>
-<li>最大摄氧量</li>
-<li>仰卧起坐个数</li>
-<li>俯卧撑个数</li>
-<li>头发色泽和密度</li>
-<li>三围</li>
-<li>身材图(正面和侧面)</li>
-</ul>
-<p>阅读：</p>
-<ul>
-<li>每日阅读时长</li>
-<li>每月阅读书本数</li>
-<li>产出读书笔记数</li>
-</ul>
-<h2 id="如何做"><a href="#如何做" class="headerlink" title="如何做"></a>如何做</h2><p>锻炼：</p>
-<ul>
-<li>第一阶段：跑步</li>
-<li>第二阶段：跑步与力量训练交替</li>
-</ul>
-<p>阅读：</p>
-<ul>
-<li>方式：主题阅读(技术、成长、业务、效能、管理、财务)</li>
-<li>阅读什么书？要阅读当下感兴趣的书，快速阅读，吸取有用的部分即可<br><img data-src="http://huifangshuyuan.com/img/book_familiarVSinterest.jpeg" alt="书的分类"></li>
-<li>如何选书：豆瓣评分7.0以上的书，豆瓣评论，大咖推荐</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -957,7 +867,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1036,13 +946,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">320k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:51</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

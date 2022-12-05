@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-12-03T03:04:39.476Z</updated>
+  <updated>2022-12-05T02:07:50.169Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>13. 罗马数字转整数</title>
+    <link href="http://kingsleynuaa.github.io/2022/12/05/leetcode-roman-to-integer/"/>
+    <id>http://kingsleynuaa.github.io/2022/12/05/leetcode-roman-to-integer/</id>
+    <published>2022-12-05T02:06:36.000Z</published>
+    <updated>2022-12-05T02:07:50.169Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。&lt;/p&gt;
+&lt;p&gt;字符          数值&lt;br&gt;I             1&lt;br&gt;V             5&lt;br&gt;X             10&lt;br&gt;L            </summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="hash" scheme="http://kingsleynuaa.github.io/tags/hash/"/>
+    
+  </entry>
   
   <entry>
     <title>1796. 字符串中第二大的数字</title>
@@ -515,34 +541,6 @@
     
     
     <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 16.05. 阶乘尾数</title>
-    <link href="http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/"/>
-    <id>http://kingsleynuaa.github.io/2022/06/08/leetcode-factorial-zeros-lcci/</id>
-    <published>2022-06-08T00:42:46.000Z</published>
-    <updated>2022-06-08T16:53:00.161Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;设计一个算法，算出 n 阶乘有多少个尾随零。&lt;/p&gt;
-&lt;p&gt;示例 1:&lt;/p&gt;
-&lt;p&gt;输入: 3&lt;br&gt;输出: 0&lt;br&gt;解释: 3! = 6, 尾数中没有零。&lt;br&gt;示例 2:&lt;/p&gt;
-&lt;p&gt;输入: 5&lt;br&gt;输出: 1&lt;br&gt;解释: 5! = 120, 尾数中有 1</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="math" scheme="http://kingsleynuaa.github.io/tags/math/"/>
     
   </entry>
   

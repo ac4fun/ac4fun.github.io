@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">141</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">142</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -218,6 +218,104 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/06/04/leetcode-translate-digit2string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/04/leetcode-translate-digit2string/" class="post-title-link" itemprop="url">剑指 Offer 46. 把数字翻译成字符串</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-04 08:49:10 / 修改时间：22:23:19" itemprop="dateCreated datePublished" datetime="2022-06-04T08:49:10+08:00">2022-06-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。</p>
+<p> </p>
+<p>示例 1:</p>
+<p>输入: 12258<br>输出: 5<br>解释: 12258有5种不同的翻译，分别是”bccfi”, “bwfi”, “bczi”, “mcfi”和”mzi”
+ </p>
+<p>提示：</p>
+<p>0 &lt;= num &lt; 231</p>
+<hr>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>记录dp[i]是以第i个数结尾的子数字串所能得到的翻译个数，则最后这个数对整体的贡献可以有两种：<br>要么单独一个数字成为一个翻译，要么和前一个数字共同成为一个翻译。</p>
+<p>当前两个数字的翻译方案需要组成的数字合法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        string numStr = <span class="built_in">to_string</span>(num);</span><br><span class="line">        <span class="keyword">int</span> n = numStr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n+<span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="comment">// dp[i] = dp[i-1] + dp[i-2];</span></span><br><span class="line">        <span class="comment">// dp的序号表示第几个数</span></span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">auto</span> str = numStr.<span class="built_in">substr</span>(i<span class="number">-1</span>, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span> (str &gt;= <span class="string">&quot;10&quot;</span> &amp;&amp; str &lt;= <span class="string">&quot;25&quot;</span>) &#123;</span><br><span class="line">                dp[i+<span class="number">1</span>] = dp[i] + dp[i<span class="number">-1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                dp[i+<span class="number">1</span>] = dp[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>用滚动数组优化空间复杂度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        string numStr = <span class="built_in">to_string</span>(num);</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">1</span>, q = <span class="number">1</span>, r = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numStr.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">auto</span> str = numStr.<span class="built_in">substr</span>(i<span class="number">-1</span>, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span> (str &gt;= <span class="string">&quot;10&quot;</span> &amp;&amp; str &lt;= <span class="string">&quot;25&quot;</span>) &#123;</span><br><span class="line">                r = p + q;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                r = q;</span><br><span class="line">            &#125;</span><br><span class="line">            p = q;</span><br><span class="line">            q = r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -676,115 +774,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/05/24/leetcode-find-median-from-data-stream/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/24/leetcode-find-median-from-data-stream/" class="post-title-link" itemprop="url">295. 数据流的中位数</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-24 12:23:52" itemprop="dateCreated datePublished" datetime="2022-05-24T12:23:52+08:00">2022-05-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-27 09:36:14" itemprop="dateModified" datetime="2022-05-27T09:36:14+08:00">2022-05-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。</p>
-<p>例如，</p>
-<p>[2,3,4] 的中位数是 3</p>
-<p>[2,3] 的中位数是 (2 + 3) / 2 = 2.5</p>
-<p>设计一个支持以下两种操作的数据结构：</p>
-<p>void addNum(int num) - 从数据流中添加一个整数到数据结构中。<br>double findMedian() - 返回目前所有元素的中位数。<br>示例：</p>
-<p>addNum(1)<br>addNum(2)<br>findMedian() -&gt; 1.5<br>addNum(3)<br>findMedian() -&gt; 2<br>进阶:</p>
-<p>如果数据流中所有整数都在 0 到 100 范围内，你将如何优化你的算法？<br>如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？</p>
-<hr>
-<h1 id="两个堆"><a href="#两个堆" class="headerlink" title="两个堆"></a>两个堆</h1><p>时间复杂度主要是优先队列调整的时间O(logn)<br>空间复杂度O(n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> &#123;</span></span><br><span class="line">    <span class="comment">// 建立一个大顶堆 一个小顶堆，大顶堆存储小于中位数的数，小顶堆存储大于中位数的数</span></span><br><span class="line">    <span class="comment">// 如 bigHeap存储1-100，smallHeap存储101-200</span></span><br><span class="line">    <span class="comment">// 保证大顶堆的数比小顶堆的数多的不超过1</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>&gt; bigHeap;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; smallHeap;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MedianFinder</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (bigHeap.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            bigHeap.<span class="built_in">emplace</span>(num);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num &gt;= bigHeap.<span class="built_in">top</span>()) &#123;</span><br><span class="line">            smallHeap.<span class="built_in">emplace</span>(num);</span><br><span class="line">            <span class="keyword">if</span> (smallHeap.<span class="built_in">size</span>() &gt; bigHeap.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                bigHeap.<span class="built_in">emplace</span>(smallHeap.<span class="built_in">top</span>());</span><br><span class="line">                smallHeap.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            bigHeap.<span class="built_in">emplace</span>(num);</span><br><span class="line">            <span class="keyword">if</span> (bigHeap.<span class="built_in">size</span>() &gt; smallHeap.<span class="built_in">size</span>()+<span class="number">1</span>)&#123;</span><br><span class="line">                smallHeap.<span class="built_in">emplace</span>(bigHeap.<span class="built_in">top</span>());</span><br><span class="line">                bigHeap.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 左右堆的大小一样，即数的个数为偶数</span></span><br><span class="line">        <span class="keyword">if</span> (bigHeap.<span class="built_in">size</span>() == smallHeap.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">return</span> bigHeap.<span class="built_in">top</span>() + (smallHeap.<span class="built_in">top</span>()-bigHeap.<span class="built_in">top</span>())/<span class="number">2.0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> bigHeap.<span class="built_in">top</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder* obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj-&gt;findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="有序集合-双指针"><a href="#有序集合-双指针" class="headerlink" title="有序集合+双指针"></a>有序集合+双指针</h1><p>时间复杂度同样是O(logn)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> &#123;</span></span><br><span class="line">    multiset&lt;<span class="keyword">int</span>&gt; nums;</span><br><span class="line">    multiset&lt;<span class="keyword">int</span>&gt;::iterator left, right;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MedianFinder</span>() : <span class="built_in">left</span>(nums.<span class="built_in">end</span>()), <span class="built_in">right</span>(nums.<span class="built_in">end</span>()) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        nums.<span class="built_in">insert</span>(num);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">            left = right = nums.<span class="built_in">begin</span>();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (n&amp;<span class="number">1</span>) &#123;     <span class="comment">//集合元素个数原本为奇数</span></span><br><span class="line">            <span class="keyword">if</span> (num &gt;= *right)&#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;      <span class="comment">//原本为偶数，这时再加一个数，则left和right会指向中间同一个数</span></span><br><span class="line">            <span class="comment">// 有序集合的特点是，如果数相等，新数会在旧数的右边</span></span><br><span class="line">            <span class="keyword">if</span> (num &gt;= *right)&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right--;</span><br><span class="line">                left = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (*left+*right)/<span class="number">2.0</span>;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder* obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj-&gt;findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-
-<p>进阶 11<br>如果数据流中所有整数都在 00 到 100100 范围内，那么我们可以利用计数排序统计每一类数的数量，并使用双指针维护中位数。</p>
-<p>进阶 22<br>如果数据流中 99%99% 的整数都在 00 到 100100 范围内，那么我们依然利用计数排序统计每一类数的数量，并使用双指针维护中位数。对于超出范围的数，我们可以单独进行处理，建立两个数组，分别记录小于 00 的部分的数的数量和大于 100100 的部分的数的数量即可。当小部分时间，中位数不落在区间 [0,100][0,100] 中时，我们在对应的数组中暴力检查即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -865,7 +854,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -944,13 +933,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">320k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:51</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

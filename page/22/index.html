@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">141</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">142</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -218,6 +218,103 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/06/leetcode/leetcode-lowest-common-ancestor-of-a-binary-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/06/leetcode/leetcode-lowest-common-ancestor-of-a-binary-tree/" class="post-title-link" itemprop="url">二叉树的最近公共祖先</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-06 23:14:46" itemprop="dateCreated datePublished" datetime="2022-03-06T23:14:46+08:00">2022-03-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-07 21:49:26" itemprop="dateModified" datetime="2022-03-07T21:49:26+08:00">2022-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。</p>
+<p>百度百科中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”</p>
+<hr>
+<h1 id="递归的思路"><a href="#递归的思路" class="headerlink" title="递归的思路"></a>递归的思路</h1><p>公共祖先有两种情况：<br>1.因为p节点和q节点都是不同且唯一的节点, p和q分别位于左和右子树，则根节点为公共祖先<br>2.p或者q为根节点，另一个节点在左或右子树中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowestCommonAncestor</span>(<span class="params">self, root: <span class="string">&#x27;TreeNode&#x27;</span>, p: <span class="string">&#x27;TreeNode&#x27;</span>, q: <span class="string">&#x27;TreeNode&#x27;</span></span>) -&gt; &#x27;TreeNode&#x27;:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> root</span><br><span class="line">        <span class="keyword">if</span> root.val == p.val <span class="keyword">or</span> root.val == q.val:</span><br><span class="line">            <span class="keyword">return</span> root</span><br><span class="line">        left_node = self.lowestCommonAncestor(root.left, p, q)</span><br><span class="line">        right_node = self.lowestCommonAncestor(root.right, p, q)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> left_node:</span><br><span class="line">            <span class="keyword">return</span> right_node</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> right_node:</span><br><span class="line">            <span class="keyword">return</span> left_node</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> left_node <span class="keyword">and</span> right_node:</span><br><span class="line">            <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+
+<h1 id="哈希表存储父节点"><a href="#哈希表存储父节点" class="headerlink" title="哈希表存储父节点"></a>哈希表存储父节点</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowestCommonAncestor</span>(<span class="params">self, root: <span class="string">&#x27;TreeNode&#x27;</span>, p: <span class="string">&#x27;TreeNode&#x27;</span>, q: <span class="string">&#x27;TreeNode&#x27;</span></span>) -&gt; &#x27;TreeNode&#x27;:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">root, father_dict</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> </span><br><span class="line">            <span class="keyword">if</span> root.left:</span><br><span class="line">                father_dict[root.left.val] = root</span><br><span class="line">                helper(root.left, father_dict)</span><br><span class="line">            <span class="keyword">if</span> root.right:</span><br><span class="line">                father_dict[root.right.val] = root</span><br><span class="line">                helper(root.right, father_dict)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        father_dict = <span class="built_in">dict</span>()</span><br><span class="line">        father_dict[root.val] = <span class="literal">None</span></span><br><span class="line">        helper(root, father_dict)</span><br><span class="line">        path = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line">            path[p.val] = <span class="number">1</span></span><br><span class="line">            p = father_dict[p.val]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            <span class="keyword">if</span> q.val <span class="keyword">in</span> path:</span><br><span class="line">                <span class="keyword">return</span> q</span><br><span class="line">            q = father_dict[q.val]</span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -637,105 +734,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/02/27/leetcode/leetcode-zhi-levelOrder/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/27/leetcode/leetcode-zhi-levelOrder/" class="post-title-link" itemprop="url">之字型层序打印二叉树</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-27 23:11:53" itemprop="dateCreated datePublished" datetime="2022-02-27T23:11:53+08:00">2022-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-28 23:12:29" itemprop="dateModified" datetime="2022-02-28T23:12:29+08:00">2022-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p>
-<hr>
-<h1 id="结果集双端队列，避免翻转"><a href="#结果集双端队列，避免翻转" class="headerlink" title="结果集双端队列，避免翻转"></a>结果集双端队列，避免翻转</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="literal">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.append(root)</span><br><span class="line">        flag = False</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            <span class="built_in">length</span> = <span class="built_in">len</span>(queue)</span><br><span class="line">            <span class="comment"># 结果集也用双端队列，省去一次翻转动作</span></span><br><span class="line">            <span class="built_in">result</span> = collections.deque()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="built_in">length</span>):</span><br><span class="line">                p = queue.popleft()</span><br><span class="line">                <span class="keyword">if</span> flag:</span><br><span class="line">                    <span class="built_in">result</span>.appendleft(p.val)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">result</span>.append(p.val)</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append(p.left)</span><br><span class="line">                <span class="keyword">if</span> p.<span class="literal">right</span>:</span><br><span class="line">                    queue.append(p.<span class="literal">right</span>) </span><br><span class="line">            ans.append(list(<span class="built_in">result</span>))</span><br><span class="line">            flag = <span class="keyword">not</span> flag</span><br><span class="line">        <span class="literal">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="双端队列-奇偶层逻辑分离"><a href="#双端队列-奇偶层逻辑分离" class="headerlink" title="双端队列 奇偶层逻辑分离"></a>双端队列 奇偶层逻辑分离</h1><p>可以实际画一个双端队列感受一下</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"># Definition <span class="keyword">for</span> <span class="keyword">a</span> binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, <span class="keyword">x</span>):</span><br><span class="line">#         self.val = <span class="keyword">x</span></span><br><span class="line">#         self.<span class="keyword">left</span> = None</span><br><span class="line">#         self.<span class="keyword">right</span> = None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def levelOrder(self, roo<span class="variable">t:</span> TreeNode) -&gt; List[List[<span class="keyword">int</span>]]:</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">if</span> not roo<span class="variable">t:</span></span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.<span class="keyword">append</span>(root)</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            # 处理奇数层 从左向右打印 从左向右添加下层节点</span><br><span class="line">            length = <span class="built_in">len</span>(queue)</span><br><span class="line">            result = <span class="keyword">list</span>()</span><br><span class="line">            <span class="keyword">for</span> i in <span class="built_in">range</span>(length):</span><br><span class="line">                <span class="keyword">p</span> = queue.popleft()</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">p</span>.val)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.lef<span class="variable">t:</span></span><br><span class="line">                    queue.<span class="keyword">append</span>(<span class="keyword">p</span>.<span class="keyword">left</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.righ<span class="variable">t:</span></span><br><span class="line">                    queue.<span class="keyword">append</span>(<span class="keyword">p</span>.<span class="keyword">right</span>) </span><br><span class="line">            ans.<span class="keyword">append</span>(<span class="keyword">list</span>(result))</span><br><span class="line">            <span class="keyword">if</span> not queue:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">            # 处理偶数层 从右向左打印 从右向左添加下层节点</span><br><span class="line">            length = <span class="built_in">len</span>(queue)</span><br><span class="line">            result = <span class="keyword">list</span>()</span><br><span class="line">            <span class="keyword">for</span> i in <span class="built_in">range</span>(length):</span><br><span class="line">                <span class="keyword">p</span> = queue.<span class="keyword">pop</span>()</span><br><span class="line">                result.<span class="keyword">append</span>(<span class="keyword">p</span>.val)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.righ<span class="variable">t:</span></span><br><span class="line">                    queue.appendleft(<span class="keyword">p</span>.<span class="keyword">right</span>) </span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">p</span>.lef<span class="variable">t:</span></span><br><span class="line">                    queue.appendleft(<span class="keyword">p</span>.<span class="keyword">left</span>)</span><br><span class="line">            ans.<span class="keyword">append</span>(<span class="keyword">list</span>(result))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -816,7 +814,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -895,13 +893,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">320k</span>
+    <span title="站点总字数">322k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:51</span>
+    <span title="站点阅读时长">4:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
