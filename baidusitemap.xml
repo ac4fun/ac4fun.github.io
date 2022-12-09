@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://kingsleynuaa.github.io/2022/12/09/leetcode-remove-element/</loc>
+    <lastmod>2022-12-09</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/12/09/leetcode-remove-duplicates-from-sorted-array/</loc>
+    <lastmod>2022-12-09</lastmod>
+  </url>
+  <url>
+    <loc>http://kingsleynuaa.github.io/2022/12/09/leetcode-merge-two-sorted-lists/</loc>
+    <lastmod>2022-12-09</lastmod>
+  </url>
+  <url>
     <loc>http://kingsleynuaa.github.io/2022/12/05/leetcode-roman-to-integer/</loc>
     <lastmod>2022-12-05</lastmod>
   </url>

@@ -143,12 +143,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">142</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">145</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">41</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">42</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -218,6 +218,314 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/26/leetcode/leetcode-evaluate-reverse-polish-notation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/26/leetcode/leetcode-evaluate-reverse-polish-notation/" class="post-title-link" itemprop="url">逆波兰表达式求值&&表达式计算器</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-26 09:04:38" itemprop="dateCreated datePublished" datetime="2022-03-26T09:04:38+08:00">2022-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-30 22:53:45" itemprop="dateModified" datetime="2022-03-30T22:53:45+08:00">2022-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-逆波兰表达式求值"><a href="#1-逆波兰表达式求值" class="headerlink" title="1. 逆波兰表达式求值"></a>1. 逆波兰表达式求值</h1><p>根据 逆波兰表示法，求表达式的值。</p>
+<p>有效的算符包括 +、-、*、/ 。每个运算对象可以是整数，也可以是另一个逆波兰表达式。</p>
+<p>注意 两个整数之间的除法只保留整数部分。</p>
+<p>可以保证给定的逆波兰表达式总是有效的。换句话说，表达式总会得出有效数值且不存在除数为 0 的情况。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：tokens = [“2”,”1”,”+”,”3”,”*”]<br>输出：9<br>解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) = 9<br>示例 2：</p>
+<p>输入：tokens = [“4”,”13”,”5”,”/“,”+”]<br>输出：6<br>解释：该算式转化为常见的中缀算术表达式为：(4 + (13 / 5)) = 6<br>示例 3：</p>
+<p>输入：tokens = [“10”,”6”,”9”,”3”,”+”,”-11”,”<em>“,”/“,”</em>“,”17”,”+”,”5”,”+”]<br>输出：22<br>解释：该算式转化为常见的中缀算术表达式为：<br>  ((10 * (6 / ((9 + 3) * -11))) + 17) + 5<br>= ((10 * (6 / (12 * -11))) + 17) + 5<br>= ((10 * (6 / -132)) + 17) + 5<br>= ((10 * 0) + 17) + 5<br>= (0 + 17) + 5<br>= 17 + 5<br>= 22
+ </p>
+<p>提示：</p>
+<p>1 &lt;= tokens.length &lt;= 104<br>tokens[i] 是一个算符（”+”、”-“、”*” 或 “/“），或是在范围 [-200, 200] 内的一个整数
+ </p>
+<p>逆波兰表达式：</p>
+<p>逆波兰表达式是一种后缀表达式，所谓后缀就是指算符写在后面。</p>
+<p>平常使用的算式则是一种中缀表达式，如 ( 1 + 2 ) * ( 3 + 4 ) 。<br>该算式的逆波兰表达式写法为 ( ( 1 2 + ) ( 3 4 + ) * ) 。<br>逆波兰表达式主要有以下两个优点：</p>
+<p>去掉括号后表达式无歧义，上式即便写成 1 2 + 3 4 + * 也可以依据次序计算出正确结果。<br>适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中</p>
+<hr>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>题目限制所有的表达式都是合法的，可以使用栈。<br>将所有的数字全部入栈，碰到符号时，弹出两个栈顶元素，计算结果后入栈。<br>注意除法只保留整数部分，对于负数的情况需要特殊处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evalRPN</span>(<span class="params">self, tokens: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(tokens) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="comment"># 注意一个数的情况</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(tokens) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">int</span>(tokens[<span class="number">0</span>])</span><br><span class="line">        stack = []</span><br><span class="line">        ops = [<span class="string">&#x27;+&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;*&#x27;</span>, <span class="string">&#x27;/&#x27;</span>]</span><br><span class="line">        c = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> token <span class="keyword">in</span> tokens:</span><br><span class="line">            <span class="keyword">if</span> token <span class="keyword">in</span> ops:</span><br><span class="line">                <span class="comment"># print(token, stack)</span></span><br><span class="line">                b = stack.pop()</span><br><span class="line">                a = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> token == <span class="string">&quot;+&quot;</span>:</span><br><span class="line">                    c = a + b</span><br><span class="line">                <span class="keyword">elif</span> token == <span class="string">&quot;-&quot;</span>:</span><br><span class="line">                    c = a - b</span><br><span class="line">                <span class="keyword">elif</span> token == <span class="string">&quot;*&quot;</span>:</span><br><span class="line">                    c = a * b</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    c = <span class="built_in">int</span>(a/b)</span><br><span class="line">                stack.append(c)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(<span class="built_in">int</span>(token))</span><br><span class="line">        <span class="keyword">return</span> c</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-表达式计算器的通用套路"><a href="#2-表达式计算器的通用套路" class="headerlink" title="2. 表达式计算器的通用套路"></a>2. 表达式计算器的通用套路</h1><p>能同时解决leetcode 224，227，772</p>
+<h2 id="双栈的解法"><a href="#双栈的解法" class="headerlink" title="双栈的解法"></a>双栈的解法</h2><p>循环遍历每个元素：<br>若为空格，跳过<br>若为左括号，入栈<br>若为右括号，则计算，直到碰到左括号<br>若为数字，则入栈<br>若为符号，则先计算，直到碰到左括号，然后符号入栈</p>
+<p>细节需要注意：开头为符号以及括号内开头为符号的情况</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calculate</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">cal</span>(<span class="params">ops, nums</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(ops) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(ops) &gt; <span class="number">0</span> <span class="keyword">and</span> ops[-<span class="number">1</span>] != <span class="string">&#x27;(&#x27;</span> <span class="keyword">and</span> <span class="built_in">len</span>(nums) &gt;= <span class="number">2</span>:</span><br><span class="line">                op = ops.pop()</span><br><span class="line">                b = nums.pop()</span><br><span class="line">                a = nums.pop()</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                    nums.append(a+b)</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                    nums.append(a-b)</span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        ops = collections.deque()</span><br><span class="line">        nums = collections.deque()</span><br><span class="line">        <span class="comment"># 若开头为符号，加个0方便计算</span></span><br><span class="line">        <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            nums.append(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; n:</span><br><span class="line">            <span class="comment"># print(&#x27;i&#x27;, i, &#x27;\n&#x27;)</span></span><br><span class="line">            e = s[i]</span><br><span class="line">            <span class="keyword">if</span> e == <span class="string">&#x27; &#x27;</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> e == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">                ops.append(e)</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> e == <span class="string">&#x27;+&#x27;</span> <span class="keyword">or</span> e == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                <span class="comment"># 加入符号前，先做判断，将可以计算的部分先计算结果放入nums栈</span></span><br><span class="line">                cal(ops, nums)</span><br><span class="line">                ops.append(e)</span><br><span class="line">                <span class="comment"># 如果左括号内第一个数是符号，那先补0，方便计算</span></span><br><span class="line">                <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> s[i-<span class="number">1</span>] == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">                    nums.append(<span class="number">0</span>)</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> e == <span class="string">&#x27;)&#x27;</span>:</span><br><span class="line">                cal(ops, nums)</span><br><span class="line">                op = ops.pop()</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                num = <span class="number">0</span></span><br><span class="line">                <span class="comment"># print(&quot;-----&quot;, ops, nums)</span></span><br><span class="line">                <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> <span class="string">&#x27;0&#x27;</span> &lt;= s[i] <span class="keyword">and</span> s[i] &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">                    num = <span class="number">10</span>*num + <span class="built_in">int</span>(s[i])</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                nums.append(num)</span><br><span class="line">        <span class="comment"># 最后可能存在一个括号外的符号和数字需要计算</span></span><br><span class="line">        cal(ops, nums)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span>(nums)</span><br></pre></td></tr></table></figure>
+
+<p>对于+、-、*、/只需要考虑入栈时候的优先级判断即可, 但是代码细节需要做一些微调</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def calculate(self, <span class="variable">s:</span> str) -&gt; in<span class="variable">t:</span></span><br><span class="line">        def get_priority(op):</span><br><span class="line">            pair = &#123;</span><br><span class="line">                <span class="string">&#x27;+&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">                <span class="string">&#x27;-&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">                <span class="string">&#x27;*&#x27;</span>: <span class="number">2</span>,</span><br><span class="line">                <span class="string">&#x27;/&#x27;</span>: <span class="number">2</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> pair[op]</span><br><span class="line"></span><br><span class="line">        def <span class="keyword">cal</span>(ops, nums):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(ops) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(ops) &gt; <span class="number">0</span> <span class="built_in">and</span> ops[-<span class="number">1</span>] != <span class="string">&#x27;(&#x27;</span> <span class="built_in">and</span> <span class="built_in">len</span>(nums) &gt;= <span class="number">2</span>:</span><br><span class="line">                op = ops.<span class="keyword">pop</span>()</span><br><span class="line">                <span class="keyword">b</span> = nums.<span class="keyword">pop</span>()</span><br><span class="line">                <span class="keyword">a</span> = nums.<span class="keyword">pop</span>()</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                    nums.<span class="keyword">append</span>(<span class="keyword">a</span>+<span class="keyword">b</span>)</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                    nums.<span class="keyword">append</span>(<span class="keyword">a</span>-<span class="keyword">b</span>)</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                    nums.<span class="keyword">append</span>(<span class="keyword">a</span>*<span class="keyword">b</span>)</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">                    nums.<span class="keyword">append</span>(<span class="keyword">int</span>(<span class="keyword">a</span>/<span class="keyword">b</span>))</span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        ops = []</span><br><span class="line">        nums = []</span><br><span class="line">        # 若开头为符号，加个<span class="number">0</span>方便计算</span><br><span class="line">        <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            nums.<span class="keyword">append</span>(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; n:</span><br><span class="line">            <span class="keyword">e</span> = s[i]</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">e</span> == <span class="string">&#x27; &#x27;</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            elif <span class="keyword">e</span> == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">                ops.<span class="keyword">append</span>(<span class="keyword">e</span>)</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            elif <span class="keyword">e</span> in [<span class="string">&#x27;+&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;*&#x27;</span>, <span class="string">&#x27;/&#x27;</span>]:</span><br><span class="line">                # 加入符号前，先做判断，将可以计算的部分先计算结果放入nums栈</span><br><span class="line">                <span class="keyword">while</span> ops <span class="built_in">and</span> get_priority(<span class="keyword">e</span>) &lt;= get_priority(ops[-<span class="number">1</span>]):</span><br><span class="line">                    <span class="keyword">cal</span>(ops, nums)</span><br><span class="line">                ops.<span class="keyword">append</span>(<span class="keyword">e</span>)</span><br><span class="line">                # 如果左括号内第一个数是符号，那先补<span class="number">0</span>，方便计算</span><br><span class="line">                <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="built_in">and</span> s[i-<span class="number">1</span>] == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">                    nums.<span class="keyword">append</span>(<span class="number">0</span>)</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            elif <span class="keyword">e</span> == <span class="string">&#x27;)&#x27;</span>:</span><br><span class="line">                <span class="keyword">while</span> ops <span class="built_in">and</span> ops[-<span class="number">1</span>] != <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">                    <span class="keyword">cal</span>(ops, nums)</span><br><span class="line">                op = ops.<span class="keyword">pop</span>()</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                num = <span class="number">0</span></span><br><span class="line">                # <span class="keyword">print</span>(<span class="string">&quot;-----&quot;</span>, ops, nums)</span><br><span class="line">                <span class="keyword">while</span> i &lt; n <span class="built_in">and</span> <span class="string">&#x27;0&#x27;</span> &lt;= s[i] <span class="built_in">and</span> s[i] &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">                    num = <span class="number">10</span>*num + <span class="keyword">int</span>(s[i])</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                nums.<span class="keyword">append</span>(num)</span><br><span class="line">            # <span class="keyword">print</span>(<span class="string">&#x27;i&#x27;</span>, i, ops, nums)</span><br><span class="line">        # 最后可能存在一个括号外的符号和数字需要计算</span><br><span class="line">        <span class="keyword">while</span> op<span class="variable">s:</span></span><br><span class="line">            <span class="keyword">cal</span>(ops, nums)</span><br><span class="line">        <span class="keyword">return</span> sum(nums)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/24/leetcode/leetcode-minimum-path-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/24/leetcode/leetcode-minimum-path-sum/" class="post-title-link" itemprop="url">最小路径和</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-24 08:29:38 / 修改时间：22:36:31" itemprop="dateCreated datePublished" datetime="2022-03-24T08:29:38+08:00">2022-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>646</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
+<p>说明：每次只能向下或者向右移动一步。</p>
+<hr>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>dp[i][j]表示从左上角到(i,j)位置的最短路径和<br>对于第一行，i=0, j&lt;n, dp[i][j] = dp[i][j-1]+grid[i][j]<br>对于第一列，j=0, i&lt;m, dp[i][j] = dp[i-1][j]+grid[i][j]<br>对于其他行的位置，i&lt;m, j&lt; n,<br>dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minPathSum</span>(<span class="params">self, grid: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(grid)</span><br><span class="line">        <span class="keyword">if</span> m == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        n = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">        dp = [[<span class="number">0</span>]*n <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m)]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 左上角的节点初始化为当前节点的值</span></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">            dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j-<span class="number">1</span>]+grid[<span class="number">0</span>][j]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m):</span><br><span class="line">            dp[i][<span class="number">0</span>] = dp[i-<span class="number">1</span>][<span class="number">0</span>]+grid[i][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">                dp[i][j] = <span class="built_in">min</span>(dp[i][j-<span class="number">1</span>], dp[i-<span class="number">1</span>][j]) + grid[i][j]</span><br><span class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/23/leetcode/leetcode-majority-element/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/23/leetcode/leetcode-majority-element/" class="post-title-link" itemprop="url">多数元素</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-23 22:33:04 / 修改时间：22:52:27" itemprop="dateCreated datePublished" datetime="2022-03-23T22:33:04+08:00">2022-03-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>615</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：[3,2,3]<br>输出：3<br>示例 2：</p>
+<p>输入：[2,2,1,1,1,2,2]<br>输出：2</p>
+<hr>
+<h1 id="哈希表法"><a href="#哈希表法" class="headerlink" title="哈希表法"></a>哈希表法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">majorityElement</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        counter = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> e <span class="keyword">in</span> nums:</span><br><span class="line">            <span class="keyword">if</span> e <span class="keyword">in</span> counter:</span><br><span class="line">                counter[e] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                counter[e] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> counter[e] &gt; <span class="built_in">len</span>(nums)//<span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> e</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="排序法"><a href="#排序法" class="headerlink" title="排序法"></a>排序法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">majorityElement</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="built_in">len</span>(nums)//<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="摩尔投票法"><a href="#摩尔投票法" class="headerlink" title="摩尔投票法"></a>摩尔投票法</h1><p>有点神奇！</p>
+<p>如果数字相同就+1，不同就-1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">majorityElement</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="literal">None</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">            <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">                ans = num</span><br><span class="line">            <span class="keyword">if</span> ans == num:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                count = count - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h1><h1 id="随机化"><a href="#随机化" class="headerlink" title="随机化"></a>随机化</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -416,292 +724,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-valid-palindrome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/20/leetcode/leetcode-valid-palindrome/" class="post-title-link" itemprop="url">验证回文串</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-20 16:39:43 / 修改时间：17:17:05" itemprop="dateCreated datePublished" datetime="2022-03-20T16:39:43+08:00">2022-03-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>811</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
-<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
-<p> </p>
-<p>示例 1:</p>
-<p>输入: “A man, a plan, a canal: Panama”<br>输出: true<br>解释：”amanaplanacanalpanama” 是回文串<br>示例 2:</p>
-<p>输入: “race a car”<br>输出: false<br>解释：”raceacar” 不是回文串</p>
-<hr>
-<p>一种是先过滤掉非数字和字符串的字符，然后判断<br>一种是直接判断</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidChar</span>(<span class="params">self, s</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;0&#x27;</span> &lt;= s &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = n-<span class="number">1</span></span><br><span class="line">        mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            <span class="keyword">while</span> left &lt; n <span class="keyword">and</span> <span class="keyword">not</span> self.isValidChar(s[left]):</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &gt; -<span class="number">1</span> <span class="keyword">and</span> <span class="keyword">not</span> self.isValidChar(s[right]):</span><br><span class="line">                right = right - <span class="number">1</span></span><br><span class="line">            <span class="comment"># print(left, right)</span></span><br><span class="line">            <span class="keyword">if</span> left &lt; right:</span><br><span class="line">                <span class="keyword">if</span> s[left].lower() != s[right].lower():</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                    right = right - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-maximum-depth-of-binary-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/20/leetcode/leetcode-maximum-depth-of-binary-tree/" class="post-title-link" itemprop="url">二叉树的最大深度</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-20 16:14:03 / 修改时间：16:38:36" itemprop="dateCreated datePublished" datetime="2022-03-20T16:14:03+08:00">2022-03-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>929</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>给定一个二叉树，找出其最大深度。</p>
-<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
-<p>说明: 叶子节点是指没有子节点的节点。</p>
-<p>示例：<br>给定二叉树 [3,9,20,null,null,15,7]，</p>
-<pre><code>3
-</code></pre>
-<p>   / <br>  9  20<br>    /  <br>   15   7<br>返回它的最大深度 3 。</p>
-<h1 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h1><p>也就是广度优先</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        queue.append((root, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">                p, _ = queue.popleft()</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append((p.left, <span class="number">1</span>))</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    queue.append((p.right, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        left_level = self.maxDepth(root.left)</span><br><span class="line">        right_level = self.maxDepth(root.right)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(left_level, right_level)+<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/03/20/leetcode/leetcode-number-of-islands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/20/leetcode/leetcode-number-of-islands/" class="post-title-link" itemprop="url">岛屿数量</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-20 14:07:40 / 修改时间：16:14:43" itemprop="dateCreated datePublished" datetime="2022-03-20T14:07:40+08:00">2022-03-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
-<p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p>
-<p>此外，你可以假设该网格的四条边均被水包围。</p>
-<p>示例 1：</p>
-<p>输入：grid = [<br>  [“1”,”1”,”1”,”1”,”0”],<br>  [“1”,”1”,”0”,”1”,”0”],<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“0”,”0”,”0”,”0”,”0”]<br>]<br>输出：1<br>示例 2：</p>
-<p>输入：grid = [<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“1”,”1”,”0”,”0”,”0”],<br>  [“0”,”0”,”1”,”0”,”0”],<br>  [“0”,”0”,”0”,”1”,”1”]<br>]<br>输出：3</p>
-<hr>
-<h1 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h1><p>遍历网格中的每个元素，如果为”1”，则答案ans计数加1，<br>同时启动深度优先遍历，将上下左右四个方向的连接元素全部标记为非”1”<br>遍历下一个元素</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span>(<span class="params">self, grid: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">grid, row, column</span>):</span></span><br><span class="line">            <span class="comment"># 标记着色</span></span><br><span class="line">            grid[row][column] = ans</span><br><span class="line">            <span class="comment"># 上</span></span><br><span class="line">            <span class="keyword">if</span> row&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row-<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row-<span class="number">1</span>, column)</span><br><span class="line">            <span class="comment"># 下</span></span><br><span class="line">            <span class="keyword">if</span> row &lt; rows-<span class="number">1</span> <span class="keyword">and</span> grid[row+<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row+<span class="number">1</span>, column)</span><br><span class="line">            <span class="comment"># 左</span></span><br><span class="line">            <span class="keyword">if</span> column&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row][column-<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row, column-<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># 右</span></span><br><span class="line">            <span class="keyword">if</span> column&lt;columns-<span class="number">1</span> <span class="keyword">and</span> grid[row][column+<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                dfs(grid, row, column+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        rows = <span class="built_in">len</span>(grid)</span><br><span class="line">        columns = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(rows):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(columns):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                    ans += <span class="number">1</span></span><br><span class="line">                    dfs(grid, i, j)</span><br><span class="line">        <span class="comment"># print(grid)</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h1><p>这个就是最直观的思路，<br>用一个队列存储已访问的节点，然后出队列的时候，将其上下左右方向”连通”(即值为1)的元素放入队列</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span>(<span class="params">self, grid: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        rows = <span class="built_in">len</span>(grid)</span><br><span class="line">        columns = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        queue = collections.deque()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(rows):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(columns):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                    ans += <span class="number">1</span></span><br><span class="line">                    queue.append((i, j))</span><br><span class="line">                    grid[i][j] = ans</span><br><span class="line">                    queue.append((i, j))</span><br><span class="line">                    <span class="keyword">while</span> queue:</span><br><span class="line">                        row, column = queue.popleft()</span><br><span class="line">                        <span class="keyword">if</span> row&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row-<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row-<span class="number">1</span>, column))</span><br><span class="line">                            grid[row-<span class="number">1</span>][column] = ans</span><br><span class="line">                        <span class="keyword">if</span> row &lt; rows-<span class="number">1</span> <span class="keyword">and</span> grid[row+<span class="number">1</span>][column] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row+<span class="number">1</span>, column))</span><br><span class="line">                            grid[row+<span class="number">1</span>][column] = ans</span><br><span class="line">                        <span class="keyword">if</span> column&gt;<span class="number">0</span> <span class="keyword">and</span> grid[row][column-<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row, column-<span class="number">1</span>))</span><br><span class="line">                            grid[row][column-<span class="number">1</span>] = ans</span><br><span class="line">                        <span class="keyword">if</span> column&lt;columns-<span class="number">1</span> <span class="keyword">and</span> grid[row][column+<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                            queue.append((row, column+<span class="number">1</span>))</span><br><span class="line">                            grid[row][column+<span class="number">1</span>] = ans</span><br><span class="line">        <span class="comment"># print(grid)</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        </span><br></pre></td></tr></table></figure>
-
-<h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p>TODO</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -782,7 +804,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">145</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -795,7 +817,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -861,13 +883,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">322k</span>
+    <span title="站点总字数">325k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:52</span>
+    <span title="站点阅读时长">4:55</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
