@@ -6,7 +6,7 @@
   <link href="http://kingsleynuaa.github.io/atom.xml" rel="self"/>
   
   <link href="http://kingsleynuaa.github.io/"/>
-  <updated>2022-12-09T02:35:35.358Z</updated>
+  <updated>2022-12-11T03:27:28.313Z</updated>
   <id>http://kingsleynuaa.github.io/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>67. 二进制求和</title>
+    <link href="http://kingsleynuaa.github.io/2022/12/11/leetcode-add-binary/"/>
+    <id>http://kingsleynuaa.github.io/2022/12/11/leetcode-add-binary/</id>
+    <published>2022-12-11T03:24:13.000Z</published>
+    <updated>2022-12-11T03:27:28.313Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你两个二进制字符串 a 和 b ，以二进制字符串的形式返回它们的和。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入:a = “11”, b = “1”&lt;br&gt;输出：”100”&lt;br&gt;示例 2：&lt;/p&gt;
+&lt;p&gt;输入：a = “1010”, b =</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="binary" scheme="http://kingsleynuaa.github.io/tags/binary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>66. 加一</title>
+    <link href="http://kingsleynuaa.github.io/2022/12/11/leetcode-plus-one/"/>
+    <id>http://kingsleynuaa.github.io/2022/12/11/leetcode-plus-one/</id>
+    <published>2022-12-11T02:49:56.000Z</published>
+    <updated>2022-12-11T03:06:20.268Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。&lt;/p&gt;
+&lt;p&gt;最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。&lt;/p&gt;
+&lt;p&gt;你可以假设除了整数 0 之外，这个整数不会以零开头。&lt;/p&gt;
+&lt;p&gt;示例</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="array" scheme="http://kingsleynuaa.github.io/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>58. 最后一个单词的长度</title>
+    <link href="http://kingsleynuaa.github.io/2022/12/11/leetcode-length-of-last-word/"/>
+    <id>http://kingsleynuaa.github.io/2022/12/11/leetcode-length-of-last-word/</id>
+    <published>2022-12-11T02:14:55.000Z</published>
+    <updated>2022-12-11T02:24:44.932Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。&lt;/p&gt;
+&lt;p&gt;单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：s = “Hello</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
+    
+    
+    <category term="string" scheme="http://kingsleynuaa.github.io/tags/string/"/>
+    
+  </entry>
   
   <entry>
     <title>27. 移除元素</title>
@@ -458,86 +542,6 @@
     
     
     <category term="math" scheme="http://kingsleynuaa.github.io/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>37. 解数独</title>
-    <link href="http://kingsleynuaa.github.io/2022/06/19/leetcode-sudoku-solver/"/>
-    <id>http://kingsleynuaa.github.io/2022/06/19/leetcode-sudoku-solver/</id>
-    <published>2022-06-19T11:52:05.000Z</published>
-    <updated>2022-06-21T14:53:16.837Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;编写一个程序，通过填充空格来解决数独问题。&lt;/p&gt;
-&lt;p&gt;数独的解法需</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="backtracking" scheme="http://kingsleynuaa.github.io/tags/backtracking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1382. 将二叉搜索树变平衡</title>
-    <link href="http://kingsleynuaa.github.io/2022/06/13/leetcode-balance-a-binary-search-tree/"/>
-    <id>http://kingsleynuaa.github.io/2022/06/13/leetcode-balance-a-binary-search-tree/</id>
-    <published>2022-06-12T23:53:27.000Z</published>
-    <updated>2022-06-19T11:44:18.094Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一棵二叉搜索树，请你返回一棵 平衡后 的二叉搜索树，新生成的树应该与原来的树有着相同的节点值。如果有多种构造方法，请你返回任意一种。&lt;/p&gt;
-&lt;p&gt;如果一棵二叉搜索树中，每个节点的两棵子树高度差不超过 1 ，我们就称这棵二叉搜索树是 平衡的</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>108. 将有序数组转换为二叉搜索树</title>
-    <link href="http://kingsleynuaa.github.io/2022/06/12/leetcode-convert-sorted-array-to-binary-search-tree/"/>
-    <id>http://kingsleynuaa.github.io/2022/06/12/leetcode-convert-sorted-array-to-binary-search-tree/</id>
-    <published>2022-06-12T14:35:01.000Z</published>
-    <updated>2022-06-12T23:51:25.049Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 高度平衡 二叉搜索树。&lt;/p&gt;
-&lt;p&gt;高度平衡 二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;p&gt;示例</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://kingsleynuaa.github.io/categories/leetcode/"/>
-    
-    
-    <category term="binary-tree" scheme="http://kingsleynuaa.github.io/tags/binary-tree/"/>
     
   </entry>
   

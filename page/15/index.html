@@ -143,12 +143,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">145</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-fab fa-archive"></i>归档<span class="badge">148</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">42</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-fab fa-tags"></i>标签<span class="badge">43</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -218,6 +218,290 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/04/12/leetcode/leetcode-rotate-image/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/12/leetcode/leetcode-rotate-image/" class="post-title-link" itemprop="url">48. 旋转图像</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-12 23:13:44" itemprop="dateCreated datePublished" datetime="2022-04-12T23:13:44+08:00">2022-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-13 08:38:41" itemprop="dateModified" datetime="2022-04-13T08:38:41+08:00">2022-04-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。</p>
+<p>你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。</p>
+<hr>
+<h1 id="对角翻转-镜像翻转"><a href="#对角翻转-镜像翻转" class="headerlink" title="对角翻转+镜像翻转"></a>对角翻转+镜像翻转</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rotate</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        n = <span class="built_in">len</span>(matrix)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="comment"># 也可以将j改为range(i)</span></span><br><span class="line">                <span class="keyword">if</span> i &lt; j:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]</span><br><span class="line"></span><br><span class="line">        mid = n // <span class="number">2</span></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> <span class="built_in">range</span>(mid):</span><br><span class="line">                matrix[row][column], matrix[row][n-column-<span class="number">1</span>] = matrix[row][n-column-<span class="number">1</span>], matrix[row][column]</span><br></pre></td></tr></table></figure>
+
+<h1 id="直接翻转"><a href="#直接翻转" class="headerlink" title="直接翻转"></a>直接翻转</h1><p>每次翻转会引起四个数的改变。</p>
+<p>四个数的坐标比较难定。</p>
+<p>关键规律：<br>对于矩阵中第 i 行的第 j 个元素，在旋转后，它出现在倒数第 i 列的第 j 个位置。<br>对应公式：row, col = col, n-row-1</p>
+<p>推导得到四个坐标，实际循环的时候，要先将最后一个数放到第一个数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rotate</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        n = <span class="built_in">len</span>(matrix)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n//<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>((n+<span class="number">1</span>)//<span class="number">2</span>):</span><br><span class="line">                <span class="comment"># print(&#x27;i,j&#x27;, i, j)</span></span><br><span class="line">                <span class="comment"># print(&quot;(&quot;,i, j, &quot;)&quot;,&quot; (&quot;,n-j-1, i, &quot;)&quot;,&quot; (&quot;,n-i-1, n-j-1,&quot;) &quot;,&quot; (&quot;, j, n-i-1,&quot;)&quot;)</span></span><br><span class="line">                temp = matrix[i][j]</span><br><span class="line">                matrix[i][j] = matrix[n-j-<span class="number">1</span>][i]</span><br><span class="line">                matrix[n-j-<span class="number">1</span>][i] = matrix[n-i-<span class="number">1</span>][n-j-<span class="number">1</span>]</span><br><span class="line">                matrix[n-i-<span class="number">1</span>][n-j-<span class="number">1</span>] = matrix[j][n-i-<span class="number">1</span>]</span><br><span class="line">                matrix[j][n-i-<span class="number">1</span>] = temp</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/04/12/leetcode/leetcode-generate-parentheses/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/12/leetcode/leetcode-generate-parentheses/" class="post-title-link" itemprop="url">22. 括号生成</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-12 22:32:04" itemprop="dateCreated datePublished" datetime="2022-04-12T22:32:04+08:00">2022-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-13 08:36:54" itemprop="dateModified" datetime="2022-04-13T08:36:54+08:00">2022-04-13</time>
+              </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>645</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数字 n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。</p>
+<p>示例 1：<br>输入：n = 3<br>输出：[“((()))”,”(()())”,”(())()”,”()(())”,”()()()”]</p>
+<p>示例 2：<br>输入：n = 1<br>输出：[“()”]</p>
+<p>提示：<br>1 &lt;= n &lt;= 8</p>
+<h1 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h1><p>左右括号从 n 开始递减<br>剩余左括号总数要小于等于右括号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generateParenthesis</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">str</span>]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">result, left, right</span>):</span></span><br><span class="line">            <span class="keyword">if</span> left == <span class="number">0</span> <span class="keyword">and</span> right == <span class="number">0</span>:</span><br><span class="line">                ans.append(<span class="string">&#x27;&#x27;</span>.join(result))</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> left == right:</span><br><span class="line">                result.append(<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                helper(result, left-<span class="number">1</span>, right)</span><br><span class="line">                result.pop()</span><br><span class="line">            <span class="keyword">elif</span> left &lt; right:</span><br><span class="line">                <span class="keyword">if</span> left &gt; <span class="number">0</span>:</span><br><span class="line">                    result.append(<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                    helper(result, left-<span class="number">1</span>, right)</span><br><span class="line">                    result.pop()</span><br><span class="line">                result.append(<span class="string">&#x27;)&#x27;</span>),</span><br><span class="line">                helper(result, left, right-<span class="number">1</span>)</span><br><span class="line">                result.pop()</span><br><span class="line">        ans = []</span><br><span class="line">        result = []</span><br><span class="line">        helper(result, n, n)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/04/12/leetcode/leetcode-symmetric-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/mpp.jpg">
+      <meta itemprop="name" content="Jacob Jin">
+      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="汇芳书院">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/12/leetcode/leetcode-symmetric-tree/" class="post-title-link" itemprop="url">101. 对称二叉树</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-12 08:39:59" itemprop="dateCreated datePublished" datetime="2022-04-12T08:39:59+08:00">2022-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-13 08:38:07" itemprop="dateModified" datetime="2022-04-13T08:38:07+08:00">2022-04-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>给你一个二叉树的根节点 root ， 检查它是否轴对称。</p>
+<p>示例 1：<br>输入：root = [1,2,2,3,4,4,3]<br>输出：true </p>
+<p>示例 2：<br>输入：root = [1,2,2,null,3,null,3]<br>输出：false</p>
+<p>提示：<br>树中节点数目在范围 [1, 1000] 内 -100 &lt;= Node.val &lt;= 100</p>
+<p>进阶：你可以运用递归和迭代两种方法解决这个问题吗？</p>
+<hr>
+<h1 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSymmetric</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">p, q</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">and</span> <span class="keyword">not</span> q:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">or</span> <span class="keyword">not</span> q:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">return</span> p.val == q.val <span class="keyword">and</span> helper(p.left, q.right) <span class="keyword">and</span> helper(p.right, q.left)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> helper(root.left, root.right)</span><br></pre></td></tr></table></figure>
+
+<h1 id="广度优先遍历-队列"><a href="#广度优先遍历-队列" class="headerlink" title="广度优先遍历-队列"></a>广度优先遍历-队列</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSymmetric</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="keyword">import</span> queue</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        q = queue.Queue()</span><br><span class="line">        q.put(root.left)</span><br><span class="line">        q.put(root.right)</span><br><span class="line">        <span class="keyword">while</span> q.qsize():</span><br><span class="line">            l = q.get()</span><br><span class="line">            r = q.get()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> l <span class="keyword">and</span> <span class="keyword">not</span> r:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> l <span class="keyword">or</span> <span class="keyword">not</span> r:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> l.val != r.val:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            q.put(l.left)</span><br><span class="line">            q.put(r.right)</span><br><span class="line">            q.put(l.right)</span><br><span class="line">            q.put(r.left)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -416,327 +700,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/04/10/leetcode/leetcode-sorted-matrix-search-lcci/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/10/leetcode/leetcode-sorted-matrix-search-lcci/" class="post-title-link" itemprop="url">排序矩阵查找(系列)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-04-10 16:56:37" itemprop="dateCreated datePublished" datetime="2022-04-10T16:56:37+08:00">2022-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-15 19:12:55" itemprop="dateModified" datetime="2022-05-15T19:12:55+08:00">2022-05-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="240-搜索二维矩阵-II"><a href="#240-搜索二维矩阵-II" class="headerlink" title="240. 搜索二维矩阵 II"></a>240. 搜索二维矩阵 II</h1><p>给定M×N矩阵，每一行、每一列都按升序排列，请编写代码找出某元素。</p>
-<hr>
-<p>看到这题，最简单的就是直接一次遍历所有元素，时间复杂度是O(m*n)。<br>当然，看到升序，也比较容易想到二分查找，可以按行遍历m次，每次使用二分查找。</p>
-<p>但是，还有没有其他更好的办法呢？</p>
-<h2 id="倒三角线遍历"><a href="#倒三角线遍历" class="headerlink" title="倒三角线遍历"></a>倒三角线遍历</h2><p>观察发现，如果从右上角开始遍历，直到左下角结束，假设当前元素为cur，可以发现：</p>
-<ol>
-<li>如果cur&lt;target, 由于cur是这一行中最大的数，则可以舍弃这一行，cur下移</li>
-<li>如果cur&gt;target, 由于cur是这一列中最小的数，则可以舍弃这一列，cur左移</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchMatrix</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(matrix)</span><br><span class="line">        <span class="keyword">if</span> m == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        n = <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        column = n-<span class="number">1</span></span><br><span class="line">        row = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> row &lt; m <span class="keyword">and</span> column &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> matrix[row][column] == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">elif</span> matrix[row][column] &lt; target:</span><br><span class="line">                row += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                column = column - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span>           </span><br></pre></td></tr></table></figure>
-<p>C++版本</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">searchMatrix</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (rows == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> columns = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> row = <span class="number">0</span>, column = columns - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (row &lt; rows &amp;&amp; column &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = matrix[row][column];</span><br><span class="line">            <span class="keyword">if</span> (tmp == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (tmp &gt; target) &#123;</span><br><span class="line">                column--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                row++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>当然, 从左下角走到右上角也是OK的, 代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchMatrix</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        m = <span class="built_in">len</span>(matrix)</span><br><span class="line">        <span class="keyword">if</span> m == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        n = <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        row = m-<span class="number">1</span></span><br><span class="line">        column = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> row &gt;=<span class="number">0</span> <span class="keyword">and</span> column &lt; n:</span><br><span class="line">            <span class="keyword">if</span> matrix[row][column] == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">elif</span> matrix[row][column] &lt; target:</span><br><span class="line">                column += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                row = row - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span>           </span><br></pre></td></tr></table></figure>
-
-<h2 id="正三角遍历"><a href="#正三角遍历" class="headerlink" title="正三角遍历"></a>正三角遍历</h2><p>将矩阵划分为四块：左上、右上、左下、右下，每次可以排除其中一块</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchMatrix</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">matrix, x1, y1, x2, y2, x_max, y_max, target</span>):</span></span><br><span class="line">            <span class="comment"># 越界</span></span><br><span class="line">            <span class="keyword">if</span> x1 &gt; x_max <span class="keyword">or</span> y1 &gt; y_max:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 如果只有一个元素了</span></span><br><span class="line">            <span class="keyword">if</span> x1 == x2 <span class="keyword">and</span> y1 == y2:</span><br><span class="line">                <span class="keyword">return</span> matrix[x1][y1] == target</span><br><span class="line">            </span><br><span class="line">            mid_x = x1 + (x2-x1)//<span class="number">2</span></span><br><span class="line">            mid_y = y1 + (y2-y1)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> matrix[mid_x][mid_y] == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">elif</span> matrix[mid_x][mid_y] &lt; target:</span><br><span class="line">                right_up_result = helper(matrix, x1, mid_y+<span class="number">1</span>, mid_x, y2, x2, y2,target) </span><br><span class="line">                left_down_result = helper(matrix, mid_x+<span class="number">1</span>, y1, x2, mid_y, x2, y2,target)</span><br><span class="line">                right_down_result = helper(matrix, mid_x+<span class="number">1</span>, mid_y+<span class="number">1</span>, x2, y2, x2, y2,target)</span><br><span class="line">                <span class="keyword">return</span> right_up_result <span class="keyword">or</span> left_down_result <span class="keyword">or</span> right_down_result</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right_up_result = helper(matrix, x1, mid_y+<span class="number">1</span>, mid_x, y2, x2, y2,target) </span><br><span class="line">                left_down_result = helper(matrix, mid_x+<span class="number">1</span>, y1, x2, mid_y, x2, y2,target)</span><br><span class="line">                left_up_result = helper(matrix, x1, y1, mid_x, mid_y, x2, y2,target)</span><br><span class="line">                <span class="keyword">return</span> right_up_result <span class="keyword">or</span> left_down_result <span class="keyword">or</span> left_up_result</span><br><span class="line">        m = <span class="built_in">len</span>(matrix)</span><br><span class="line">        <span class="keyword">if</span> m == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        n = <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> helper(matrix, <span class="number">0</span>, <span class="number">0</span>, m-<span class="number">1</span>, n-<span class="number">1</span>, m-<span class="number">1</span>, n-<span class="number">1</span>, target)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="74-搜索二维矩阵"><a href="#74-搜索二维矩阵" class="headerlink" title="74. 搜索二维矩阵"></a>74. 搜索二维矩阵</h1><p>编写一个高效的算法来判断m x n矩阵中，是否存在一个目标值。该矩阵具有如下特性：</p>
-<p>每行中的整数从左到右按升序排列。<br>每行的第一个整数大于前一行的最后一个整数。</p>
-<h2 id="两次二分查找"><a href="#两次二分查找" class="headerlink" title="两次二分查找"></a>两次二分查找</h2><p>可以先按第一列二分查找确定所在的行，然后再对行做一次二分</p>
-<h2 id="一次二分"><a href="#一次二分" class="headerlink" title="一次二分"></a>一次二分</h2><p>将整个矩形视作一个一维数组，直接一次二分完成</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchMatrix</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(matrix) == <span class="number">0</span> <span class="keyword">or</span> <span class="built_in">len</span>(matrix[<span class="number">0</span>]) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        m = <span class="built_in">len</span>(matrix)</span><br><span class="line">        n = <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        total = m * n</span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = total-<span class="number">1</span></span><br><span class="line">        <span class="comment"># 考虑二者相等的情况</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            x = matrix[mid//n][mid%n]</span><br><span class="line">            <span class="comment"># print(&quot;left, right, mid, m, n, x&quot;, left, right, mid, m, n, x)</span></span><br><span class="line">            <span class="keyword">if</span> x == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">elif</span> x &lt; target:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">        <span class="comment"># print(&#x27;left, right&#x27;, left, right)</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
-<p>C++版本</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">searchMatrix</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (rows == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> columns = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = rows*columns<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + ((right-left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> tmp = matrix[mid/columns][mid%columns];</span><br><span class="line">            <span class="keyword">if</span> (tmp == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tmp &lt; target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/04/10/leetcode/leetcode-remove-duplicates-from-sorted-list/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/10/leetcode/leetcode-remove-duplicates-from-sorted-list/" class="post-title-link" itemprop="url">删除排序链表中的重复元素(系列)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-04-10 15:49:40 / 修改时间：16:52:40" itemprop="dateCreated datePublished" datetime="2022-04-10T15:49:40+08:00">2022-04-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>898</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="删除重复元素，保留一个"><a href="#删除重复元素，保留一个" class="headerlink" title="删除重复元素，保留一个"></a>删除重复元素，保留一个</h1><p>给定一个已排序的链表的头 head ， 删除所有重复的元素，使每个元素只出现一次 。返回 已排序的链表 。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteDuplicates</span>(<span class="params">self, head: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        p = head</span><br><span class="line">        q = head.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            <span class="keyword">if</span> q.val == p.val:</span><br><span class="line">                r = q.<span class="built_in">next</span></span><br><span class="line">                p.<span class="built_in">next</span> = r</span><br><span class="line">                <span class="keyword">del</span> q</span><br><span class="line">                q = r</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p = q</span><br><span class="line">                q = q.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> head</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="删除所有重复的元素"><a href="#删除所有重复的元素" class="headerlink" title="删除所有重复的元素"></a>删除所有重复的元素</h1><p>给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。<br>返回 已排序的链表 。</p>
-<p>细节题, 关键点是有可能删除第一个元素，为了方便，一般需要添加一个dummy节点</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteDuplicates</span>(<span class="params">self, head: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        </span><br><span class="line">        dummy = ListNode(<span class="built_in">next</span>=head)</span><br><span class="line">        p = dummy</span><br><span class="line">        q = dummy.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">while</span> q <span class="keyword">and</span> q.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">if</span> q.val == q.<span class="built_in">next</span>.val:</span><br><span class="line">                last_deleted = q.val</span><br><span class="line">                <span class="keyword">while</span> q <span class="keyword">and</span> q.val == last_deleted:</span><br><span class="line">                    r = q.<span class="built_in">next</span></span><br><span class="line">                    p.<span class="built_in">next</span> = r</span><br><span class="line">                    <span class="keyword">del</span> q</span><br><span class="line">                    q = r</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p = q</span><br><span class="line">                q = q.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kingsleynuaa.github.io/2022/04/09/leetcode/leetcode-validate-binary-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/mpp.jpg">
-      <meta itemprop="name" content="Jacob Jin">
-      <meta itemprop="description" content="终身成长，持续提升认知，走向财富和精神自由，迈向美好生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="汇芳书院">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/09/leetcode/leetcode-validate-binary-tree/" class="post-title-link" itemprop="url">二叉树的合法性判断(系列)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-04-09 20:50:36" itemprop="dateCreated datePublished" datetime="2022-04-09T20:50:36+08:00">2022-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-10 15:47:59" itemprop="dateModified" datetime="2022-04-10T15:47:59+08:00">2022-04-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h1><p>给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。</p>
-<p>有效 二叉搜索树定义如下：</p>
-<p>节点的左子树只包含 小于 当前节点的数。<br>节点的右子树只包含 大于 当前节点的数。<br>所有左子树和右子树自身必须也是二叉搜索树。</p>
-<h2 id="直接递归判断"><a href="#直接递归判断" class="headerlink" title="直接递归判断"></a>直接递归判断</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">root, pre_val, next_val</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">if</span> root.val &gt;= next_val <span class="keyword">or</span> root.val &lt;= pre_val:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> helper(root.left, pre_val, root.val) <span class="keyword">and</span> helper(root.right, root.val, next_val)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> helper(root, <span class="built_in">float</span>(<span class="string">&#x27;-inf&#x27;</span>), <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-<h2 id="中序遍历的思路"><a href="#中序遍历的思路" class="headerlink" title="中序遍历的思路"></a>中序遍历的思路</h2><p>中序遍历得到的数组必然是从小到大有序排列的。</p>
-<h3 id="递归思路"><a href="#递归思路" class="headerlink" title="递归思路"></a>递归思路</h3><p>时间复杂度和空间复杂度均为O(n)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inOrder</span>(<span class="params">root</span>):</span></span><br><span class="line">            ans = []</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> ans</span><br><span class="line">            ans += inOrder(root.left)</span><br><span class="line">            ans.append(root.val)</span><br><span class="line">            ans += inOrder(root.right)</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        </span><br><span class="line">        ans = inOrder(root)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ans:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(ans)):</span><br><span class="line">            <span class="keyword">if</span> ans[i-<span class="number">1</span>] &gt;= ans[i]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="非递归思路"><a href="#非递归思路" class="headerlink" title="非递归思路"></a>非递归思路</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        stack = []</span><br><span class="line">        p = root</span><br><span class="line">        pre_val = <span class="built_in">float</span>(<span class="string">&#x27;-inf&#x27;</span>)</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">or</span> p:</span><br><span class="line">            <span class="keyword">while</span> p:</span><br><span class="line">                stack.append(p)</span><br><span class="line">                p = p.left</span><br><span class="line">            p = stack.pop()</span><br><span class="line">            <span class="keyword">if</span> p.val &lt;= pre_val:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            pre_val = p.val</span><br><span class="line">            p = p.right</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-<p>用C++重写一遍加深记忆，这个时候就体现出Python写代码的方便性了</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValidBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        stack&lt;TreeNode*&gt; s;</span><br><span class="line">        <span class="keyword">long</span> preval = (<span class="keyword">long</span>)INT_MIN<span class="number">-1</span>;</span><br><span class="line">        TreeNode* p = root;</span><br><span class="line">        <span class="keyword">while</span> (p != <span class="literal">nullptr</span> || !s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">while</span> (p != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                s.<span class="built_in">push</span>(p);</span><br><span class="line">                p = p-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            p = s.<span class="built_in">top</span>();</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="comment">// 后面被访问的数要严格大于前一个数</span></span><br><span class="line">            <span class="comment">// 由于int最小可能为INT_MIN, 所以preval初始化值比INT_MIN小1</span></span><br><span class="line">            <span class="comment">// 或者对于边界值单独处理</span></span><br><span class="line">            <span class="keyword">if</span> (p-&gt;val &lt;= preval)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            preval = p-&gt;val;</span><br><span class="line">            p = p-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二叉树的完全性检验"><a href="#二叉树的完全性检验" class="headerlink" title="二叉树的完全性检验"></a>二叉树的完全性检验</h1><p>给定一个二叉树的 root ，确定它是否是一个 完全二叉树 。</p>
-<p>在一个 完全二叉树 中，除了最后一个关卡外，所有关卡都是完全被填满的，<br>并且最后一个关卡中的所有节点都是尽可能靠左的。它可以包含 1 到 2^h 节点之间的最后一级 h 。</p>
-<h2 id="层序遍历的思路"><a href="#层序遍历的思路" class="headerlink" title="层序遍历的思路"></a>层序遍历的思路</h2><p>如果将完全二叉数用数组存储，那么它的节点序号是顺序的。<br>如果有n个节点，则最后一个节点的序号应该是n-1</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isCompleteTree</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        queue = collections.deque([(root, <span class="number">0</span>)])</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            size = <span class="built_in">len</span>(queue)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">                p, p_index = queue.popleft()</span><br><span class="line">                <span class="comment"># 完全二叉树的序号是顺序的</span></span><br><span class="line">                <span class="keyword">if</span> count != p_index:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    queue.append((p.left, p_index*<span class="number">2</span>+<span class="number">1</span>))</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    queue.append((p.right, p_index*<span class="number">2</span>+<span class="number">2</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -813,7 +780,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -826,7 +793,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -892,13 +859,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">325k</span>
+    <span title="站点总字数">328k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:55</span>
+    <span title="站点阅读时长">4:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
