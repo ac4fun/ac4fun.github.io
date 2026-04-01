@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwitchProxy Privacy Policy</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+    }
+    h1 {
+      color: #667eea;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #555;
+      margin-top: 30px;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 30px;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .highlight {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    .contact {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    .update-date {
+      color: #999;
+      font-size: 0.9em;
+      margin-top: 40px;
+      text-align: center;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>SwitchProxy Privacy Policy</h1>
+
+  <p>Welcome to SwitchProxy. We take your privacy seriously. This privacy policy will help you understand how we collect, use, and protect your information.</p>
+
+  <h2>📊 Data Collection</h2>
+  <p><strong>SwitchProxy does NOT collect any user data.</strong></p>
+  <p>All proxy configuration information (including proxy server addresses, ports, usernames, passwords, PAC configurations, etc.) is stored only in your local browser. We cannot access this data.</p>
+
+  <h2>💾 Data Storage</h2>
+  <p>SwitchProxy uses the <span class="highlight">chrome.storage.local</span> API provided by Chrome browser to store your proxy configurations locally.</p>
+  <ul>
+    <li>All data is saved only in your browser's local storage</li>
+    <li>Data is NOT uploaded to any external servers</li>
+    <li>Data is NOT shared with any third parties</li>
+    <li>You can delete this information at any time through your browser's data clearing feature</li>
+  </ul>
+
+  <h2>🔑 Permissions Explained</h2>
+  <p>SwitchProxy requires the following permissions to function properly:</p>
+  <ul>
+    <li><strong>proxy</strong> - To configure and manage the browser's proxy settings</li>
+    <li><strong>storage</strong> - To store your proxy configurations locally for future use</li>
+    <li><strong>alarms</strong> - For automatic scheduled refresh of PAC scripts</li>
+    <li><strong>webRequest</strong> - To automatically fill in username and password for proxies that require authentication</li>
+    <li><strong>webRequestAuthProvider</strong> - To provide proxy authentication credentials</li>
+    <li><strong>host_permissions (&lt;all_urls&gt;)</strong> - To fetch remote PAC script files (only used when you configure a PAC proxy)</li>
+  </ul>
+  <p>These permissions are used solely to implement the extension's core features and for no other purpose.</p>
+
+  <h2>🌐 Network Requests</h2>
+  <p>SwitchProxy only makes network requests in the following scenario:</p>
+  <ul>
+    <li><strong>PAC Script Fetching</strong> - When you configure a PAC auto-proxy, the extension will download the PAC script file from the URL you specified</li>
+    <li>This is the only network request scenario, and it only accesses the PAC URL you configured yourself</li>
+  </ul>
+
+  <h2>🔒 Third-Party Services</h2>
+  <p><strong>SwitchProxy does NOT use any third-party analytics, tracking, or advertising services.</strong></p>
+  <ul>
+    <li>Does NOT integrate Google Analytics or other analytics tools</li>
+    <li>Does NOT use any advertising networks</li>
+    <li>Does NOT share data with any third parties</li>
+  </ul>
+
+  <h2>👤 User Data Protection</h2>
+  <p>Your proxy configurations may contain sensitive information (such as proxy server addresses, authentication credentials, etc.). We take the following measures to protect this data:</p>
+  <ul>
+    <li>All data is stored locally only, NOT uploaded to the cloud</li>
+    <li>Uses Chrome's secure storage API</li>
+    <li>Does NOT transmit your configuration data over the network</li>
+  </ul>
+  <p><strong>Recommendation:</strong> Do not use this extension on untrusted devices, and regularly change your proxy server authentication passwords.</p>
+
+  <h2>🔄 Data Deletion</h2>
+  <p>You can delete all data stored by SwitchProxy at any time:</p>
+  <ul>
+    <li><strong>Method 1</strong>: Manually delete all proxy configurations in the extension's options page</li>
+    <li><strong>Method 2</strong>: Uninstall the SwitchProxy extension at <code>chrome://extensions/</code></li>
+    <li><strong>Method 3</strong>: Clear browser data (Chrome Settings → Privacy and Security → Clear Browsing Data → Extension Data)</li>
+  </ul>
+
+  <h2>📱 Cross-Device Sync</h2>
+  <p>If you have enabled Chrome's sync feature, your proxy configurations may be synced to your other devices through your Google account. This is a Chrome browser feature and is not controlled by SwitchProxy.</p>
+  <ul>
+    <li>Synced data is encrypted and stored by Google</li>
+    <li>SwitchProxy cannot access Google's sync servers</li>
+    <li>You can manage sync options in Chrome settings</li>
+  </ul>
+
+  <h2>🔐 Security</h2>
+  <p>SwitchProxy follows Chrome Extension Manifest V3 security standards:</p>
+  <ul>
+    <li>Uses Service Worker instead of persistent background pages</li>
+    <li>Minimizes permission requests</li>
+    <li>Code is open source and transparent for review</li>
+  </ul>
+
+  <h2>👶 Children's Privacy</h2>
+  <p>SwitchProxy is not targeted at children under 13 years old, and we do not knowingly collect personal information from children.</p>
+
+  <h2>📝 Privacy Policy Updates</h2>
+  <p>We may update this privacy policy from time to time. The updated policy will be published on this page and users will be notified in the extension update notes.</p>
+  <ul>
+    <li>Major changes will be prominently displayed in the extension</li>
+    <li>Continued use of the extension indicates your acceptance of the updated privacy policy</li>
+  </ul>
+
+  <h2>🌍 Applicable Laws</h2>
+  <p>This privacy policy complies with the following regulatory requirements:</p>
+  <ul>
+    <li>GDPR (General Data Protection Regulation)</li>
+    <li>CCPA (California Consumer Privacy Act)</li>
+    <li>Personal Information Protection Law of China</li>
+  </ul>
+
+  <div class="contact">
+    <h2>📧 Contact Us</h2>
+    <p>If you have any questions or suggestions about this privacy policy, or need to exercise your data rights (view, delete, correct personal data, etc.), please contact us through the following methods:</p>
+    <ul>
+      <li><strong>Email</strong>: ximuzmzj@gmail.com</li>
+      <li><strong>GitHub Issues</strong>: https://github.com/ac4fun/switch-proxy/issues</li>
+    </ul>
+    <p>We will respond within 30 days of receiving your request.</p>
+  </div>
+
+  <p class="update-date">
+    <strong>Last Updated:</strong> April 1, 2026<br>
+    <strong>Effective Date:</strong> April 1, 2026
+  </p>
+</body>
+</html>
